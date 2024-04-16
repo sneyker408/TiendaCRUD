@@ -1,0 +1,11 @@
+C:\Users\sneyk\Desktop\Programacion1 en visual 2022\asincronas\Vapesney_Biblioteca de clases\CapaVista\bin\Debug\CapaVista.exe.config
+C:\Users\sneyk\Desktop\Programacion1 en visual 2022\asincronas\Vapesney_Biblioteca de clases\CapaVista\bin\Debug\CapaVista.exe
+C:\Users\sneyk\Desktop\Programacion1 en visual 2022\asincronas\Vapesney_Biblioteca de clases\CapaVista\bin\Debug\CapaVista.pdb
+C:\Users\sneyk\Desktop\Programacion1 en visual 2022\asincronas\Vapesney_Biblioteca de clases\CapaVista\obj\Debug\CapaVista.csproj.AssemblyReference.cache
+C:\Users\sneyk\Desktop\Programacion1 en visual 2022\asincronas\Vapesney_Biblioteca de clases\CapaVista\obj\Debug\CapaVista.csproj.SuggestedBindingRedirects.cache
+C:\Users\sneyk\Desktop\Programacion1 en visual 2022\asincronas\Vapesney_Biblioteca de clases\CapaVista\obj\Debug\CapaVista.Form1.resources
+C:\Users\sneyk\Desktop\Programacion1 en visual 2022\asincronas\Vapesney_Biblioteca de clases\CapaVista\obj\Debug\CapaVista.Properties.Resources.resources
+C:\Users\sneyk\Desktop\Programacion1 en visual 2022\asincronas\Vapesney_Biblioteca de clases\CapaVista\obj\Debug\CapaVista.csproj.GenerateResource.cache
+C:\Users\sneyk\Desktop\Programacion1 en visual 2022\asincronas\Vapesney_Biblioteca de clases\CapaVista\obj\Debug\CapaVista.csproj.CoreCompileInputs.cache
+C:\Users\sneyk\Desktop\Programacion1 en visual 2022\asincronas\Vapesney_Biblioteca de clases\CapaVista\obj\Debug\CapaVista.exe
+C:\Users\sneyk\Desktop\Programacion1 en visual 2022\asincronas\Vapesney_Biblioteca de clases\CapaVista\obj\Debug\CapaVista.pdb

@@ -1,0 +1,8 @@
+C:\Users\sneyk\Desktop\Programacion1 en visual 2022\asincronas\Vapesney_Biblioteca de clases\CapaEntidades\bin\Debug\CapaEntidades.dll
+C:\Users\sneyk\Desktop\Programacion1 en visual 2022\asincronas\Vapesney_Biblioteca de clases\CapaEntidades\bin\Debug\CapaEntidades.pdb
+C:\Users\sneyk\Desktop\Programacion1 en visual 2022\asincronas\Vapesney_Biblioteca de clases\CapaEntidades\bin\Debug\System.ComponentModel.Annotations.dll
+C:\Users\sneyk\Desktop\Programacion1 en visual 2022\asincronas\Vapesney_Biblioteca de clases\CapaEntidades\obj\Debug\CapaEntidades.csproj.AssemblyReference.cache
+C:\Users\sneyk\Desktop\Programacion1 en visual 2022\asincronas\Vapesney_Biblioteca de clases\CapaEntidades\obj\Debug\CapaEntidades.csproj.CoreCompileInputs.cache
+C:\Users\sneyk\Desktop\Programacion1 en visual 2022\asincronas\Vapesney_Biblioteca de clases\CapaEntidades\obj\Debug\CapaEntidades.csproj.CopyComplete
+C:\Users\sneyk\Desktop\Programacion1 en visual 2022\asincronas\Vapesney_Biblioteca de clases\CapaEntidades\obj\Debug\CapaEntidades.dll
+C:\Users\sneyk\Desktop\Programacion1 en visual 2022\asincronas\Vapesney_Biblioteca de clases\CapaEntidades\obj\Debug\CapaEntidades.pdb

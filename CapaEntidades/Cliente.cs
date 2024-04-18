@@ -22,7 +22,7 @@ namespace CapaEntidades
         [Required(ErrorMessage = "El apellido del cliente es obligatorio.")]
         [StringLength(100, ErrorMessage = "El apellido del cliente no puede tener más de 100 caracteres.")]
         public string Apellido { get; set; }
-
+        
         [Required(ErrorMessage = "El correo electrónico del cliente es obligatorio.")]
         [StringLength(100, ErrorMessage = "El correo electrónico del cliente no puede tener más de 100 caracteres.")]
         [EmailAddress(ErrorMessage = "El correo electrónico del cliente no es válido.")]

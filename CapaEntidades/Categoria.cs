@@ -13,9 +13,9 @@ namespace CapaEntidades
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int CategoriaID { get; set; }
+        
         [Required(ErrorMessage = "El nombre de la categoría es obligatorio.")]
         [StringLength(100, ErrorMessage = "El nombre de la categoría no puede tener más de 100 caracteres.")]
-
         public string NombreCategoria { get; set; }
     }
 }

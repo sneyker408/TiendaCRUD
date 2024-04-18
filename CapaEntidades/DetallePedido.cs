@@ -12,7 +12,6 @@ namespace CapaEntidades
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-
         public int DetallePedidoID { get; set; }
 
         [Required(ErrorMessage = "El pedido es obligatorio.")]

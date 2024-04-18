@@ -30,7 +30,6 @@ namespace CapaEntidades
 
 
         // propiedades de navgacion 
-
         public List<DetallePedido> Detalles { get; set; } 
     }
 }

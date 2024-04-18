@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace CapaEntidades
 {
     public class Cliente
-    {
+    {     
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 

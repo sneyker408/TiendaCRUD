@@ -33,5 +33,5 @@ namespace CapaEntidades
 
         [StringLength(20, ErrorMessage = "El número de teléfono del cliente no puede tener más de 20 caracteres.")]
         public string NumeroTelefono { get; set; }
-    }
+    }      
 }

@@ -9,3 +9,15 @@ C:\Users\sneyk\Desktop\Programacion1 en visual 2022\asincronas\Vapesney_Bibliote
 C:\Users\sneyk\Desktop\Programacion1 en visual 2022\asincronas\Vapesney_Biblioteca de clases\CapaVista\obj\Debug\CapaVista.csproj.CoreCompileInputs.cache
 C:\Users\sneyk\Desktop\Programacion1 en visual 2022\asincronas\Vapesney_Biblioteca de clases\CapaVista\obj\Debug\CapaVista.exe
 C:\Users\sneyk\Desktop\Programacion1 en visual 2022\asincronas\Vapesney_Biblioteca de clases\CapaVista\obj\Debug\CapaVista.pdb
+C:\Users\jerem\Desktop\progra\ProyectoVapes\Tienda_Vapesney\CapaVista\bin\Debug\CapaVista.exe.config
+C:\Users\jerem\Desktop\progra\ProyectoVapes\Tienda_Vapesney\CapaVista\bin\Debug\CapaVista.exe
+C:\Users\jerem\Desktop\progra\ProyectoVapes\Tienda_Vapesney\CapaVista\bin\Debug\CapaVista.pdb
+C:\Users\jerem\Desktop\progra\ProyectoVapes\Tienda_Vapesney\CapaVista\obj\Debug\CapaVista.csproj.AssemblyReference.cache
+C:\Users\jerem\Desktop\progra\ProyectoVapes\Tienda_Vapesney\CapaVista\obj\Debug\CapaVista.DetalleProductos.resources
+C:\Users\jerem\Desktop\progra\ProyectoVapes\Tienda_Vapesney\CapaVista\obj\Debug\CapaVista.Form1.resources
+C:\Users\jerem\Desktop\progra\ProyectoVapes\Tienda_Vapesney\CapaVista\obj\Debug\CapaVista.Properties.Resources.resources
+C:\Users\jerem\Desktop\progra\ProyectoVapes\Tienda_Vapesney\CapaVista\obj\Debug\CapaVista.RegistroProducto.resources
+C:\Users\jerem\Desktop\progra\ProyectoVapes\Tienda_Vapesney\CapaVista\obj\Debug\CapaVista.csproj.GenerateResource.cache
+C:\Users\jerem\Desktop\progra\ProyectoVapes\Tienda_Vapesney\CapaVista\obj\Debug\CapaVista.csproj.CoreCompileInputs.cache
+C:\Users\jerem\Desktop\progra\ProyectoVapes\Tienda_Vapesney\CapaVista\obj\Debug\CapaVista.exe
+C:\Users\jerem\Desktop\progra\ProyectoVapes\Tienda_Vapesney\CapaVista\obj\Debug\CapaVista.pdb

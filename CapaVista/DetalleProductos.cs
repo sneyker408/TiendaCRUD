@@ -16,5 +16,10 @@ namespace CapaVista
         {
             InitializeComponent();
         }
+
+        private void DetalleProductos_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

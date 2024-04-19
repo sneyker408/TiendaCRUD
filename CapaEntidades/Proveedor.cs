@@ -12,7 +12,6 @@ namespace CapaEntidades
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-
         public int ProveedorID { get; set; }
 
         [Required(ErrorMessage = "El nombre del proveedor es obligatorio.")]

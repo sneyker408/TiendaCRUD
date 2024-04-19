@@ -12,7 +12,6 @@ namespace CapaEntidades
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-
         public int InventarioID { get; set; }
 
         [Required(ErrorMessage = "El producto del inventario es obligatorio.")]

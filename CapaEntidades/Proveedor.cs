@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace CapaEntidades
 {
+    [Table("Proveedores")] // Especifica el nombre de la tabla en la base de datos
     public class Proveedor
     {
         [Key]

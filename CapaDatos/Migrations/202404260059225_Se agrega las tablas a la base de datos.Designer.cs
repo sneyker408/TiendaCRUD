@@ -7,13 +7,13 @@ namespace CapaDatos.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class First_Commit : IMigrationMetadata
+    public sealed partial class Seagregalastablasalabasededatos : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(First_Commit));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Seagregalastablasalabasededatos));
         
         string IMigrationMetadata.Id
         {
-            get { return "202404160010040_First_Commit"; }
+            get { return "202404260059225_Se agrega las tablas a la base de datos"; }
         }
         
         string IMigrationMetadata.Source

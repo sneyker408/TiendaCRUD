@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 
 namespace CapaEntidades
 {
+    [Table("Categorias")] // Especifica el nombre de la tabla en la base de datos
+
     public class Categoria
     {
         [Key]

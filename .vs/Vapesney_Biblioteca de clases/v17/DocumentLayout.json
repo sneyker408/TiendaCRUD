@@ -1,0 +1,139 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\jaime\\Desktop\\Proyecto Biblioteca de clases\\Tienda_Vapesney\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{5FBE3D68-1B39-49CA-88B1-E0ED6E5A663F}|CapaEntidades\\CapaEntidades.csproj|c:\\users\\jaime\\desktop\\proyecto biblioteca de clases\\tienda_vapesney\\capaentidades\\inventario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5FBE3D68-1B39-49CA-88B1-E0ED6E5A663F}|CapaEntidades\\CapaEntidades.csproj|solutionrelative:capaentidades\\inventario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5FBE3D68-1B39-49CA-88B1-E0ED6E5A663F}|CapaEntidades\\CapaEntidades.csproj|c:\\users\\jaime\\desktop\\proyecto biblioteca de clases\\tienda_vapesney\\capaentidades\\detallepedido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5FBE3D68-1B39-49CA-88B1-E0ED6E5A663F}|CapaEntidades\\CapaEntidades.csproj|solutionrelative:capaentidades\\detallepedido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5FBE3D68-1B39-49CA-88B1-E0ED6E5A663F}|CapaEntidades\\CapaEntidades.csproj|c:\\users\\jaime\\desktop\\proyecto biblioteca de clases\\tienda_vapesney\\capaentidades\\cliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5FBE3D68-1B39-49CA-88B1-E0ED6E5A663F}|CapaEntidades\\CapaEntidades.csproj|solutionrelative:capaentidades\\cliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5FBE3D68-1B39-49CA-88B1-E0ED6E5A663F}|CapaEntidades\\CapaEntidades.csproj|c:\\users\\jaime\\desktop\\proyecto biblioteca de clases\\tienda_vapesney\\capaentidades\\categoria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5FBE3D68-1B39-49CA-88B1-E0ED6E5A663F}|CapaEntidades\\CapaEntidades.csproj|solutionrelative:capaentidades\\categoria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5FBE3D68-1B39-49CA-88B1-E0ED6E5A663F}|CapaEntidades\\CapaEntidades.csproj|c:\\users\\jaime\\desktop\\proyecto biblioteca de clases\\tienda_vapesney\\capaentidades\\proveedor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5FBE3D68-1B39-49CA-88B1-E0ED6E5A663F}|CapaEntidades\\CapaEntidades.csproj|solutionrelative:capaentidades\\proveedor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5FBE3D68-1B39-49CA-88B1-E0ED6E5A663F}|CapaEntidades\\CapaEntidades.csproj|c:\\users\\jaime\\desktop\\proyecto biblioteca de clases\\tienda_vapesney\\capaentidades\\pedido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5FBE3D68-1B39-49CA-88B1-E0ED6E5A663F}|CapaEntidades\\CapaEntidades.csproj|solutionrelative:capaentidades\\pedido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5FBE3D68-1B39-49CA-88B1-E0ED6E5A663F}|CapaEntidades\\CapaEntidades.csproj|c:\\users\\jaime\\desktop\\proyecto biblioteca de clases\\tienda_vapesney\\capaentidades\\producto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5FBE3D68-1B39-49CA-88B1-E0ED6E5A663F}|CapaEntidades\\CapaEntidades.csproj|solutionrelative:capaentidades\\producto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DetallePedido.cs",
+              "DocumentMoniker": "C:\\Users\\jaime\\Desktop\\Proyecto Biblioteca de clases\\Tienda_Vapesney\\CapaEntidades\\DetallePedido.cs",
+              "RelativeDocumentMoniker": "CapaEntidades\\DetallePedido.cs",
+              "ToolTip": "C:\\Users\\jaime\\Desktop\\Proyecto Biblioteca de clases\\Tienda_Vapesney\\CapaEntidades\\DetallePedido.cs",
+              "RelativeToolTip": "CapaEntidades\\DetallePedido.cs",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAQwBkAAAApAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-25T23:52:30.91Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Pedido.cs",
+              "DocumentMoniker": "C:\\Users\\jaime\\Desktop\\Proyecto Biblioteca de clases\\Tienda_Vapesney\\CapaEntidades\\Pedido.cs",
+              "RelativeDocumentMoniker": "CapaEntidades\\Pedido.cs",
+              "ToolTip": "C:\\Users\\jaime\\Desktop\\Proyecto Biblioteca de clases\\Tienda_Vapesney\\CapaEntidades\\Pedido.cs",
+              "RelativeToolTip": "CapaEntidades\\Pedido.cs",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAQwBsAAABjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-25T23:52:34.417Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Cliente.cs",
+              "DocumentMoniker": "C:\\Users\\jaime\\Desktop\\Proyecto Biblioteca de clases\\Tienda_Vapesney\\CapaEntidades\\Cliente.cs",
+              "RelativeDocumentMoniker": "CapaEntidades\\Cliente.cs",
+              "ToolTip": "C:\\Users\\jaime\\Desktop\\Proyecto Biblioteca de clases\\Tienda_Vapesney\\CapaEntidades\\Cliente.cs",
+              "RelativeToolTip": "CapaEntidades\\Cliente.cs",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAgwCEAAAAyAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-25T23:52:13.548Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Producto.cs",
+              "DocumentMoniker": "C:\\Users\\jaime\\Desktop\\Proyecto Biblioteca de clases\\Tienda_Vapesney\\CapaEntidades\\Producto.cs",
+              "RelativeDocumentMoniker": "CapaEntidades\\Producto.cs",
+              "ToolTip": "C:\\Users\\jaime\\Desktop\\Proyecto Biblioteca de clases\\Tienda_Vapesney\\CapaEntidades\\Producto.cs",
+              "RelativeToolTip": "CapaEntidades\\Producto.cs",
+              "ViewState": "AQIAABAAAAAAAAAAAAAgwCIAAAAwAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-25T23:51:52.476Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Inventario.cs",
+              "DocumentMoniker": "C:\\Users\\jaime\\Desktop\\Proyecto Biblioteca de clases\\Tienda_Vapesney\\CapaEntidades\\Inventario.cs",
+              "RelativeDocumentMoniker": "CapaEntidades\\Inventario.cs",
+              "ToolTip": "C:\\Users\\jaime\\Desktop\\Proyecto Biblioteca de clases\\Tienda_Vapesney\\CapaEntidades\\Inventario.cs",
+              "RelativeToolTip": "CapaEntidades\\Inventario.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAAA0AAAAtAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-25T23:51:32.688Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Proveedor.cs",
+              "DocumentMoniker": "C:\\Users\\jaime\\Desktop\\Proyecto Biblioteca de clases\\Tienda_Vapesney\\CapaEntidades\\Proveedor.cs",
+              "RelativeDocumentMoniker": "CapaEntidades\\Proveedor.cs",
+              "ToolTip": "C:\\Users\\jaime\\Desktop\\Proyecto Biblioteca de clases\\Tienda_Vapesney\\CapaEntidades\\Proveedor.cs",
+              "RelativeToolTip": "CapaEntidades\\Proveedor.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAABcAAABSAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-25T23:48:23.778Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Categoria.cs",
+              "DocumentMoniker": "C:\\Users\\jaime\\Desktop\\Proyecto Biblioteca de clases\\Tienda_Vapesney\\CapaEntidades\\Categoria.cs",
+              "RelativeDocumentMoniker": "CapaEntidades\\Categoria.cs",
+              "ToolTip": "C:\\Users\\jaime\\Desktop\\Proyecto Biblioteca de clases\\Tienda_Vapesney\\CapaEntidades\\Categoria.cs",
+              "RelativeToolTip": "CapaEntidades\\Categoria.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAzAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-25T23:44:54.452Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

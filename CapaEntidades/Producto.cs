@@ -8,31 +8,32 @@ using System.Threading.Tasks;
 
 namespace CapaEntidades
 {
+    [Table("Productos")] // Especifica el nombre de la tabla en la base de datos
+
     public class Producto
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ProductoID { get; set; }
-        
+
         [Required(ErrorMessage = "El nombre del producto es obligatorio.")]
         [StringLength(100, ErrorMessage = "El nombre del producto no puede tener más de 100 caracteres.")]
         public string NombreProducto { get; set; }
 
-        [StringLength(255, ErrorMessage = "La descripción del producto no puede tener más de 255 caracteres.")]
         public string Descripcion { get; set; }
 
         [Required(ErrorMessage = "El precio del producto es obligatorio.")]
-        [Range(0, 9999999.99, ErrorMessage = "El precio del producto debe ser un valor entre 0 y 9999999.99.")]
+        [Range(0.01, double.MaxValue, ErrorMessage = "El precio del producto debe ser mayor que cero.")]
         public decimal Precio { get; set; }
 
         [Required(ErrorMessage = "El stock disponible del producto es obligatorio.")]
-        [Range(0, int.MaxValue, ErrorMessage = "El stock disponible del producto debe ser un valor positivo.")]
+        [Range(0, int.MaxValue, ErrorMessage = "El stock disponible del producto debe ser mayor o igual a cero.")]
         public int StockDisponible { get; set; }
 
-        [StringLength(100, ErrorMessage = "El nombre del fabricante no puede tener más de 100 caracteres.")]
         public string Fabricante { get; set; }
 
-        [Required(ErrorMessage = "La categoría del producto es obligatoria.")]
+        [ForeignKey("Categoria")]
         public int CategoriaID { get; set; }
+        public Categoria Categoria { get; set; }
     }
 }

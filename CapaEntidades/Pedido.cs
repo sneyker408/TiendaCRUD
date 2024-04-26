@@ -8,16 +8,18 @@ using System.Threading.Tasks;
 
 namespace CapaEntidades
 {
+    [Table("Pedidos")] // Especifica el nombre de la tabla en la base de datos
+
     public class Pedido
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int PedidoID { get; set; }
 
-        [Required(ErrorMessage = "El cliente del pedido es obligatorio.")]
+        [ForeignKey("Cliente")]
         public int ClienteID { get; set; }
+        public Cliente Cliente { get; set; }
 
-        [Required(ErrorMessage = "La fecha y hora del pedido es obligatoria.")]
+        [Required(ErrorMessage = "La fecha y hora del pedido son obligatorias.")]
         public DateTime FechaHoraPedido { get; set; }
 
         [Required(ErrorMessage = "El estado del pedido es obligatorio.")]
@@ -25,7 +27,7 @@ namespace CapaEntidades
         public string EstadoPedido { get; set; }
 
         [Required(ErrorMessage = "El total del pedido es obligatorio.")]
-        [Range(0, 9999999.99, ErrorMessage = "El total del pedido debe ser un valor entre 0 y 9999999.99.")]
+        [Range(0.01, double.MaxValue, ErrorMessage = "El total del pedido debe ser mayor que cero.")]
         public decimal TotalPedido { get; set; }
     }
 }

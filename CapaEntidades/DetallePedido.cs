@@ -8,28 +8,27 @@ using System.Threading.Tasks;
 
 namespace CapaEntidades
 {
+    [Table("DetallePedidos")] // Especifica el nombre de la tabla en la base de datos
+
     public class DetallePedido
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int DetallePedidoID { get; set; }
 
-        [Required(ErrorMessage = "El pedido es obligatorio.")]
+        [ForeignKey("Pedido")]
         public int PedidoID { get; set; }
+        public Pedido Pedido { get; set; }
 
-        [Required(ErrorMessage = "El producto del detalle del pedido es obligatorio.")]
+        [ForeignKey("Producto")]
         public int ProductoID { get; set; }
+        public Producto Producto { get; set; }
 
-        [Required(ErrorMessage = "La cantidad del detalle del pedido es obligatoria.")]
-        [Range(1, int.MaxValue, ErrorMessage = "La cantidad del detalle del pedido debe ser un valor positivo.")]
+        [Required(ErrorMessage = "La cantidad del producto en el pedido es obligatoria.")]
+        [Range(1, int.MaxValue, ErrorMessage = "La cantidad del producto en el pedido debe ser al menos uno.")]
         public int Cantidad { get; set; }
 
-        [Required(ErrorMessage = "El precio unitario del detalle del pedido es obligatorio.")]
-        [Range(0, 9999999.99, ErrorMessage = "El precio unitario del detalle del pedido debe ser un valor entre 0 y 9999999.99.")]
+        [Required(ErrorMessage = "El precio unitario del producto es obligatorio.")]
+        [Range(0.01, double.MaxValue, ErrorMessage = "El precio unitario del producto debe ser mayor que cero.")]
         public decimal PrecioUnitario { get; set; }
-
-
-        // propiedades de navgacion 
-        public List<DetallePedido> Detalles { get; set; } 
-    }
+    } 
 }

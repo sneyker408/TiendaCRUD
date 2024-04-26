@@ -8,10 +8,11 @@ using System.Threading.Tasks;
        
 namespace CapaEntidades
 {
+    [Table("Clientes")] // Especifica el nombre de la tabla en la base de datos
+
     public class Cliente
-    {     
+    {            
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ClienteID { get; set; }
 
         [Required(ErrorMessage = "El nombre del cliente es obligatorio.")]
@@ -19,17 +20,18 @@ namespace CapaEntidades
         public string Nombre { get; set; }
 
         [Required(ErrorMessage = "El apellido del cliente es obligatorio.")]
-        [StringLength(100, ErrorMessage = "El apellido del cliente no puede tener más de 100 caracteres.")]   
+        [StringLength(100, ErrorMessage = "El apellido del cliente no puede tener más de 100 caracteres.")]
         public string Apellido { get; set; }
-        
+
         [Required(ErrorMessage = "El correo electrónico del cliente es obligatorio.")]
-        [StringLength(100, ErrorMessage = "El correo electrónico del cliente no puede tener más de 100 caracteres.")]
-        [EmailAddress(ErrorMessage = "El correo electrónico del cliente no es válido.")]   
+        [EmailAddress(ErrorMessage = "El correo electrónico no tiene un formato válido.")]
         public string CorreoElectronico { get; set; }
 
-        [StringLength(255, ErrorMessage = "La dirección del cliente no puede tener más de 255 caracteres.")] 
+        [Required(ErrorMessage = "La dirección del cliente es obligatoria.")]
+        [StringLength(255, ErrorMessage = "La dirección del cliente no puede tener más de 255 caracteres.")]
         public string Direccion { get; set; }
 
+        [Required(ErrorMessage = "El número de teléfono del cliente es obligatorio.")]
         [StringLength(20, ErrorMessage = "El número de teléfono del cliente no puede tener más de 20 caracteres.")]
         public string NumeroTelefono { get; set; }
     }      

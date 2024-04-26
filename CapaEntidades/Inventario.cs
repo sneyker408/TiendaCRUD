@@ -8,23 +8,26 @@ using System.Threading.Tasks;
 
 namespace CapaEntidades
 {
+    [Table("Inventarios")] // Especifica el nombre de la tabla en la base de datos
+
     public class Inventario
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int InventarioID { get; set; }
 
-        [Required(ErrorMessage = "El producto del inventario es obligatorio.")]
+        [ForeignKey("Producto")]
         public int ProductoID { get; set; }
+        public Producto Producto { get; set; }
 
-        [Required(ErrorMessage = "La cantidad en stock del inventario es obligatoria.")]
-        [Range(0, int.MaxValue, ErrorMessage = "La cantidad en stock del inventario debe ser un valor positivo.")]
+        [Required(ErrorMessage = "La cantidad en stock es obligatoria.")]
+        [Range(0, int.MaxValue, ErrorMessage = "La cantidad en stock debe ser mayor o igual a cero.")]
         public int CantidadStock { get; set; }
 
-        [Required(ErrorMessage = "La fecha de última reposición del inventario es obligatoria.")]
+        [Required(ErrorMessage = "La fecha de última reposición es obligatoria.")]
         public DateTime FechaUltimaReposicion { get; set; }
 
-        [Required(ErrorMessage = "El proveedor del inventario es obligatorio.")]
+        [ForeignKey("Proveedor")]
         public int ProveedorID { get; set; }
+        public Proveedor Proveedor { get; set; }
     }
 }

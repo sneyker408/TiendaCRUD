@@ -38,3 +38,25 @@ C:\Users\jaime\Desktop\Proyecto Biblioteca de clases\Tienda_Vapesney\CapaVista\o
 C:\Users\jaime\Desktop\Proyecto Biblioteca de clases\Tienda_Vapesney\CapaVista\obj\Debug\CapaVista.RegistroInventario.resources
 C:\Users\jaime\Desktop\Proyecto Biblioteca de clases\Tienda_Vapesney\CapaVista\obj\Debug\CapaVista.RegistroPedido.resources
 C:\Users\jaime\Desktop\Proyecto Biblioteca de clases\Tienda_Vapesney\CapaVista\obj\Debug\CapaVista.RegistroProveedor.resources
+C:\Users\jerem\Desktop\progra\prueba\Tienda_Vapesney\CapaVista\bin\Debug\CapaVista.exe.config
+C:\Users\jerem\Desktop\progra\prueba\Tienda_Vapesney\CapaVista\bin\Debug\CapaVista.exe
+C:\Users\jerem\Desktop\progra\prueba\Tienda_Vapesney\CapaVista\bin\Debug\CapaVista.pdb
+C:\Users\jerem\Desktop\progra\prueba\Tienda_Vapesney\CapaVista\obj\Debug\CapaVista.csproj.AssemblyReference.cache
+C:\Users\jerem\Desktop\progra\prueba\Tienda_Vapesney\CapaVista\obj\Debug\CapaVista.MantenimientoCategoria.resources
+C:\Users\jerem\Desktop\progra\prueba\Tienda_Vapesney\CapaVista\obj\Debug\CapaVista.MantenimientoCliente.resources
+C:\Users\jerem\Desktop\progra\prueba\Tienda_Vapesney\CapaVista\obj\Debug\CapaVista.MantenimientoInventario.resources
+C:\Users\jerem\Desktop\progra\prueba\Tienda_Vapesney\CapaVista\obj\Debug\CapaVista.MantenimientoPedido.resources
+C:\Users\jerem\Desktop\progra\prueba\Tienda_Vapesney\CapaVista\obj\Debug\CapaVista.MantenimientoProducto.resources
+C:\Users\jerem\Desktop\progra\prueba\Tienda_Vapesney\CapaVista\obj\Debug\CapaVista.MantenimientoProveedor.resources
+C:\Users\jerem\Desktop\progra\prueba\Tienda_Vapesney\CapaVista\obj\Debug\CapaVista.MenuPrincipal.resources
+C:\Users\jerem\Desktop\progra\prueba\Tienda_Vapesney\CapaVista\obj\Debug\CapaVista.Properties.Resources.resources
+C:\Users\jerem\Desktop\progra\prueba\Tienda_Vapesney\CapaVista\obj\Debug\CapaVista.RegistroCategoria.resources
+C:\Users\jerem\Desktop\progra\prueba\Tienda_Vapesney\CapaVista\obj\Debug\CapaVista.RegistroCliente.resources
+C:\Users\jerem\Desktop\progra\prueba\Tienda_Vapesney\CapaVista\obj\Debug\CapaVista.RegistroInventario.resources
+C:\Users\jerem\Desktop\progra\prueba\Tienda_Vapesney\CapaVista\obj\Debug\CapaVista.RegistroPedido.resources
+C:\Users\jerem\Desktop\progra\prueba\Tienda_Vapesney\CapaVista\obj\Debug\CapaVista.RegistroProducto.resources
+C:\Users\jerem\Desktop\progra\prueba\Tienda_Vapesney\CapaVista\obj\Debug\CapaVista.RegistroProveedor.resources
+C:\Users\jerem\Desktop\progra\prueba\Tienda_Vapesney\CapaVista\obj\Debug\CapaVista.csproj.GenerateResource.cache
+C:\Users\jerem\Desktop\progra\prueba\Tienda_Vapesney\CapaVista\obj\Debug\CapaVista.csproj.CoreCompileInputs.cache
+C:\Users\jerem\Desktop\progra\prueba\Tienda_Vapesney\CapaVista\obj\Debug\CapaVista.exe
+C:\Users\jerem\Desktop\progra\prueba\Tienda_Vapesney\CapaVista\obj\Debug\CapaVista.pdb

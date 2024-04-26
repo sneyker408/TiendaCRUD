@@ -29,74 +29,85 @@ namespace CapaVista
         /// </summary>
         private void InitializeComponent()
         {
-            this.BtnNuevo = new System.Windows.Forms.Button();
-            this.BtnAtras = new System.Windows.Forms.Button();
-            this.dgvProductos = new System.Windows.Forms.DataGridView();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MantenimientoCategoria));
+            this.BtnNuevoMCate = new System.Windows.Forms.Button();
+            this.BtnAtrasMCate = new System.Windows.Forms.Button();
+            this.dgvCategoria = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCategoria)).BeginInit();
             this.SuspendLayout();
             // 
-            // BtnNuevo
+            // BtnNuevoMCate
             // 
-            this.BtnNuevo.BackColor = System.Drawing.Color.YellowGreen;
-            this.BtnNuevo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnNuevo.Location = new System.Drawing.Point(35, 393);
-            this.BtnNuevo.Name = "BtnNuevo";
-            this.BtnNuevo.Size = new System.Drawing.Size(117, 41);
-            this.BtnNuevo.TabIndex = 8;
-            this.BtnNuevo.Text = "Nuevo";
-            this.BtnNuevo.UseVisualStyleBackColor = false;
+            this.BtnNuevoMCate.BackColor = System.Drawing.Color.YellowGreen;
+            this.BtnNuevoMCate.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnNuevoMCate.Location = new System.Drawing.Point(47, 484);
+            this.BtnNuevoMCate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BtnNuevoMCate.Name = "BtnNuevoMCate";
+            this.BtnNuevoMCate.Size = new System.Drawing.Size(156, 50);
+            this.BtnNuevoMCate.TabIndex = 8;
+            this.BtnNuevoMCate.Text = "Nuevo";
+            this.BtnNuevoMCate.UseVisualStyleBackColor = false;
+            this.BtnNuevoMCate.Click += new System.EventHandler(this.BtnNuevoMCate_Click);
             // 
-            // BtnAtras
+            // BtnAtrasMCate
             // 
-            this.BtnAtras.BackColor = System.Drawing.Color.LightCoral;
-            this.BtnAtras.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnAtras.Location = new System.Drawing.Point(648, 393);
-            this.BtnAtras.Name = "BtnAtras";
-            this.BtnAtras.Size = new System.Drawing.Size(117, 41);
-            this.BtnAtras.TabIndex = 7;
-            this.BtnAtras.Text = "Atras";
-            this.BtnAtras.UseVisualStyleBackColor = false;
+            this.BtnAtrasMCate.BackColor = System.Drawing.Color.LightCoral;
+            this.BtnAtrasMCate.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnAtrasMCate.Location = new System.Drawing.Point(871, 484);
+            this.BtnAtrasMCate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BtnAtrasMCate.Name = "BtnAtrasMCate";
+            this.BtnAtrasMCate.Size = new System.Drawing.Size(156, 50);
+            this.BtnAtrasMCate.TabIndex = 7;
+            this.BtnAtrasMCate.Text = "Atras";
+            this.BtnAtrasMCate.UseVisualStyleBackColor = false;
+            this.BtnAtrasMCate.Click += new System.EventHandler(this.BtnAtrasMCate_Click);
             // 
-            // dgvProductos
+            // dgvCategoria
             // 
-            this.dgvProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProductos.Location = new System.Drawing.Point(33, 47);
-            this.dgvProductos.Name = "dgvProductos";
-            this.dgvProductos.RowHeadersWidth = 51;
-            this.dgvProductos.Size = new System.Drawing.Size(735, 323);
-            this.dgvProductos.TabIndex = 6;
+            this.dgvCategoria.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCategoria.Location = new System.Drawing.Point(47, 67);
+            this.dgvCategoria.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvCategoria.Name = "dgvCategoria";
+            this.dgvCategoria.RowHeadersWidth = 51;
+            this.dgvCategoria.Size = new System.Drawing.Size(980, 398);
+            this.dgvCategoria.TabIndex = 6;
             // 
             // groupBox1
             // 
-            this.groupBox1.Location = new System.Drawing.Point(35, 16);
+            this.groupBox1.Location = new System.Drawing.Point(47, 20);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(476, 95);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Size = new System.Drawing.Size(635, 117);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filtro por Categoria";
             // 
             // MantenimientoCategoria
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.BtnNuevo);
-            this.Controls.Add(this.BtnAtras);
-            this.Controls.Add(this.dgvProductos);
+            this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.Controls.Add(this.BtnNuevoMCate);
+            this.Controls.Add(this.BtnAtrasMCate);
+            this.Controls.Add(this.dgvCategoria);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "MantenimientoCategoria";
-            this.Text = "MantenimientoCategoria";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Vapesney | MantenimientoCategoria";
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCategoria)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button BtnNuevo;
-        private System.Windows.Forms.Button BtnAtras;
-        private System.Windows.Forms.DataGridView dgvProductos;
+        private System.Windows.Forms.Button BtnNuevoMCate;
+        private System.Windows.Forms.Button BtnAtrasMCate;
+        private System.Windows.Forms.DataGridView dgvCategoria;
         private System.Windows.Forms.GroupBox groupBox1;
     }
 }

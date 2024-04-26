@@ -18,6 +18,7 @@ CREATE TABLE Productos (
     Precio DECIMAL(10, 2),
     StockDisponible INT,
     Fabricante VARCHAR(100),
+    EstadoPedido VARCHAR(50),
     CategoriaID INT,
     FOREIGN KEY (CategoriaID) REFERENCES CategoriasProductos(CategoriaID)
 );

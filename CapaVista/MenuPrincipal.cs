@@ -25,8 +25,8 @@ namespace CapaVista
 
         private void MnCategoria_Click(object sender, EventArgs e)
         {
-            RegistroCategoria objRtroCat = new RegistroCategoria();
-            objRtroCat.ShowDialog();
+            MantenimientoCategoria objMnCat = new MantenimientoCategoria();
+            objMnCat.ShowDialog();
         }
 
         private void productosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -37,26 +37,26 @@ namespace CapaVista
 
         private void MnDInventario_Click(object sender, EventArgs e)
         {
-            RegistroInventario objRtroInv = new RegistroInventario();
-            objRtroInv.ShowDialog();
+            MantenimientoInventario objMnInv = new MantenimientoInventario();
+            objMnInv.ShowDialog();
         }
 
         private void MnClientes_Click(object sender, EventArgs e)
         {
-            RegistroCliente objRtroClien = new RegistroCliente();
-            objRtroClien.ShowDialog();
+            MantenimientoCliente objMnClien = new MantenimientoCliente();
+            objMnClien.ShowDialog();
         }
 
         private void MnProveedores_Click(object sender, EventArgs e)
         {
-            RegistroProveedor objRtroProv = new RegistroProveedor();
-            objRtroProv.ShowDialog();
+            MantenimientoProveedor objMnoProv = new MantenimientoProveedor();
+            objMnoProv.ShowDialog();
         }
 
         private void MnPedido_Click(object sender, EventArgs e)
         {
-            RegistroPedido objRtroPdido = new RegistroPedido();
-            objRtroPdido.ShowDialog();
+            MantenimientoPedido objMnPdido = new MantenimientoPedido();
+            objMnPdido.ShowDialog();
         }
     }
 }

@@ -32,6 +32,11 @@ namespace CapaEntidades
 
         public string Fabricante { get; set; }
 
+        public string EstadoPedido { get; set; }
+
+        [Required(ErrorMessage = "El total del pedido es obligatorio.")]
+        [Range(0.01, double.MaxValue, ErrorMessage = "El total del pedido debe ser mayor que cero.")]
+
         [ForeignKey("Categoria")]
         public int CategoriaID { get; set; }
         public Categoria Categoria { get; set; }

@@ -16,5 +16,16 @@ namespace CapaVista
         {
             InitializeComponent();
         }
+
+        private void BtnAtrasInventario_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void BtnNuevoInventario_Click(object sender, EventArgs e)
+        {
+            RegistroInventario objRegInv = new RegistroInventario();
+            objRegInv.ShowDialog();
+        }
     }
 }

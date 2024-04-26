@@ -29,74 +29,85 @@ namespace CapaVista
         /// </summary>
         private void InitializeComponent()
         {
-            this.BtnNuevo = new System.Windows.Forms.Button();
-            this.BtnAtras = new System.Windows.Forms.Button();
-            this.dgvProductos = new System.Windows.Forms.DataGridView();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MantenimientoInventario));
+            this.BtnNuevoInventario = new System.Windows.Forms.Button();
+            this.BtnAtrasInventario = new System.Windows.Forms.Button();
+            this.dgvInventario = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvInventario)).BeginInit();
             this.SuspendLayout();
             // 
-            // BtnNuevo
+            // BtnNuevoInventario
             // 
-            this.BtnNuevo.BackColor = System.Drawing.Color.YellowGreen;
-            this.BtnNuevo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnNuevo.Location = new System.Drawing.Point(35, 393);
-            this.BtnNuevo.Name = "BtnNuevo";
-            this.BtnNuevo.Size = new System.Drawing.Size(117, 41);
-            this.BtnNuevo.TabIndex = 8;
-            this.BtnNuevo.Text = "Nuevo";
-            this.BtnNuevo.UseVisualStyleBackColor = false;
+            this.BtnNuevoInventario.BackColor = System.Drawing.Color.YellowGreen;
+            this.BtnNuevoInventario.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnNuevoInventario.Location = new System.Drawing.Point(47, 484);
+            this.BtnNuevoInventario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BtnNuevoInventario.Name = "BtnNuevoInventario";
+            this.BtnNuevoInventario.Size = new System.Drawing.Size(156, 50);
+            this.BtnNuevoInventario.TabIndex = 8;
+            this.BtnNuevoInventario.Text = "Nuevo";
+            this.BtnNuevoInventario.UseVisualStyleBackColor = false;
+            this.BtnNuevoInventario.Click += new System.EventHandler(this.BtnNuevoInventario_Click);
             // 
-            // BtnAtras
+            // BtnAtrasInventario
             // 
-            this.BtnAtras.BackColor = System.Drawing.Color.LightCoral;
-            this.BtnAtras.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnAtras.Location = new System.Drawing.Point(648, 393);
-            this.BtnAtras.Name = "BtnAtras";
-            this.BtnAtras.Size = new System.Drawing.Size(117, 41);
-            this.BtnAtras.TabIndex = 7;
-            this.BtnAtras.Text = "Atras";
-            this.BtnAtras.UseVisualStyleBackColor = false;
+            this.BtnAtrasInventario.BackColor = System.Drawing.Color.LightCoral;
+            this.BtnAtrasInventario.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnAtrasInventario.Location = new System.Drawing.Point(864, 484);
+            this.BtnAtrasInventario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BtnAtrasInventario.Name = "BtnAtrasInventario";
+            this.BtnAtrasInventario.Size = new System.Drawing.Size(156, 50);
+            this.BtnAtrasInventario.TabIndex = 7;
+            this.BtnAtrasInventario.Text = "Atras";
+            this.BtnAtrasInventario.UseVisualStyleBackColor = false;
+            this.BtnAtrasInventario.Click += new System.EventHandler(this.BtnAtrasInventario_Click);
             // 
-            // dgvProductos
+            // dgvInventario
             // 
-            this.dgvProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProductos.Location = new System.Drawing.Point(33, 47);
-            this.dgvProductos.Name = "dgvProductos";
-            this.dgvProductos.RowHeadersWidth = 51;
-            this.dgvProductos.Size = new System.Drawing.Size(735, 323);
-            this.dgvProductos.TabIndex = 6;
+            this.dgvInventario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvInventario.Location = new System.Drawing.Point(44, 58);
+            this.dgvInventario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvInventario.Name = "dgvInventario";
+            this.dgvInventario.RowHeadersWidth = 51;
+            this.dgvInventario.Size = new System.Drawing.Size(980, 398);
+            this.dgvInventario.TabIndex = 6;
             // 
             // groupBox1
             // 
-            this.groupBox1.Location = new System.Drawing.Point(35, 16);
+            this.groupBox1.Location = new System.Drawing.Point(47, 20);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(476, 95);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Size = new System.Drawing.Size(635, 117);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Filtro por Pedido";
+            this.groupBox1.Text = "Filtro por Inventario";
             // 
             // MantenimientoInventario
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.BtnNuevo);
-            this.Controls.Add(this.BtnAtras);
-            this.Controls.Add(this.dgvProductos);
+            this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.Controls.Add(this.BtnNuevoInventario);
+            this.Controls.Add(this.BtnAtrasInventario);
+            this.Controls.Add(this.dgvInventario);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "MantenimientoInventario";
-            this.Text = "MantenimientoInventario";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Vapesney | MantenimientoInventario";
+            ((System.ComponentModel.ISupportInitialize)(this.dgvInventario)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button BtnNuevo;
-        private System.Windows.Forms.Button BtnAtras;
-        private System.Windows.Forms.DataGridView dgvProductos;
+        private System.Windows.Forms.Button BtnNuevoInventario;
+        private System.Windows.Forms.Button BtnAtrasInventario;
+        private System.Windows.Forms.DataGridView dgvInventario;
         private System.Windows.Forms.GroupBox groupBox1;
     }
 }

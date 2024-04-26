@@ -14,3 +14,11 @@ C:\Users\jaime\Desktop\Proyecto Biblioteca de clases\Tienda_Vapesney\CapaEntidad
 C:\Users\jaime\Desktop\Proyecto Biblioteca de clases\Tienda_Vapesney\CapaEntidades\obj\Debug\CapaEntidades.csproj.CopyComplete
 C:\Users\jaime\Desktop\Proyecto Biblioteca de clases\Tienda_Vapesney\CapaEntidades\obj\Debug\CapaEntidades.dll
 C:\Users\jaime\Desktop\Proyecto Biblioteca de clases\Tienda_Vapesney\CapaEntidades\obj\Debug\CapaEntidades.pdb
+C:\Users\jerem\Desktop\progra\prueba\Tienda_Vapesney\CapaEntidades\bin\Debug\CapaEntidades.dll
+C:\Users\jerem\Desktop\progra\prueba\Tienda_Vapesney\CapaEntidades\bin\Debug\CapaEntidades.pdb
+C:\Users\jerem\Desktop\progra\prueba\Tienda_Vapesney\CapaEntidades\bin\Debug\System.ComponentModel.Annotations.dll
+C:\Users\jerem\Desktop\progra\prueba\Tienda_Vapesney\CapaEntidades\obj\Debug\CapaEntidades.csproj.AssemblyReference.cache
+C:\Users\jerem\Desktop\progra\prueba\Tienda_Vapesney\CapaEntidades\obj\Debug\CapaEntidades.csproj.CoreCompileInputs.cache
+C:\Users\jerem\Desktop\progra\prueba\Tienda_Vapesney\CapaEntidades\obj\Debug\CapaEntidades.csproj.CopyComplete
+C:\Users\jerem\Desktop\progra\prueba\Tienda_Vapesney\CapaEntidades\obj\Debug\CapaEntidades.dll
+C:\Users\jerem\Desktop\progra\prueba\Tienda_Vapesney\CapaEntidades\obj\Debug\CapaEntidades.pdb

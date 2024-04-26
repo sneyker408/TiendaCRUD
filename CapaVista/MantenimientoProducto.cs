@@ -16,5 +16,16 @@ namespace CapaVista
         {
             InitializeComponent();
         }
+
+        private void BtnAtrasProduc_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void BtnNuevoProduc_Click(object sender, EventArgs e)
+        {
+            RegistroProducto objRegPro = new RegistroProducto();
+            objRegPro.ShowDialog();
+        }
     }
 }

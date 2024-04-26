@@ -16,5 +16,16 @@ namespace CapaVista
         {
             InitializeComponent();
         }
+
+        private void BtnNuevoMCate_Click(object sender, EventArgs e)
+        {
+            RegistroCategoria objRegCat = new RegistroCategoria();
+            objRegCat.ShowDialog();
+        }
+
+        private void BtnAtrasMCate_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

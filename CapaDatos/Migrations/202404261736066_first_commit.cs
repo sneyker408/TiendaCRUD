@@ -3,7 +3,7 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Seagregalastablasalabasededatos : DbMigration
+    public partial class first_commit : DbMigration
     {
         public override void Up()
         {
@@ -69,6 +69,7 @@
                         Precio = c.Decimal(nullable: false, precision: 18, scale: 2),
                         StockDisponible = c.Int(nullable: false),
                         Fabricante = c.String(),
+                        EstadoPedido = c.String(),
                         CategoriaID = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.ProductoID)

@@ -26,5 +26,10 @@ namespace CapaVista
         {
             this.Close();
         }
+
+        private void btnGuardarCategoria_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

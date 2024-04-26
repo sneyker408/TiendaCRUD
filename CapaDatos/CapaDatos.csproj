@@ -54,9 +54,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ContextoDB.cs" />
-    <Compile Include="Migrations\202404260059225_Se agrega las tablas a la base de datos.cs" />
-    <Compile Include="Migrations\202404260059225_Se agrega las tablas a la base de datos.designer.cs">
-      <DependentUpon>202404260059225_Se agrega las tablas a la base de datos.cs</DependentUpon>
+    <Compile Include="Migrations\202404261736066_first_commit.cs" />
+    <Compile Include="Migrations\202404261736066_first_commit.designer.cs">
+      <DependentUpon>202404261736066_first_commit.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -72,8 +72,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202404260059225_Se agrega las tablas a la base de datos.resx">
-      <DependentUpon>202404260059225_Se agrega las tablas a la base de datos.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202404261736066_first_commit.resx">
+      <DependentUpon>202404261736066_first_commit.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

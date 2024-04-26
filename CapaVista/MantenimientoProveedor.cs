@@ -16,5 +16,16 @@ namespace CapaVista
         {
             InitializeComponent();
         }
+
+        private void BtnAtrasProve_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void BtnNuevoProve_Click(object sender, EventArgs e)
+        {
+            RegistroProveedor objRegProve = new RegistroProveedor();
+            objRegProve.ShowDialog();
+        }
     }
 }

@@ -24,8 +24,8 @@ namespace CapaVista
 
         private void BtnNuevo_Click(object sender, EventArgs e)
         {
-            RegistroProducto objRtroProdducto = new RegistroProducto();
-            objRtroProdducto.ShowDialog();
+            RegistroProducto objRtroPedi = new RegistroProducto();
+            objRtroPedi.ShowDialog();
         }
 
         private void BtnAtras_Click(object sender, EventArgs e)

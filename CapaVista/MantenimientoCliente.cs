@@ -16,5 +16,16 @@ namespace CapaVista
         {
             InitializeComponent();
         }
+
+        private void BtnAtrasClie_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void BtnNuevoClie_Click(object sender, EventArgs e)
+        {
+            RegistroCliente objRegClient = new RegistroCliente();
+            objRegClient.ShowDialog();
+        }
     }
 }

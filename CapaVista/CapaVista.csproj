@@ -46,6 +46,36 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MantenimientoCategoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MantenimientoCategoria.Designer.cs">
+      <DependentUpon>MantenimientoCategoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MantenimientoCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MantenimientoCliente.Designer.cs">
+      <DependentUpon>MantenimientoCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MantenimientoInventario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MantenimientoInventario.Designer.cs">
+      <DependentUpon>MantenimientoInventario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MantenimientoProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MantenimientoProducto.Designer.cs">
+      <DependentUpon>MantenimientoProducto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MantenimientoProveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MantenimientoProveedor.Designer.cs">
+      <DependentUpon>MantenimientoProveedor.cs</DependentUpon>
+    </Compile>
     <Compile Include="RegistroCategoria.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,8 +126,23 @@
     <Compile Include="RegistroProveedor.Designer.cs">
       <DependentUpon>RegistroProveedor.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="MantenimientoCategoria.resx">
+      <DependentUpon>MantenimientoCategoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MantenimientoCliente.resx">
+      <DependentUpon>MantenimientoCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MantenimientoInventario.resx">
+      <DependentUpon>MantenimientoInventario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MantenimientoPedido.resx">
       <DependentUpon>MantenimientoPedido.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MantenimientoProducto.resx">
+      <DependentUpon>MantenimientoProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MantenimientoProveedor.resx">
+      <DependentUpon>MantenimientoProveedor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MenuPrincipal.resx">
       <DependentUpon>MenuPrincipal.cs</DependentUpon>

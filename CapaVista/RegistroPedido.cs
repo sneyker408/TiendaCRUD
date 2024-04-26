@@ -10,21 +10,21 @@ using System.Windows.Forms;
 
 namespace CapaVista
 {
-    public partial class RegistroProducto : Form
+    public partial class RegistroPedido : Form
     {
-        public RegistroProducto()
+        public RegistroPedido()
         {
             InitializeComponent();
         }
 
-        private void btnCancelar_Click(object sender, EventArgs e)
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            this.Close();
+
         }
 
-        private void btnGuardar_Click(object sender, EventArgs e)
+        private void btnCancelarPedido_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
     }
 }

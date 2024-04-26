@@ -21,13 +21,13 @@ namespace CapaEntidades
         public string NombreProducto { get; set; }
 
         public string Descripcion { get; set; }
-
         [Required(ErrorMessage = "El precio del producto es obligatorio.")]
         [Range(0.01, double.MaxValue, ErrorMessage = "El precio del producto debe ser mayor que cero.")]
-        public decimal Precio { get; set; }
 
+        public decimal Precio { get; set; }
         [Required(ErrorMessage = "El stock disponible del producto es obligatorio.")]
         [Range(0, int.MaxValue, ErrorMessage = "El stock disponible del producto debe ser mayor o igual a cero.")]
+
         public int StockDisponible { get; set; }
 
         public string Fabricante { get; set; }

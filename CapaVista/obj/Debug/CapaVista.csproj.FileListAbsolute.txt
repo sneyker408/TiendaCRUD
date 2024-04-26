@@ -21,3 +21,20 @@ C:\Users\jerem\Desktop\progra\ProyectoVapes\Tienda_Vapesney\CapaVista\obj\Debug\
 C:\Users\jerem\Desktop\progra\ProyectoVapes\Tienda_Vapesney\CapaVista\obj\Debug\CapaVista.csproj.CoreCompileInputs.cache
 C:\Users\jerem\Desktop\progra\ProyectoVapes\Tienda_Vapesney\CapaVista\obj\Debug\CapaVista.exe
 C:\Users\jerem\Desktop\progra\ProyectoVapes\Tienda_Vapesney\CapaVista\obj\Debug\CapaVista.pdb
+C:\Users\jaime\Desktop\Proyecto Biblioteca de clases\Tienda_Vapesney\CapaVista\bin\Debug\CapaVista.exe.config
+C:\Users\jaime\Desktop\Proyecto Biblioteca de clases\Tienda_Vapesney\CapaVista\bin\Debug\CapaVista.exe
+C:\Users\jaime\Desktop\Proyecto Biblioteca de clases\Tienda_Vapesney\CapaVista\bin\Debug\CapaVista.pdb
+C:\Users\jaime\Desktop\Proyecto Biblioteca de clases\Tienda_Vapesney\CapaVista\obj\Debug\CapaVista.csproj.AssemblyReference.cache
+C:\Users\jaime\Desktop\Proyecto Biblioteca de clases\Tienda_Vapesney\CapaVista\obj\Debug\CapaVista.Properties.Resources.resources
+C:\Users\jaime\Desktop\Proyecto Biblioteca de clases\Tienda_Vapesney\CapaVista\obj\Debug\CapaVista.RegistroProducto.resources
+C:\Users\jaime\Desktop\Proyecto Biblioteca de clases\Tienda_Vapesney\CapaVista\obj\Debug\CapaVista.csproj.GenerateResource.cache
+C:\Users\jaime\Desktop\Proyecto Biblioteca de clases\Tienda_Vapesney\CapaVista\obj\Debug\CapaVista.csproj.CoreCompileInputs.cache
+C:\Users\jaime\Desktop\Proyecto Biblioteca de clases\Tienda_Vapesney\CapaVista\obj\Debug\CapaVista.exe
+C:\Users\jaime\Desktop\Proyecto Biblioteca de clases\Tienda_Vapesney\CapaVista\obj\Debug\CapaVista.pdb
+C:\Users\jaime\Desktop\Proyecto Biblioteca de clases\Tienda_Vapesney\CapaVista\obj\Debug\CapaVista.MantenimientoPedido.resources
+C:\Users\jaime\Desktop\Proyecto Biblioteca de clases\Tienda_Vapesney\CapaVista\obj\Debug\CapaVista.MenuPrincipal.resources
+C:\Users\jaime\Desktop\Proyecto Biblioteca de clases\Tienda_Vapesney\CapaVista\obj\Debug\CapaVista.RegistroCategoria.resources
+C:\Users\jaime\Desktop\Proyecto Biblioteca de clases\Tienda_Vapesney\CapaVista\obj\Debug\CapaVista.RegistroCliente.resources
+C:\Users\jaime\Desktop\Proyecto Biblioteca de clases\Tienda_Vapesney\CapaVista\obj\Debug\CapaVista.RegistroInventario.resources
+C:\Users\jaime\Desktop\Proyecto Biblioteca de clases\Tienda_Vapesney\CapaVista\obj\Debug\CapaVista.RegistroPedido.resources
+C:\Users\jaime\Desktop\Proyecto Biblioteca de clases\Tienda_Vapesney\CapaVista\obj\Debug\CapaVista.RegistroProveedor.resources

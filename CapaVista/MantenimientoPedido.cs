@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace CapaVista
 {
-    public partial class DetalleProductos : Form
+    public partial class MantenimientoPedido : Form
     {
-        public DetalleProductos()
+        public MantenimientoPedido()
         {
             InitializeComponent();
         }
@@ -20,6 +20,17 @@ namespace CapaVista
         private void DetalleProductos_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void BtnNuevo_Click(object sender, EventArgs e)
+        {
+            RegistroProducto objRtroProdducto = new RegistroProducto();
+            objRtroProdducto.ShowDialog();
+        }
+
+        private void BtnAtras_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

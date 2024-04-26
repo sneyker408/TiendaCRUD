@@ -13,6 +13,7 @@ namespace CapaEntidades
     public class Pedido
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int PedidoID { get; set; }
 
         [ForeignKey("Cliente")]

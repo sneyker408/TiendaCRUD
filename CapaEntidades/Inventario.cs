@@ -13,6 +13,7 @@ namespace CapaEntidades
     public class Inventario
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int InventarioID { get; set; }
 
         [ForeignKey("Producto")]

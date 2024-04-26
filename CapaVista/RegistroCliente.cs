@@ -10,16 +10,16 @@ using System.Windows.Forms;
 
 namespace CapaVista
 {
-    public partial class Form1 : Form
+    public partial class RegistroCliente : Form
     {
-        public Form1()
+        public RegistroCliente()
         {
             InitializeComponent();
         }
 
-        private void MnDtProducto_Click(object sender, EventArgs e)
+        private void btnCancelarCliente_Click(object sender, EventArgs e)
         {
-             
+            this.Close();
         }
     }
 }

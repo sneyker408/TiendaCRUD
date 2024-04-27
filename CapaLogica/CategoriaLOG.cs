@@ -19,5 +19,11 @@ namespace CapaLogica
             return _categoriaDAL.Guardar(categoria, id, esActualizacion);
         }
 
+        public List<Categoria> ObtenerCategoria()
+        {
+            _categoriaDAL = new CategoriaDAL();
+
+            return _categoriaDAL.Leer();
+        }
     }
 }

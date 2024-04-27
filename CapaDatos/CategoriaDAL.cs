@@ -38,6 +38,14 @@ namespace CapaDatos
             return resultado;
         }
 
+        public List<Categoria> Leer()
+        {
+
+            _db = new ContextoDB();
+
+            return _db.Categorias.ToList();
+        }
+
         public Categoria LeerPorId(int id)
         {
 

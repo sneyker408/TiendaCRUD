@@ -32,7 +32,7 @@ namespace CapaEntidades
 
         public string Fabricante { get; set; }
 
-        public string EstadoPedido { get; set; }
+        public bool Estado { get; set; }
 
         [Required(ErrorMessage = "El total del pedido es obligatorio.")]
         [Range(0.01, double.MaxValue, ErrorMessage = "El total del pedido debe ser mayor que cero.")]

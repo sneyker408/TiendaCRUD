@@ -25,7 +25,7 @@ namespace CapaEntidades
 
         [Required(ErrorMessage = "El estado del pedido es obligatorio.")]
         [StringLength(50, ErrorMessage = "El estado del pedido no puede tener más de 50 caracteres.")]
-        public string EstadoPedido { get; set; }
+        public bool EstadoPedido { get; set; }
 
         [Required(ErrorMessage = "El total del pedido es obligatorio.")]
         [Range(0.01, double.MaxValue, ErrorMessage = "El total del pedido debe ser mayor que cero.")]

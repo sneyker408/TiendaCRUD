@@ -1,22 +1,20 @@
 using CapaEntidades;
 using System;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Configuration;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 
 namespace CapaDatos
 {
-    public partial class ContextoDB : DbContext
+    public class ContextoDB : DbContext
     {
         public ContextoDB()
             : base("name=ContextoDB")
         {
         }
 
-
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-        }
         public virtual DbSet<Categoria> Categorias { get; set; }
         public virtual DbSet<Producto> Productos { get; set; }
 

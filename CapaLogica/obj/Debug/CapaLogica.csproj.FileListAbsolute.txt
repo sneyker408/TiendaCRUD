@@ -1,0 +1,14 @@
+C:\Users\jerem\Desktop\progra\prueba\Tienda_Vapesney\CapaLogica\obj\Debug\CapaLogica.csproj.AssemblyReference.cache
+C:\Users\jerem\Desktop\progra\prueba\Tienda_Vapesney\CapaLogica\obj\Debug\CapaLogica.csproj.CoreCompileInputs.cache
+C:\Users\jerem\Desktop\progra\prueba\Tienda_Vapesney\CapaLogica\bin\Debug\CapaLogica.dll
+C:\Users\jerem\Desktop\progra\prueba\Tienda_Vapesney\CapaLogica\bin\Debug\CapaLogica.pdb
+C:\Users\jerem\Desktop\progra\prueba\Tienda_Vapesney\CapaLogica\bin\Debug\CapaDatos.dll
+C:\Users\jerem\Desktop\progra\prueba\Tienda_Vapesney\CapaLogica\bin\Debug\CapaEntidades.dll
+C:\Users\jerem\Desktop\progra\prueba\Tienda_Vapesney\CapaLogica\bin\Debug\EntityFramework.dll
+C:\Users\jerem\Desktop\progra\prueba\Tienda_Vapesney\CapaLogica\bin\Debug\CapaDatos.pdb
+C:\Users\jerem\Desktop\progra\prueba\Tienda_Vapesney\CapaLogica\bin\Debug\CapaDatos.dll.config
+C:\Users\jerem\Desktop\progra\prueba\Tienda_Vapesney\CapaLogica\bin\Debug\CapaEntidades.pdb
+C:\Users\jerem\Desktop\progra\prueba\Tienda_Vapesney\CapaLogica\bin\Debug\EntityFramework.xml
+C:\Users\jerem\Desktop\progra\prueba\Tienda_Vapesney\CapaLogica\obj\Debug\CapaLogica.csproj.CopyComplete
+C:\Users\jerem\Desktop\progra\prueba\Tienda_Vapesney\CapaLogica\obj\Debug\CapaLogica.dll
+C:\Users\jerem\Desktop\progra\prueba\Tienda_Vapesney\CapaLogica\obj\Debug\CapaLogica.pdb

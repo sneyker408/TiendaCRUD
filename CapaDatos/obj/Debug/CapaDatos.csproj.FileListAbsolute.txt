@@ -44,5 +44,5 @@ C:\Users\jerem\Desktop\progra\prueba\Tienda_Vapesney\CapaDatos\obj\Debug\CapaDat
 C:\Users\jerem\Desktop\progra\prueba\Tienda_Vapesney\CapaDatos\obj\Debug\CapaDatos.csproj.CopyComplete
 C:\Users\jerem\Desktop\progra\prueba\Tienda_Vapesney\CapaDatos\obj\Debug\CapaDatos.dll
 C:\Users\jerem\Desktop\progra\prueba\Tienda_Vapesney\CapaDatos\obj\Debug\CapaDatos.pdb
-C:\Users\jerem\Desktop\progra\prueba\Tienda_Vapesney\CapaDatos\obj\Debug\CapaDatos.Migrations.first_commit.resources
+C:\Users\jerem\Desktop\progra\prueba\Tienda_Vapesney\CapaDatos\obj\Debug\CapaDatos.Migrations.Firstmigration.resources
 C:\Users\jerem\Desktop\progra\prueba\Tienda_Vapesney\CapaDatos\obj\Debug\CapaDatos.csproj.GenerateResource.cache

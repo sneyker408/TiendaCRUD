@@ -60,3 +60,13 @@ C:\Users\jerem\Desktop\progra\prueba\Tienda_Vapesney\CapaVista\obj\Debug\CapaVis
 C:\Users\jerem\Desktop\progra\prueba\Tienda_Vapesney\CapaVista\obj\Debug\CapaVista.csproj.CoreCompileInputs.cache
 C:\Users\jerem\Desktop\progra\prueba\Tienda_Vapesney\CapaVista\obj\Debug\CapaVista.exe
 C:\Users\jerem\Desktop\progra\prueba\Tienda_Vapesney\CapaVista\obj\Debug\CapaVista.pdb
+C:\Users\jerem\Desktop\progra\prueba\Tienda_Vapesney\CapaVista\bin\Debug\CapaEntidades.dll
+C:\Users\jerem\Desktop\progra\prueba\Tienda_Vapesney\CapaVista\bin\Debug\CapaLogica.dll
+C:\Users\jerem\Desktop\progra\prueba\Tienda_Vapesney\CapaVista\bin\Debug\CapaDatos.dll
+C:\Users\jerem\Desktop\progra\prueba\Tienda_Vapesney\CapaVista\bin\Debug\EntityFramework.dll
+C:\Users\jerem\Desktop\progra\prueba\Tienda_Vapesney\CapaVista\bin\Debug\CapaEntidades.pdb
+C:\Users\jerem\Desktop\progra\prueba\Tienda_Vapesney\CapaVista\bin\Debug\CapaLogica.pdb
+C:\Users\jerem\Desktop\progra\prueba\Tienda_Vapesney\CapaVista\bin\Debug\CapaDatos.pdb
+C:\Users\jerem\Desktop\progra\prueba\Tienda_Vapesney\CapaVista\bin\Debug\CapaDatos.dll.config
+C:\Users\jerem\Desktop\progra\prueba\Tienda_Vapesney\CapaVista\bin\Debug\EntityFramework.xml
+C:\Users\jerem\Desktop\progra\prueba\Tienda_Vapesney\CapaVista\obj\Debug\CapaVista.csproj.CopyComplete

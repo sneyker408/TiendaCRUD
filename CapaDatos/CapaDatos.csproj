@@ -58,11 +58,6 @@
     <Compile Include="ContextoDB.cs" />
     <Compile Include="DetallePedidoDAL.cs" />
     <Compile Include="InventarioDAL.cs" />
-    <Compile Include="Migrations\202404270159529_First migration.cs" />
-    <Compile Include="Migrations\202404270159529_First migration.designer.cs">
-      <DependentUpon>202404270159529_First migration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PedidoDAL.cs" />
     <Compile Include="ProductoDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -77,11 +72,6 @@
       <Project>{5fbe3d68-1b39-49ca-88b1-e0ed6e5a663f}</Project>
       <Name>CapaEntidades</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\202404270159529_First migration.resx">
-      <DependentUpon>202404270159529_First migration.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

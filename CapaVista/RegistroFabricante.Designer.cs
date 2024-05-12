@@ -31,12 +31,12 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegistroFabricante));
             this.chkEstadoFabri = new System.Windows.Forms.CheckBox();
+            this.FabricanteBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label2 = new System.Windows.Forms.Label();
             this.btnCancelarFabri = new System.Windows.Forms.Button();
             this.btnGuardarFabri = new System.Windows.Forms.Button();
             this.txtFabricante = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.FabricanteBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.FabricanteBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,6 +51,10 @@
             this.chkEstadoFabri.TabIndex = 29;
             this.chkEstadoFabri.Text = "Activo";
             this.chkEstadoFabri.UseVisualStyleBackColor = true;
+            // 
+            // FabricanteBindingSource
+            // 
+            this.FabricanteBindingSource.DataSource = typeof(CapaEntidades.Fabricante);
             // 
             // label2
             // 
@@ -104,10 +108,6 @@
             this.label1.TabIndex = 24;
             this.label1.Text = "Nombre del Fabricante";
             // 
-            // FabricanteBindingSource
-            // 
-            this.FabricanteBindingSource.DataSource = typeof(CapaEntidades.Fabricante);
-            // 
             // RegistroFabricante
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -121,6 +121,7 @@
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "RegistroFabricante";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Vapesney | RegistroFabricante";
             ((System.ComponentModel.ISupportInitialize)(this.FabricanteBindingSource)).EndInit();
             this.ResumeLayout(false);

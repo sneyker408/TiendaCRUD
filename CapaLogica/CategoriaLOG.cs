@@ -40,5 +40,11 @@ namespace CapaLogica
             return _categoriaDAL.Categorias(inactivo);
 
         }
+
+        public string ExtraerNombreCategoria(int idCategoria)
+        {
+            _categoriaDAL = new CategoriaDAL();
+            return _categoriaDAL.ObtenerNombreCategoriaDesdeBD(idCategoria);
+        }
     }
 }

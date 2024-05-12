@@ -34,12 +34,8 @@ namespace CapaVista
         private void CargarProductos()
         {
             _productoLOG = new ProductoLOG();
-            _categoriaLOG = new CategoriaLOG();
-            _fabricanteLOG = new FabricanteLOG();
 
             dgvProductos.DataSource = _productoLOG.ObtenerProductos();
-
-
 
         }
 
@@ -83,6 +79,16 @@ namespace CapaVista
 
                 e.FormattingApplied = true;
             }
+
+            if (e.RowIndex >= 0 && e.ColumnIndex == dgvProductos.Columns["CategoriaId"].Index)
+            {
+                int idCategoria = Convert.ToInt32(e.Value);
+                string NombreCategoria = _categoriaLOG.ExtraerNombreCategoria(idCategoria);
+                e.Value = NombreCategoria;
+
+                e.FormattingApplied = true;
+            }
+
         }
 
     }

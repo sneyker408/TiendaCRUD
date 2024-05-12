@@ -55,6 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CategoriaDAL.cs" />
+    <Compile Include="ClienteDAL.cs" />
     <Compile Include="ContextoBD.cs" />
     <Compile Include="FabricanteDAL.cs" />
     <Compile Include="Migrations\202405111552595_first commit.cs" />
@@ -64,6 +65,14 @@
     <Compile Include="Migrations\202405111629575_second commit.cs" />
     <Compile Include="Migrations\202405111629575_second commit.designer.cs">
       <DependentUpon>202405111629575_second commit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202405121547008_modificacion tabla cliente.cs" />
+    <Compile Include="Migrations\202405121547008_modificacion tabla cliente.designer.cs">
+      <DependentUpon>202405121547008_modificacion tabla cliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202405121630469_nueva modificacion tabla cliente.cs" />
+    <Compile Include="Migrations\202405121630469_nueva modificacion tabla cliente.designer.cs">
+      <DependentUpon>202405121630469_nueva modificacion tabla cliente.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ProductoDAL.cs" />
@@ -86,6 +95,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202405111629575_second commit.resx">
       <DependentUpon>202405111629575_second commit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202405121547008_modificacion tabla cliente.resx">
+      <DependentUpon>202405121547008_modificacion tabla cliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202405121630469_nueva modificacion tabla cliente.resx">
+      <DependentUpon>202405121630469_nueva modificacion tabla cliente.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

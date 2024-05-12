@@ -68,6 +68,18 @@
     <Compile Include="MantenimientoCategoria.Designer.cs">
       <DependentUpon>MantenimientoCategoria.cs</DependentUpon>
     </Compile>
+    <Compile Include="MantenimientoCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MantenimientoCliente.Designer.cs">
+      <DependentUpon>MantenimientoCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MantenimientoEmpleado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MantenimientoEmpleado.Designer.cs">
+      <DependentUpon>MantenimientoEmpleado.cs</DependentUpon>
+    </Compile>
     <Compile Include="MantenimientoProductos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,6 +100,12 @@
     <Compile Include="RegistroCategoria.Designer.cs">
       <DependentUpon>RegistroCategoria.cs</DependentUpon>
     </Compile>
+    <Compile Include="RegistroCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegistroCliente.Designer.cs">
+      <DependentUpon>RegistroCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="RegistroFabricante.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,11 +124,23 @@
     <Compile Include="RegistroVenta.Designer.cs">
       <DependentUpon>RegistroVenta.cs</DependentUpon>
     </Compile>
+    <Compile Include="ValidacionEmpleado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ValidacionEmpleado.Designer.cs">
+      <DependentUpon>ValidacionEmpleado.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MantenimientoCategoria.resx">
       <DependentUpon>MantenimientoCategoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MantenimientoCliente.resx">
+      <DependentUpon>MantenimientoCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MantenimientoEmpleado.resx">
+      <DependentUpon>MantenimientoEmpleado.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MantenimientoProductos.resx">
       <DependentUpon>MantenimientoProductos.cs</DependentUpon>
@@ -131,6 +161,9 @@
     <EmbeddedResource Include="RegistroCategoria.resx">
       <DependentUpon>RegistroCategoria.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="RegistroCliente.resx">
+      <DependentUpon>RegistroCliente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RegistroFabricante.resx">
       <DependentUpon>RegistroFabricante.cs</DependentUpon>
     </EmbeddedResource>
@@ -140,9 +173,14 @@
     <EmbeddedResource Include="RegistroVenta.resx">
       <DependentUpon>RegistroVenta.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ValidacionEmpleado.resx">
+      <DependentUpon>ValidacionEmpleado.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\CapaEntidades.Categoria.datasource" />
+    <None Include="Properties\DataSources\CapaEntidades.Cliente.datasource" />
     <None Include="Properties\DataSources\CapaEntidades.DetalleVenta.datasource" />
+    <None Include="Properties\DataSources\CapaEntidades.Empleado.datasource" />
     <None Include="Properties\DataSources\CapaEntidades.Fabricante.datasource" />
     <None Include="Properties\DataSources\CapaEntidades.Producto.datasource" />
     <None Include="Properties\DataSources\CapaEntidades.Venta.datasource" />
@@ -174,6 +212,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\logo.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

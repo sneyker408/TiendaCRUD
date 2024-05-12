@@ -33,15 +33,20 @@
             this.BtnNuevoMFabri = new System.Windows.Forms.Button();
             this.BtnAtrasMFabri = new System.Windows.Forms.Button();
             this.dgvFabricante = new System.Windows.Forms.DataGridView();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.FabricanteBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.fabricanteIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreFabricanteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estadoDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Editar = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFabricante)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FabricanteBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // BtnNuevoMFabri
             // 
-            this.BtnNuevoMFabri.BackColor = System.Drawing.Color.YellowGreen;
+            this.BtnNuevoMFabri.BackColor = System.Drawing.Color.Transparent;
             this.BtnNuevoMFabri.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnNuevoMFabri.Location = new System.Drawing.Point(13, 474);
             this.BtnNuevoMFabri.Margin = new System.Windows.Forms.Padding(4);
@@ -54,7 +59,7 @@
             // 
             // BtnAtrasMFabri
             // 
-            this.BtnAtrasMFabri.BackColor = System.Drawing.Color.LightCoral;
+            this.BtnAtrasMFabri.BackColor = System.Drawing.Color.Transparent;
             this.BtnAtrasMFabri.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnAtrasMFabri.Location = new System.Drawing.Point(837, 474);
             this.BtnAtrasMFabri.Margin = new System.Windows.Forms.Padding(4);
@@ -67,13 +72,28 @@
             // 
             // dgvFabricante
             // 
+            this.dgvFabricante.AllowUserToAddRows = false;
+            this.dgvFabricante.AllowUserToDeleteRows = false;
+            this.dgvFabricante.AutoGenerateColumns = false;
             this.dgvFabricante.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvFabricante.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.fabricanteIdDataGridViewTextBoxColumn,
+            this.nombreFabricanteDataGridViewTextBoxColumn,
+            this.estadoDataGridViewCheckBoxColumn,
+            this.Editar,
+            this.Eliminar});
+            this.dgvFabricante.DataSource = this.FabricanteBindingSource;
             this.dgvFabricante.Location = new System.Drawing.Point(13, 57);
             this.dgvFabricante.Margin = new System.Windows.Forms.Padding(4);
             this.dgvFabricante.Name = "dgvFabricante";
+            this.dgvFabricante.ReadOnly = true;
             this.dgvFabricante.RowHeadersWidth = 51;
             this.dgvFabricante.Size = new System.Drawing.Size(980, 398);
             this.dgvFabricante.TabIndex = 10;
+            // 
+            // FabricanteBindingSource
+            // 
+            this.FabricanteBindingSource.DataSource = typeof(CapaEntidades.Fabricante);
             // 
             // groupBox1
             // 
@@ -86,9 +106,50 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filtro por Fabricante";
             // 
-            // FabricanteBindingSource
+            // fabricanteIdDataGridViewTextBoxColumn
             // 
-            this.FabricanteBindingSource.DataSource = typeof(CapaEntidades.Fabricante);
+            this.fabricanteIdDataGridViewTextBoxColumn.DataPropertyName = "FabricanteId";
+            this.fabricanteIdDataGridViewTextBoxColumn.HeaderText = "FabricanteId";
+            this.fabricanteIdDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.fabricanteIdDataGridViewTextBoxColumn.Name = "fabricanteIdDataGridViewTextBoxColumn";
+            this.fabricanteIdDataGridViewTextBoxColumn.ReadOnly = true;
+            this.fabricanteIdDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // nombreFabricanteDataGridViewTextBoxColumn
+            // 
+            this.nombreFabricanteDataGridViewTextBoxColumn.DataPropertyName = "NombreFabricante";
+            this.nombreFabricanteDataGridViewTextBoxColumn.HeaderText = "NombreFabricante";
+            this.nombreFabricanteDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.nombreFabricanteDataGridViewTextBoxColumn.Name = "nombreFabricanteDataGridViewTextBoxColumn";
+            this.nombreFabricanteDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nombreFabricanteDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // estadoDataGridViewCheckBoxColumn
+            // 
+            this.estadoDataGridViewCheckBoxColumn.DataPropertyName = "Estado";
+            this.estadoDataGridViewCheckBoxColumn.HeaderText = "Estado";
+            this.estadoDataGridViewCheckBoxColumn.MinimumWidth = 6;
+            this.estadoDataGridViewCheckBoxColumn.Name = "estadoDataGridViewCheckBoxColumn";
+            this.estadoDataGridViewCheckBoxColumn.ReadOnly = true;
+            this.estadoDataGridViewCheckBoxColumn.Width = 125;
+            // 
+            // Editar
+            // 
+            this.Editar.HeaderText = "Editar";
+            this.Editar.Image = global::CapaVista.Properties.Resources.edit_v2;
+            this.Editar.MinimumWidth = 6;
+            this.Editar.Name = "Editar";
+            this.Editar.ReadOnly = true;
+            this.Editar.Width = 125;
+            // 
+            // Eliminar
+            // 
+            this.Eliminar.HeaderText = "Eliminar";
+            this.Eliminar.Image = global::CapaVista.Properties.Resources.delete;
+            this.Eliminar.MinimumWidth = 6;
+            this.Eliminar.Name = "Eliminar";
+            this.Eliminar.ReadOnly = true;
+            this.Eliminar.Width = 125;
             // 
             // MatenimientoFabricante
             // 
@@ -101,6 +162,7 @@
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MatenimientoFabricante";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Vapesney | MatenimientoFabricante";
             ((System.ComponentModel.ISupportInitialize)(this.dgvFabricante)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.FabricanteBindingSource)).EndInit();
@@ -115,5 +177,10 @@
         private System.Windows.Forms.DataGridView dgvFabricante;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.BindingSource FabricanteBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fabricanteIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombreFabricanteDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn estadoDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewImageColumn Editar;
+        private System.Windows.Forms.DataGridViewImageColumn Eliminar;
     }
 }

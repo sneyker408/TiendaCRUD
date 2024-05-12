@@ -31,12 +31,12 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegistroCategoria));
             this.chkEstado = new System.Windows.Forms.CheckBox();
+            this.CategoriabindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label2 = new System.Windows.Forms.Label();
             this.btnCancelarCategoria = new System.Windows.Forms.Button();
             this.btnGuardarCategoria = new System.Windows.Forms.Button();
             this.txtCategoria = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.CategoriabindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.CategoriabindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,6 +51,10 @@
             this.chkEstado.TabIndex = 29;
             this.chkEstado.Text = "Activo";
             this.chkEstado.UseVisualStyleBackColor = true;
+            // 
+            // CategoriabindingSource
+            // 
+            this.CategoriabindingSource.DataSource = typeof(CapaEntidades.Categoria);
             // 
             // label2
             // 
@@ -104,10 +108,6 @@
             this.label1.TabIndex = 24;
             this.label1.Text = "Nombre de la categoria:";
             // 
-            // CategoriabindingSource
-            // 
-            this.CategoriabindingSource.DataSource = typeof(CapaEntidades.Categoria);
-            // 
             // RegistroCategoria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -121,6 +121,7 @@
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "RegistroCategoria";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Vapesney | RegistroCategoria";
             ((System.ComponentModel.ISupportInitialize)(this.CategoriabindingSource)).EndInit();
             this.ResumeLayout(false);

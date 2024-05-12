@@ -31,7 +31,6 @@ namespace CapaEntidades
         public string Direccion { get; set; }
 
         [Required]
-        [StringLength(20)]
-        public string NumeroTelefono { get; set; }
+        public int NumeroTelefono { get; set; }
     }
 }

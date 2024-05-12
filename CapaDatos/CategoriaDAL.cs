@@ -52,17 +52,7 @@ namespace CapaDatos
             return _db.Categorias.Find(id);
         }
 
-        public string ObtenerNombreCategoriaDesdeBD(int idCategoria)
-        {
-            string nombreCategoria = string.Empty;
-            _db = new ContextoBD();
-            Categoria categoria = _db.Categorias.FirstOrDefault(m => m.CategoriaId == idCategoria);
-            if (categoria != null)
-            {
-                nombreCategoria = categoria.NombreCategoria;
-            }
-            return nombreCategoria;
-        }
+        
 
         public List<Categoria> Categorias(bool inactivo = false)
         {
@@ -76,6 +66,18 @@ namespace CapaDatos
             {
                 return _db.Categorias.Where(c => c.Estado == true).ToList();
             }
+        }
+
+        public string ObtenerNombreCategoriaDesdeBD(int idCategoria)
+        {
+            string nombreCategoria = string.Empty;
+            _db = new ContextoBD();
+            Categoria categoria = _db.Categorias.FirstOrDefault(m => m.CategoriaId == idCategoria);
+            if (categoria != null)
+            {
+                nombreCategoria = categoria.NombreCategoria;
+            }
+            return nombreCategoria;
         }
     }
 }

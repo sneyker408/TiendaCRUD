@@ -28,17 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MantenimientoCategoria));
             this.BtnNuevoMCate = new System.Windows.Forms.Button();
             this.BtnAtrasMCate = new System.Windows.Forms.Button();
             this.dgvCategoria = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.CategoriabindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.CategoriaId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NombreCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Estado = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Editar = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCategoria)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CategoriabindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // BtnNuevoMCate
             // 
-            this.BtnNuevoMCate.BackColor = System.Drawing.Color.YellowGreen;
+            this.BtnNuevoMCate.BackColor = System.Drawing.Color.Transparent;
             this.BtnNuevoMCate.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnNuevoMCate.Location = new System.Drawing.Point(25, 508);
             this.BtnNuevoMCate.Margin = new System.Windows.Forms.Padding(4);
@@ -51,7 +61,7 @@
             // 
             // BtnAtrasMCate
             // 
-            this.BtnAtrasMCate.BackColor = System.Drawing.Color.LightCoral;
+            this.BtnAtrasMCate.BackColor = System.Drawing.Color.Transparent;
             this.BtnAtrasMCate.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnAtrasMCate.Location = new System.Drawing.Point(849, 508);
             this.BtnAtrasMCate.Margin = new System.Windows.Forms.Padding(4);
@@ -64,17 +74,27 @@
             // 
             // dgvCategoria
             // 
+            this.dgvCategoria.AllowUserToAddRows = false;
+            this.dgvCategoria.AllowUserToDeleteRows = false;
             this.dgvCategoria.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCategoria.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.CategoriaId,
+            this.NombreCategoria,
+            this.Estado,
+            this.Editar,
+            this.Eliminar});
             this.dgvCategoria.Location = new System.Drawing.Point(25, 91);
             this.dgvCategoria.Margin = new System.Windows.Forms.Padding(4);
             this.dgvCategoria.Name = "dgvCategoria";
+            this.dgvCategoria.ReadOnly = true;
             this.dgvCategoria.RowHeadersWidth = 51;
             this.dgvCategoria.Size = new System.Drawing.Size(980, 398);
             this.dgvCategoria.TabIndex = 10;
+            this.dgvCategoria.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgCategoria_CellClick);
             // 
             // groupBox1
             // 
-            this.groupBox1.Location = new System.Drawing.Point(25, 44);
+            this.groupBox1.Location = new System.Drawing.Point(25, 13);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
@@ -82,6 +102,75 @@
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filtro por Categoria";
+            // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.HeaderText = "Editar";
+            this.dataGridViewImageColumn1.Image = global::CapaVista.Properties.Resources.edit_v2;
+            this.dataGridViewImageColumn1.MinimumWidth = 6;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewImageColumn1.Width = 125;
+            // 
+            // dataGridViewImageColumn2
+            // 
+            this.dataGridViewImageColumn2.HeaderText = "Eliminar";
+            this.dataGridViewImageColumn2.Image = global::CapaVista.Properties.Resources.delete;
+            this.dataGridViewImageColumn2.MinimumWidth = 6;
+            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
+            this.dataGridViewImageColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewImageColumn2.Width = 125;
+            // 
+            // CategoriabindingSource
+            // 
+            this.CategoriabindingSource.DataSource = typeof(CapaEntidades.Categoria);
+            // 
+            // CategoriaId
+            // 
+            this.CategoriaId.DataPropertyName = "CategoriaId";
+            this.CategoriaId.HeaderText = "Codigo";
+            this.CategoriaId.MinimumWidth = 6;
+            this.CategoriaId.Name = "CategoriaId";
+            this.CategoriaId.ReadOnly = true;
+            this.CategoriaId.Width = 125;
+            // 
+            // NombreCategoria
+            // 
+            this.NombreCategoria.DataPropertyName = "NombreCategoria";
+            this.NombreCategoria.HeaderText = "Nombre";
+            this.NombreCategoria.MinimumWidth = 6;
+            this.NombreCategoria.Name = "NombreCategoria";
+            this.NombreCategoria.ReadOnly = true;
+            this.NombreCategoria.Width = 125;
+            // 
+            // Estado
+            // 
+            this.Estado.DataPropertyName = "Estado";
+            this.Estado.HeaderText = "Estado";
+            this.Estado.MinimumWidth = 6;
+            this.Estado.Name = "Estado";
+            this.Estado.ReadOnly = true;
+            this.Estado.Width = 125;
+            // 
+            // Editar
+            // 
+            this.Editar.HeaderText = "Editar";
+            this.Editar.Image = global::CapaVista.Properties.Resources.edit_v2;
+            this.Editar.MinimumWidth = 6;
+            this.Editar.Name = "Editar";
+            this.Editar.ReadOnly = true;
+            this.Editar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Editar.Width = 125;
+            // 
+            // Eliminar
+            // 
+            this.Eliminar.HeaderText = "Eliminar";
+            this.Eliminar.Image = global::CapaVista.Properties.Resources.delete;
+            this.Eliminar.MinimumWidth = 6;
+            this.Eliminar.Name = "Eliminar";
+            this.Eliminar.ReadOnly = true;
+            this.Eliminar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Eliminar.Width = 125;
             // 
             // MantenimientoCategoria
             // 
@@ -94,8 +183,10 @@
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MantenimientoCategoria";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Vapesney | MantenimientoCategoria";
             ((System.ComponentModel.ISupportInitialize)(this.dgvCategoria)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CategoriabindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -106,5 +197,13 @@
         private System.Windows.Forms.Button BtnAtrasMCate;
         private System.Windows.Forms.DataGridView dgvCategoria;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.BindingSource CategoriabindingSource;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CategoriaId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NombreCategoria;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Estado;
+        private System.Windows.Forms.DataGridViewImageColumn Editar;
+        private System.Windows.Forms.DataGridViewImageColumn Eliminar;
     }
 }

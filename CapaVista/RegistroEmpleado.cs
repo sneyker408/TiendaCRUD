@@ -1,54 +1,60 @@
 ﻿using CapaEntidades;
 using CapaLogica;
 using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
 using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CapaVista
 {
-    public partial class RegistroCliente : Form
+    public partial class RegistroEmpleado : Form
     {
-        ClienteLOG _clienteLOG;
+        EmpleadoLOG _empleadoLOG;
         int _id = 0;
 
-        public RegistroCliente()
+        public RegistroEmpleado()
         {
             InitializeComponent();
 
             if (_id > 0)
             {
                 this.Text = "Tienda | Edición de Productos";
-                btnGuardarClien.Text = "Actualizar";
+                btnGuardarEmple.Text = "Actualizar";
 
                 CargarDatos(_id);
             }
             else
             {
-                ClienteBindingSource.MoveLast();
-                ClienteBindingSource.AddNew();
+                EmpleadoBindingSource.MoveLast();
+                EmpleadoBindingSource.AddNew();
             }
         }
 
         private void CargarDatos(int id)
         {
-            _clienteLOG = new ClienteLOG();
-            ClienteBindingSource.DataSource = _clienteLOG.ObtenerClientePorId(id);
+            _empleadoLOG = new EmpleadoLOG();
+            EmpleadoBindingSource.DataSource = _empleadoLOG.ObtenerEmpleadoPorId(id);
         }
 
-        private void btnCancelarFabri_Click(object sender, EventArgs e)
+        private void btnCancelarEmple_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void GuardarCliente()
+        private void GuardarEmpleado()
         {
             try
             {
-                _clienteLOG = new ClienteLOG();
+                _empleadoLOG = new EmpleadoLOG();
 
                 if (string.IsNullOrEmpty(txtNombre.Text))
                 {
-                    MessageBox.Show("Se requiere el nombre del Cliente", "Tienda | Registro Cliente",
+                    MessageBox.Show("Se requiere el nombre del Empleado", "Tienda | Registro Empleado",
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     txtNombre.Focus();
                     txtNombre.BackColor = Color.LightYellow;
@@ -57,7 +63,7 @@ namespace CapaVista
 
                 if (string.IsNullOrEmpty(txtApellido.Text))
                 {
-                    MessageBox.Show("Se requiere el apellido del Cliente", "Tienda | Registro Cliente",
+                    MessageBox.Show("Se requiere el apellido del Empleado", "Tienda | Registro Empleado",
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     txtApellido.Focus();
                     txtApellido.BackColor = Color.LightYellow;
@@ -66,7 +72,7 @@ namespace CapaVista
 
                 if (string.IsNullOrEmpty(txtCorreo.Text))
                 {
-                    MessageBox.Show("Se requiere el Correo del Cliente", "Tienda | Registro Cliente",
+                    MessageBox.Show("Se requiere el Correo del Empleado", "Tienda | Registro Empleado",
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     txtCorreo.Focus();
                     txtCorreo.BackColor = Color.LightYellow;
@@ -75,7 +81,7 @@ namespace CapaVista
 
                 if (string.IsNullOrEmpty(txtDireccion.Text))
                 {
-                    MessageBox.Show("Se requiere la dirección del Cliente", "Tienda | Registro Cliente",
+                    MessageBox.Show("Se requiere la dirección del Empleado", "Tienda | Registro Empleado",
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     txtDireccion.Focus();
                     txtDireccion.BackColor = Color.LightYellow;
@@ -84,7 +90,7 @@ namespace CapaVista
 
                 if (string.IsNullOrEmpty(txtNumero.Text) || Convert.ToDecimal(txtNumero.Text) == 0)
                 {
-                    MessageBox.Show("Se requiere el número del Cliente", "Tienda | Registro Cliente",
+                    MessageBox.Show("Se requiere el número del Empleado", "Tienda | Registro Empleado",
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     txtNumero.Focus();
                     txtNumero.BackColor = Color.LightYellow;
@@ -95,49 +101,49 @@ namespace CapaVista
 
                 if (_id > 0)
                 {
-                    Cliente cliente;
-                    cliente = (Cliente)ClienteBindingSource.Current;
-                    resultado = _clienteLOG.ActualizarCliente(cliente, _id);
+                    Empleado empleado;
+                    empleado = (Empleado)EmpleadoBindingSource.Current;
+                    resultado = _empleadoLOG.ActualizarEmpleado(empleado, _id);
 
                     if (resultado > 0)
                     {
-                        MessageBox.Show("Cliente actualizado con éxito", "Tienda | Registro Cliente",
+                        MessageBox.Show("Empleado actualizado con éxito", "Tienda | Registro Empleado",
                             MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                         this.Close();
                     }
                     else
                     {
-                        MessageBox.Show("No se logró actualizar el cliente", "Tienda | Registro Cliente",
+                        MessageBox.Show("No se logró actualizar el empleado", "Tienda | Registro Empleado",
                             MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 else
                 {
-                    ClienteBindingSource.EndEdit();
+                    EmpleadoBindingSource.EndEdit();
 
-                    Cliente cliente;
-                    cliente = (Cliente)ClienteBindingSource.Current;
+                    Empleado empleado;
+                    empleado = (Empleado)EmpleadoBindingSource.Current;
 
-                    resultado = _clienteLOG.GuardarCliente(cliente);
+                    resultado = _empleadoLOG.GuardarEmpleado(empleado);
 
                     if (resultado > 0)
                     {
-                        MessageBox.Show("Cliente agregado con éxito", "Tienda | Registro Cliente",
+                        MessageBox.Show("Empleado agregado con éxito", "Tienda | Registro Empleado",
                             MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                         this.Close();
                     }
                     else
                     {
-                        MessageBox.Show("No se logró guardar el cliente", "Tienda | Registro Cliente",
+                        MessageBox.Show("No se logró guardar el empleado", "Tienda | Registro Empleado",
                             MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
             catch (Exception)
             {
-                MessageBox.Show("Ocurrió un error", "Tienda | Registro Cliente",
+                MessageBox.Show("Ocurrió un error", "Tienda | Registro Empleado",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -155,19 +161,20 @@ namespace CapaVista
             }
         }
 
-        private void btnGuardarClien_Click(object sender, EventArgs e)
+
+        private void btnGuardarEmple_Click_1(object sender, EventArgs e)
         {
-            _clienteLOG = new ClienteLOG();
+            _empleadoLOG = new EmpleadoLOG();
 
             if (ValidarCorreoElectronico(txtCorreo.Text))
             {
-                if (!_clienteLOG.CorreoElectronicoExiste(txtCorreo.Text))
+                if (!_empleadoLOG.CorreoElectronicoExiste(txtCorreo.Text))
                 {
-                    GuardarCliente();
+                    GuardarEmpleado();
                 }
                 else
                 {
-                    MessageBox.Show("El correo electrónico ya existe en la base de datos", "Tienda | Registro Cliente",
+                    MessageBox.Show("El correo electrónico ya existe en la base de datos", "Tienda | Registro Empleado",
                                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     txtCorreo.Focus();
                     txtCorreo.BackColor = Color.LightYellow;
@@ -175,7 +182,7 @@ namespace CapaVista
             }
             else
             {
-                MessageBox.Show("El formato del correo electrónico no es válido", "Tienda | Registro Cliente",
+                MessageBox.Show("El formato del correo electrónico no es válido", "Tienda | Registro Empleado",
                                 MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtCorreo.Focus();
                 txtCorreo.BackColor = Color.LightYellow;

@@ -17,16 +17,17 @@ namespace CapaEntidades
         [Required]
         [StringLength(100)]
         public string Nombre { get; set; }
+
         [Required]
         [StringLength(100)]
         public string Apellido { get; set; }
         [Required]
         [StringLength(200)]
-        public string Dicreecion { get; set; }
+        public string Direccion { get; set; }
 
         [Required]
-        [StringLength(100)]
-        public string Correo { get; set; }
+        [EmailAddress]
+        public string CorreoElectronico { get; set; }
 
         [Required]
         [StringLength(20)]

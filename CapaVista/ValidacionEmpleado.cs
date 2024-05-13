@@ -24,6 +24,7 @@ namespace CapaVista
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             ValidarContraseña();
+            this.Close();
         }
 
         private void ValidarContraseña()

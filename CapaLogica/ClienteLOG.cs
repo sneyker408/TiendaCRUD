@@ -41,6 +41,12 @@ namespace CapaLogica
             return _clienteDAL.Leer();
         }
 
-
+        public bool CorreoElectronicoExiste(string correoElectronico)
+        {
+            using (var contexto = new ContextoBD())
+            {
+                return contexto.Clientes.Any(c => c.CorreoElectronico == correoElectronico);
+            }
+        }
     }
 }

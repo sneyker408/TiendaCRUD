@@ -57,6 +57,7 @@
     <Compile Include="CategoriaDAL.cs" />
     <Compile Include="ClienteDAL.cs" />
     <Compile Include="ContextoBD.cs" />
+    <Compile Include="EmpleadoDAL.cs" />
     <Compile Include="FabricanteDAL.cs" />
     <Compile Include="Migrations\202405111552595_first commit.cs" />
     <Compile Include="Migrations\202405111552595_first commit.designer.cs">
@@ -73,6 +74,14 @@
     <Compile Include="Migrations\202405121630469_nueva modificacion tabla cliente.cs" />
     <Compile Include="Migrations\202405121630469_nueva modificacion tabla cliente.designer.cs">
       <DependentUpon>202405121630469_nueva modificacion tabla cliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202405130021185_modificacion tabla empleado.cs" />
+    <Compile Include="Migrations\202405130021185_modificacion tabla empleado.designer.cs">
+      <DependentUpon>202405130021185_modificacion tabla empleado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202405130025206_modificacion tabla empleado nombre Direccion.cs" />
+    <Compile Include="Migrations\202405130025206_modificacion tabla empleado nombre Direccion.designer.cs">
+      <DependentUpon>202405130025206_modificacion tabla empleado nombre Direccion.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ProductoDAL.cs" />
@@ -101,6 +110,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202405121630469_nueva modificacion tabla cliente.resx">
       <DependentUpon>202405121630469_nueva modificacion tabla cliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202405130021185_modificacion tabla empleado.resx">
+      <DependentUpon>202405130021185_modificacion tabla empleado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202405130025206_modificacion tabla empleado nombre Direccion.resx">
+      <DependentUpon>202405130025206_modificacion tabla empleado nombre Direccion.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

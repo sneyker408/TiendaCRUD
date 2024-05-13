@@ -35,7 +35,8 @@
             this.rdbActivos = new System.Windows.Forms.RadioButton();
             this.btnVolver = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
-            this.dgvClientes = new System.Windows.Forms.DataGridView();
+            this.dgvEmpleados = new System.Windows.Forms.DataGridView();
+            this.EmpleadoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gpbxFiltro = new System.Windows.Forms.GroupBox();
             this.btnReiniciar = new System.Windows.Forms.Button();
             this.cmbCategorias = new System.Windows.Forms.ComboBox();
@@ -44,19 +45,18 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cmbMarcas = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.EmpleadoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.empleadoIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.apellidoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dicreecionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.correoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CorreoElectronico = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Direccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.telefonoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Editar = new System.Windows.Forms.DataGridViewImageColumn();
             this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
-            this.gpbxFiltro.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleados)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.EmpleadoBindingSource)).BeginInit();
+            this.gpbxFiltro.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox2
@@ -102,6 +102,7 @@
             this.btnVolver.TabIndex = 14;
             this.btnVolver.Text = "Atras";
             this.btnVolver.UseVisualStyleBackColor = true;
+            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
             // 
             // btnNuevo
             // 
@@ -111,29 +112,34 @@
             this.btnNuevo.TabIndex = 13;
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = true;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
-            // dgvClientes
+            // dgvEmpleados
             // 
-            this.dgvClientes.AllowUserToAddRows = false;
-            this.dgvClientes.AllowUserToDeleteRows = false;
-            this.dgvClientes.AutoGenerateColumns = false;
-            this.dgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvClientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvEmpleados.AllowUserToAddRows = false;
+            this.dgvEmpleados.AllowUserToDeleteRows = false;
+            this.dgvEmpleados.AutoGenerateColumns = false;
+            this.dgvEmpleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvEmpleados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.empleadoIdDataGridViewTextBoxColumn,
             this.nombreDataGridViewTextBoxColumn,
             this.apellidoDataGridViewTextBoxColumn,
-            this.dicreecionDataGridViewTextBoxColumn,
-            this.correoDataGridViewTextBoxColumn,
+            this.CorreoElectronico,
+            this.Direccion,
             this.telefonoDataGridViewTextBoxColumn,
             this.Editar,
             this.Eliminar});
-            this.dgvClientes.DataSource = this.EmpleadoBindingSource;
-            this.dgvClientes.Location = new System.Drawing.Point(12, 135);
-            this.dgvClientes.Name = "dgvClientes";
-            this.dgvClientes.ReadOnly = true;
-            this.dgvClientes.RowHeadersWidth = 51;
-            this.dgvClientes.Size = new System.Drawing.Size(1127, 462);
-            this.dgvClientes.TabIndex = 12;
+            this.dgvEmpleados.DataSource = this.EmpleadoBindingSource;
+            this.dgvEmpleados.Location = new System.Drawing.Point(12, 135);
+            this.dgvEmpleados.Name = "dgvEmpleados";
+            this.dgvEmpleados.ReadOnly = true;
+            this.dgvEmpleados.RowHeadersWidth = 51;
+            this.dgvEmpleados.Size = new System.Drawing.Size(1127, 462);
+            this.dgvEmpleados.TabIndex = 12;
+            // 
+            // EmpleadoBindingSource
+            // 
+            this.EmpleadoBindingSource.DataSource = typeof(CapaEntidades.Empleado);
             // 
             // gpbxFiltro
             // 
@@ -219,10 +225,6 @@
             this.label6.TabIndex = 27;
             this.label6.Text = "Fabricante";
             // 
-            // EmpleadoBindingSource
-            // 
-            this.EmpleadoBindingSource.DataSource = typeof(CapaEntidades.Empleado);
-            // 
             // empleadoIdDataGridViewTextBoxColumn
             // 
             this.empleadoIdDataGridViewTextBoxColumn.DataPropertyName = "EmpleadoId";
@@ -250,23 +252,23 @@
             this.apellidoDataGridViewTextBoxColumn.ReadOnly = true;
             this.apellidoDataGridViewTextBoxColumn.Width = 125;
             // 
-            // dicreecionDataGridViewTextBoxColumn
+            // CorreoElectronico
             // 
-            this.dicreecionDataGridViewTextBoxColumn.DataPropertyName = "Dicreecion";
-            this.dicreecionDataGridViewTextBoxColumn.HeaderText = "Dicreecion";
-            this.dicreecionDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.dicreecionDataGridViewTextBoxColumn.Name = "dicreecionDataGridViewTextBoxColumn";
-            this.dicreecionDataGridViewTextBoxColumn.ReadOnly = true;
-            this.dicreecionDataGridViewTextBoxColumn.Width = 125;
+            this.CorreoElectronico.DataPropertyName = "CorreoElectronico";
+            this.CorreoElectronico.HeaderText = "CorreoElectronico";
+            this.CorreoElectronico.MinimumWidth = 6;
+            this.CorreoElectronico.Name = "CorreoElectronico";
+            this.CorreoElectronico.ReadOnly = true;
+            this.CorreoElectronico.Width = 125;
             // 
-            // correoDataGridViewTextBoxColumn
+            // Direccion
             // 
-            this.correoDataGridViewTextBoxColumn.DataPropertyName = "Correo";
-            this.correoDataGridViewTextBoxColumn.HeaderText = "Correo";
-            this.correoDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.correoDataGridViewTextBoxColumn.Name = "correoDataGridViewTextBoxColumn";
-            this.correoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.correoDataGridViewTextBoxColumn.Width = 125;
+            this.Direccion.DataPropertyName = "Direccion";
+            this.Direccion.HeaderText = "Direccion";
+            this.Direccion.MinimumWidth = 6;
+            this.Direccion.Name = "Direccion";
+            this.Direccion.ReadOnly = true;
+            this.Direccion.Width = 125;
             // 
             // telefonoDataGridViewTextBoxColumn
             // 
@@ -303,7 +305,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.btnNuevo);
-            this.Controls.Add(this.dgvClientes);
+            this.Controls.Add(this.dgvEmpleados);
             this.Controls.Add(this.gpbxFiltro);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MantenimientoEmpleado";
@@ -311,10 +313,10 @@
             this.Text = "Vapesney | Mantenimiento Empleado";
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleados)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EmpleadoBindingSource)).EndInit();
             this.gpbxFiltro.ResumeLayout(false);
             this.gpbxFiltro.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.EmpleadoBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -326,7 +328,7 @@
         private System.Windows.Forms.RadioButton rdbActivos;
         private System.Windows.Forms.Button btnVolver;
         private System.Windows.Forms.Button btnNuevo;
-        private System.Windows.Forms.DataGridView dgvClientes;
+        private System.Windows.Forms.DataGridView dgvEmpleados;
         private System.Windows.Forms.GroupBox gpbxFiltro;
         private System.Windows.Forms.Button btnReiniciar;
         private System.Windows.Forms.ComboBox cmbCategorias;
@@ -336,11 +338,13 @@
         private System.Windows.Forms.ComboBox cmbMarcas;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.BindingSource EmpleadoBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dicreecionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn correoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn empleadoIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn apellidoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dicreecionDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn correoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CorreoElectronico;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Direccion;
         private System.Windows.Forms.DataGridViewTextBoxColumn telefonoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewImageColumn Editar;
         private System.Windows.Forms.DataGridViewImageColumn Eliminar;

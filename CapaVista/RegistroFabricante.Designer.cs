@@ -90,7 +90,6 @@
             // 
             // txtFabricante
             // 
-            this.txtFabricante.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtFabricante.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.FabricanteBindingSource, "NombreFabricante", true));
             this.txtFabricante.Location = new System.Drawing.Point(232, 20);
             this.txtFabricante.Margin = new System.Windows.Forms.Padding(4);

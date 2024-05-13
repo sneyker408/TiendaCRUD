@@ -28,7 +28,7 @@ namespace CapaVista
 
             if (_id > 0)
             {
-                this.Text = "Tienda | Edición de Categorias";
+                this.Text = "Vapesney | Edición de Categorias";
                 btnGuardarCategoria.Text = "Actualizar";
 
                 CargarDatos(_id);
@@ -57,16 +57,31 @@ namespace CapaVista
             this.Close();
         }
 
+        private bool CategoriaExiste(string nombreCategoria)
+        {
+
+            List<Categoria> categorias = _categoriaLOG.ObtenerCategorias();
+
+
+            foreach (Categoria categoria in categorias)
+            {
+                if (string.Equals(categoria.NombreCategoria, nombreCategoria, StringComparison.OrdinalIgnoreCase))
+                {
+                    return true; 
+                }
+            }
+            return false; 
+        }
+
         private void GuardarCategoria()
         {
             try
             {
                 _categoriaLOG = new CategoriaLOG();
 
-                //throw new Exception();
                 if (string.IsNullOrEmpty(txtCategoria.Text))
                 {
-                    MessageBox.Show("Se requiere el nombre de la Categoria", "Tienda | Registro Categoria",
+                    MessageBox.Show("Se requiere el nombre de la Categoria", "Vapesney | Registro Categoria",
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     txtCategoria.Focus();
                     txtCategoria.BackColor = Color.LightYellow;
@@ -74,16 +89,26 @@ namespace CapaVista
                 }
                 if (!chkEstado.Checked)
                 {
-                    var dialogo = MessageBox.Show("Estas seguro que desea guardar la marca inactiva?", "Tienda | Registro Marca",
+                    var dialogo = MessageBox.Show("¿Estás seguro que deseas guardar la marca inactiva?", "Vapesney | Registro Categoria",
                         MessageBoxButtons.YesNo, MessageBoxIcon.Information);
 
                     if (dialogo != DialogResult.Yes)
                     {
-                        MessageBox.Show("Seleccione el cuadro estado como activo", "Tienda | Registro Marca",
+                        MessageBox.Show("Seleccione el cuadro estado como activo", "Vapesney | Registro Categoria",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
                         return;
                     }
                 }
+
+                if (CategoriaExiste(txtCategoria.Text) && btnGuardarCategoria.Text == "Guardar")
+                {
+                    MessageBox.Show("El nombre de la categoría ya existe. Por favor, elija otro nombre.", "Vapesney | Registro Categoria",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtCategoria.Focus();
+                    txtCategoria.BackColor = Color.LightYellow;
+                    return;
+                }
+
                 int resultado;
 
                 if (_id > 0)
@@ -96,14 +121,14 @@ namespace CapaVista
 
                     if (resultado > 0)
                     {
-                        MessageBox.Show("categoria actualizado con exito", "Tienda | Registro categorias",
+                        MessageBox.Show("Categoría actualizada con éxito", "Vapesney | Registro categorías",
                             MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                         this.Close();
                     }
                     else
                     {
-                        MessageBox.Show("No se logro acutalizar el categoria", "Tienda | Registro categorias",
+                        MessageBox.Show("No se logró actualizar la categoría", "Vapesney | Registro categorías",
                             MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
@@ -118,14 +143,14 @@ namespace CapaVista
 
                     if (resultado > 0)
                     {
-                        MessageBox.Show("categoria agregado con exito", "Tienda | Registro categorias",
+                        MessageBox.Show("Categoría agregada con éxito", "Vapesney | Registro categorías",
                             MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                         this.Close();
                     }
                     else
                     {
-                        MessageBox.Show("No se logro guardar el categoria", "Tienda | Registro categorias",
+                        MessageBox.Show("No se logró guardar la categoría", "Vapesney | Registro categorías",
                             MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
@@ -133,7 +158,7 @@ namespace CapaVista
             }
             catch (Exception)
             {
-                MessageBox.Show("Ocurrio un Error", "Tienda | Registro categorias",
+                MessageBox.Show("Ocurrió un Error", "Vapesney | Registro categorías",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }

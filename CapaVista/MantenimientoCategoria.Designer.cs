@@ -33,10 +33,10 @@
             this.BtnNuevoMCate = new System.Windows.Forms.Button();
             this.BtnAtrasMCate = new System.Windows.Forms.Button();
             this.dgvCategoria = new System.Windows.Forms.DataGridView();
+            this.CategoriabindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.CategoriabindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.categoriaId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreCategoriaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.estadoDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
@@ -94,6 +94,10 @@
             this.dgvCategoria.TabIndex = 10;
             this.dgvCategoria.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgCategoria_CellClick);
             // 
+            // CategoriabindingSource
+            // 
+            this.CategoriabindingSource.DataSource = typeof(CapaEntidades.Categoria);
+            // 
             // groupBox1
             // 
             this.groupBox1.Location = new System.Drawing.Point(25, 13);
@@ -123,10 +127,6 @@
             this.dataGridViewImageColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewImageColumn2.Width = 125;
             // 
-            // CategoriabindingSource
-            // 
-            this.CategoriabindingSource.DataSource = typeof(CapaEntidades.Categoria);
-            // 
             // categoriaId
             // 
             this.categoriaId.DataPropertyName = "CategoriaId";
@@ -152,6 +152,7 @@
             this.estadoDataGridViewCheckBoxColumn.MinimumWidth = 6;
             this.estadoDataGridViewCheckBoxColumn.Name = "estadoDataGridViewCheckBoxColumn";
             this.estadoDataGridViewCheckBoxColumn.ReadOnly = true;
+            this.estadoDataGridViewCheckBoxColumn.Visible = false;
             this.estadoDataGridViewCheckBoxColumn.Width = 125;
             // 
             // Editar

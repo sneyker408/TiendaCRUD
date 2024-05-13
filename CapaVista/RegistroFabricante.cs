@@ -46,6 +46,22 @@ namespace CapaVista
             FabricanteBindingSource.DataSource = _fabricanteLOG.ObtenerFabricantePorId(id);
         }
 
+        private bool FabricanteExiste(string nombreFabricante)
+        {
+
+            List<Fabricante> fabricantes = _fabricanteLOG.ObtenerFabricantes();
+
+
+            foreach (Fabricante fabricante in fabricantes)
+            {
+                if (string.Equals(fabricante.NombreFabricante, nombreFabricante, StringComparison.OrdinalIgnoreCase))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
         private void btnGuardarFabri_Click(object sender, EventArgs e)
         {
             GuardarFabricante();
@@ -62,10 +78,9 @@ namespace CapaVista
             {
                 _fabricanteLOG = new FabricanteLOG();
 
-                //throw new Exception();
                 if (string.IsNullOrEmpty(txtFabricante.Text))
                 {
-                    MessageBox.Show("Se requiere el nombre de la Fabricante", "Tienda | Registro Fabricante",
+                    MessageBox.Show("Se requiere el nombre del Fabricante", "Tienda | Registro Fabricante",
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     txtFabricante.Focus();
                     txtFabricante.BackColor = Color.LightYellow;
@@ -73,58 +88,71 @@ namespace CapaVista
                 }
                 if (!chkEstadoFabri.Checked)
                 {
-                    var dialogo = MessageBox.Show("Estas seguro que desea guardar la marca inactiva?", "Tienda | Registro Marca",
+                    var dialogo = MessageBox.Show("¿Estás seguro que deseas guardar el fabricante inactivo?", "Tienda | Registro Fabricante",
                         MessageBoxButtons.YesNo, MessageBoxIcon.Information);
 
                     if (dialogo != DialogResult.Yes)
                     {
-                        MessageBox.Show("Seleccione el cuadro estado como activo", "Tienda | Registro Marca",
+                        MessageBox.Show("Seleccione el cuadro estado como activo", "Tienda | Registro Fabricante",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
                         return;
                     }
                 }
 
+
+                if (FabricanteExiste(txtFabricante.Text) && btnGuardarFabri.Text == "Guardar")
+                {
+                    MessageBox.Show("El nombre del fabricante ya existe. Por favor, elija otro nombre.", "Tienda | Registro Fabricante",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtFabricante.Focus();
+                    txtFabricante.BackColor = Color.LightYellow;
+                    return;
+                }
+
+                int resultado;
+
                 if (_id > 0)
                 {
                     Fabricante fabricante;
                     fabricante = (Fabricante)FabricanteBindingSource.Current;
-                    int resultado = _fabricanteLOG.GuardarFabricante(fabricante);
-                    if (resultado > 0)
-                    {
-                        MessageBox.Show("Fabricante Editado con Exito", "Tienda | Edicion Fabricantes",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        this.Close();
-                    }
-                    else
-                    {
-                        MessageBox.Show("No se logro editar el fabricante", "Tienda | Edicion Fabricantes",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-                // En caso de ser nuevo fabricante.
-                else
-                {
-                    Fabricante fabricante;
-                    fabricante = (Fabricante)FabricanteBindingSource.Current;
-                    int resultado = _fabricanteLOG.GuardarFabricante(fabricante);
+                    resultado = _fabricanteLOG.ActualizarFabricante(fabricante, _id);
 
                     if (resultado > 0)
                     {
-                        MessageBox.Show("Fabricante Agregado con Exito", "Tienda | Registro Fabricantes",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Fabricante actualizado con éxito", "Tienda | Registro Fabricante",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.Close();
                     }
                     else
                     {
-                        MessageBox.Show("No se logro agregagr el fabricante", "Tienda | Registro Fabricantes",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("No se logró actualizar el fabricante", "Tienda | Registro Fabricante",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    FabricanteBindingSource.EndEdit();
+                    Fabricante fabricante;
+                    fabricante = (Fabricante)FabricanteBindingSource.Current;
+                    resultado = _fabricanteLOG.GuardarFabricante(fabricante);
+
+                    if (resultado > 0)
+                    {
+                        MessageBox.Show("Fabricante agregado con éxito", "Tienda | Registro Fabricante",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se logró guardar el fabricante", "Tienda | Registro Fabricante",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
 
             }
             catch (Exception)
             {
-                MessageBox.Show("Ocurrio un Error", "Tienda | Registro Fabricantes",
+                MessageBox.Show("Ocurrió un error", "Tienda | Registro Fabricante",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }

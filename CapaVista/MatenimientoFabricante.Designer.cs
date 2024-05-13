@@ -132,6 +132,7 @@
             this.estadoDataGridViewCheckBoxColumn.MinimumWidth = 6;
             this.estadoDataGridViewCheckBoxColumn.Name = "estadoDataGridViewCheckBoxColumn";
             this.estadoDataGridViewCheckBoxColumn.ReadOnly = true;
+            this.estadoDataGridViewCheckBoxColumn.Visible = false;
             this.estadoDataGridViewCheckBoxColumn.Width = 125;
             // 
             // Editar

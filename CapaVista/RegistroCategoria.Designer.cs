@@ -90,7 +90,6 @@
             // 
             // txtCategoria
             // 
-            this.txtCategoria.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtCategoria.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.CategoriabindingSource, "NombreCategoria", true));
             this.txtCategoria.Location = new System.Drawing.Point(233, 23);
             this.txtCategoria.Margin = new System.Windows.Forms.Padding(4);

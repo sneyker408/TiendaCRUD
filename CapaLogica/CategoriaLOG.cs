@@ -20,10 +20,10 @@ namespace CapaLogica
             return _categoriaDAL.Guardar(categoria, id, Actualizacion);
         }
 
-        public string ObtenerCategoriaPorId(int idCategoria)
+        public Categoria ObtenerCategoriaPorId(int codigo)
         {
             _categoriaDAL = new CategoriaDAL();
-            return _categoriaDAL.ObtenerNombreCategoriaDesdeBD(idCategoria);
+            return _categoriaDAL.LeerPorId(codigo);
 
         }
 
@@ -45,6 +45,12 @@ namespace CapaLogica
         {
             _categoriaDAL = new CategoriaDAL();
             return _categoriaDAL.ObtenerNombreCategoriaDesdeBD(idCategoria);
+        }
+
+        public int EliminarCategoria(int id)
+        {
+            _categoriaDAL = new CategoriaDAL();
+            return _categoriaDAL.EliminarCategoria(id);
         }
     }
 }

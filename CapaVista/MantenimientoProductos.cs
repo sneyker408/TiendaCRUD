@@ -1,4 +1,4 @@
-﻿using CapaLogica;
+﻿    using CapaLogica;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -58,6 +58,38 @@ namespace CapaVista
                         objRegistroProducto.ShowDialog();
                         CargarProductos();
                     }
+
+                    else if (dgvProductos.Columns[e.ColumnIndex].Name.Equals("Eliminar"))
+                    {
+                        var desicion = MessageBox.Show("¿Está seguro que desea eliminar el producto?", "Tienda | Edicion Producto",
+                        MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                        _productoLOG = new ProductoLOG();
+
+                        int resultado = 0;
+
+                        if (desicion != DialogResult.Yes)
+                        {
+                            MessageBox.Show("El producto no se eliminara", "Tienda | Edicion Productos",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            resultado = _productoLOG.EliminarProducto(id);
+                            CargarProductos();
+
+                            if (resultado > 0)
+                            {
+                                MessageBox.Show("Producto eliminado con exito.", "Tienda | Edicion de Producto",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                            else
+                            {
+                                MessageBox.Show("No se logro eliminar el producto.", "Tienda | Edicion de Producto",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        }
+                    }
+
                 }
             }
             catch (Exception)

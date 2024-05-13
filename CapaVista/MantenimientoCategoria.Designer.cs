@@ -37,9 +37,9 @@
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.CategoriabindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.CategoriaId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NombreCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Estado = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.categoriaId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreCategoriaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estadoDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Editar = new System.Windows.Forms.DataGridViewImageColumn();
             this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCategoria)).BeginInit();
@@ -76,13 +76,15 @@
             // 
             this.dgvCategoria.AllowUserToAddRows = false;
             this.dgvCategoria.AllowUserToDeleteRows = false;
+            this.dgvCategoria.AutoGenerateColumns = false;
             this.dgvCategoria.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCategoria.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.CategoriaId,
-            this.NombreCategoria,
-            this.Estado,
+            this.categoriaId,
+            this.nombreCategoriaDataGridViewTextBoxColumn,
+            this.estadoDataGridViewCheckBoxColumn,
             this.Editar,
             this.Eliminar});
+            this.dgvCategoria.DataSource = this.CategoriabindingSource;
             this.dgvCategoria.Location = new System.Drawing.Point(25, 91);
             this.dgvCategoria.Margin = new System.Windows.Forms.Padding(4);
             this.dgvCategoria.Name = "dgvCategoria";
@@ -125,32 +127,32 @@
             // 
             this.CategoriabindingSource.DataSource = typeof(CapaEntidades.Categoria);
             // 
-            // CategoriaId
+            // categoriaId
             // 
-            this.CategoriaId.DataPropertyName = "CategoriaId";
-            this.CategoriaId.HeaderText = "Codigo";
-            this.CategoriaId.MinimumWidth = 6;
-            this.CategoriaId.Name = "CategoriaId";
-            this.CategoriaId.ReadOnly = true;
-            this.CategoriaId.Width = 125;
+            this.categoriaId.DataPropertyName = "CategoriaId";
+            this.categoriaId.HeaderText = "Codigo";
+            this.categoriaId.MinimumWidth = 6;
+            this.categoriaId.Name = "categoriaId";
+            this.categoriaId.ReadOnly = true;
+            this.categoriaId.Width = 125;
             // 
-            // NombreCategoria
+            // nombreCategoriaDataGridViewTextBoxColumn
             // 
-            this.NombreCategoria.DataPropertyName = "NombreCategoria";
-            this.NombreCategoria.HeaderText = "Nombre";
-            this.NombreCategoria.MinimumWidth = 6;
-            this.NombreCategoria.Name = "NombreCategoria";
-            this.NombreCategoria.ReadOnly = true;
-            this.NombreCategoria.Width = 125;
+            this.nombreCategoriaDataGridViewTextBoxColumn.DataPropertyName = "NombreCategoria";
+            this.nombreCategoriaDataGridViewTextBoxColumn.HeaderText = "Nombre";
+            this.nombreCategoriaDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.nombreCategoriaDataGridViewTextBoxColumn.Name = "nombreCategoriaDataGridViewTextBoxColumn";
+            this.nombreCategoriaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nombreCategoriaDataGridViewTextBoxColumn.Width = 125;
             // 
-            // Estado
+            // estadoDataGridViewCheckBoxColumn
             // 
-            this.Estado.DataPropertyName = "Estado";
-            this.Estado.HeaderText = "Estado";
-            this.Estado.MinimumWidth = 6;
-            this.Estado.Name = "Estado";
-            this.Estado.ReadOnly = true;
-            this.Estado.Width = 125;
+            this.estadoDataGridViewCheckBoxColumn.DataPropertyName = "Estado";
+            this.estadoDataGridViewCheckBoxColumn.HeaderText = "Estado";
+            this.estadoDataGridViewCheckBoxColumn.MinimumWidth = 6;
+            this.estadoDataGridViewCheckBoxColumn.Name = "estadoDataGridViewCheckBoxColumn";
+            this.estadoDataGridViewCheckBoxColumn.ReadOnly = true;
+            this.estadoDataGridViewCheckBoxColumn.Width = 125;
             // 
             // Editar
             // 
@@ -200,9 +202,9 @@
         private System.Windows.Forms.BindingSource CategoriabindingSource;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CategoriaId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NombreCategoria;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Estado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn categoriaId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombreCategoriaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn estadoDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewImageColumn Editar;
         private System.Windows.Forms.DataGridViewImageColumn Eliminar;
     }

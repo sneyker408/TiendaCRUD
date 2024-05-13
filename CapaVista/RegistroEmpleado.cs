@@ -17,13 +17,15 @@ namespace CapaVista
         EmpleadoLOG _empleadoLOG;
         int _id = 0;
 
-        public RegistroEmpleado()
+        public RegistroEmpleado(int id = 0)
         {
             InitializeComponent();
 
+            _id = id;
+
             if (_id > 0)
             {
-                this.Text = "Tienda | Edición de Productos";
+                this.Text = "Vapesney | Edición de Empleado";
                 btnGuardarEmple.Text = "Actualizar";
 
                 CargarDatos(_id);
@@ -168,9 +170,10 @@ namespace CapaVista
 
             if (ValidarCorreoElectronico(txtCorreo.Text))
             {
-                if (!_empleadoLOG.CorreoElectronicoExiste(txtCorreo.Text))
+                if (!_empleadoLOG.CorreoElectronicoExiste(txtCorreo.Text) || btnGuardarEmple.Text == "Actualizar")
                 {
                     GuardarEmpleado();
+                    this.Close();
                 }
                 else
                 {

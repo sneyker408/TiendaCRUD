@@ -39,5 +39,11 @@ namespace CapaLogica
 
             return _productoDAL.Leer();
         }
+
+        public int EliminarProducto(int id)
+        {
+            _productoDAL = new ProductoDAL();
+            return _productoDAL.EliminarProducto(id);
+        }
     }
 }

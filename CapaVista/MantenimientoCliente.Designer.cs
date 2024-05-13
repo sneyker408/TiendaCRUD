@@ -36,6 +36,7 @@
             this.btnVolver = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.dgvClientes = new System.Windows.Forms.DataGridView();
+            this.MantenimientoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gpbxFiltro = new System.Windows.Forms.GroupBox();
             this.btnReiniciar = new System.Windows.Forms.Button();
             this.cmbCategorias = new System.Windows.Forms.ComboBox();
@@ -46,8 +47,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.MantenimientoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.clienteIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ClienteId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.apellidoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.correoElectronicoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,8 +57,8 @@
             this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
-            this.gpbxFiltro.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MantenimientoBindingSource)).BeginInit();
+            this.gpbxFiltro.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox2
@@ -123,7 +123,7 @@
             this.dgvClientes.AutoGenerateColumns = false;
             this.dgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvClientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.clienteIdDataGridViewTextBoxColumn,
+            this.ClienteId,
             this.nombreDataGridViewTextBoxColumn,
             this.apellidoDataGridViewTextBoxColumn,
             this.correoElectronicoDataGridViewTextBoxColumn,
@@ -138,6 +138,11 @@
             this.dgvClientes.RowHeadersWidth = 51;
             this.dgvClientes.Size = new System.Drawing.Size(1127, 462);
             this.dgvClientes.TabIndex = 7;
+            this.dgvClientes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgCliente_CellClick);
+            // 
+            // MantenimientoBindingSource
+            // 
+            this.MantenimientoBindingSource.DataSource = typeof(CapaEntidades.Cliente);
             // 
             // gpbxFiltro
             // 
@@ -239,18 +244,14 @@
             this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
             this.dataGridViewImageColumn2.Width = 125;
             // 
-            // MantenimientoBindingSource
+            // ClienteId
             // 
-            this.MantenimientoBindingSource.DataSource = typeof(CapaEntidades.Cliente);
-            // 
-            // clienteIdDataGridViewTextBoxColumn
-            // 
-            this.clienteIdDataGridViewTextBoxColumn.DataPropertyName = "ClienteId";
-            this.clienteIdDataGridViewTextBoxColumn.HeaderText = "ClienteId";
-            this.clienteIdDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.clienteIdDataGridViewTextBoxColumn.Name = "clienteIdDataGridViewTextBoxColumn";
-            this.clienteIdDataGridViewTextBoxColumn.ReadOnly = true;
-            this.clienteIdDataGridViewTextBoxColumn.Width = 125;
+            this.ClienteId.DataPropertyName = "ClienteId";
+            this.ClienteId.HeaderText = "Codigo";
+            this.ClienteId.MinimumWidth = 6;
+            this.ClienteId.Name = "ClienteId";
+            this.ClienteId.ReadOnly = true;
+            this.ClienteId.Width = 125;
             // 
             // nombreDataGridViewTextBoxColumn
             // 
@@ -332,9 +333,9 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MantenimientoBindingSource)).EndInit();
             this.gpbxFiltro.ResumeLayout(false);
             this.gpbxFiltro.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.MantenimientoBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -358,7 +359,7 @@
         private System.Windows.Forms.ComboBox cmbMarcas;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.BindingSource MantenimientoBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clienteIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ClienteId;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn apellidoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn correoElectronicoDataGridViewTextBoxColumn;

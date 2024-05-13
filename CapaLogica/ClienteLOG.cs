@@ -48,5 +48,11 @@ namespace CapaLogica
                 return contexto.Clientes.Any(c => c.CorreoElectronico == correoElectronico);
             }
         }
+
+        public int EliminarCliente(int id)
+        {
+            _clienteDAL = new ClienteDAL();
+            return _clienteDAL.EliminarCliente(id);
+        }
     }
 }

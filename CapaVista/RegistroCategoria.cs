@@ -16,6 +16,7 @@ namespace CapaVista
     public partial class RegistroCategoria : Form
     {
         CategoriaLOG _categoriaLOG;
+
         int _id = 0;
         
         public RegistroCategoria(int id = 0)
@@ -83,48 +84,56 @@ namespace CapaVista
                         return;
                     }
                 }
+                int resultado;
 
                 if (_id > 0)
                 {
                     Categoria categoria;
+
                     categoria = (Categoria)CategoriabindingSource.Current;
-                    int resultado = _categoriaLOG.GuardarCategoria(categoria);
-                    if (resultado > 0)
-                    {
-                        MessageBox.Show("Producto Editado con Exito", "Tienda | Edicion Productos",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        this.Close();
-                    }
-                    else
-                    {
-                        MessageBox.Show("No se logro editar el producto", "Tienda | Edicion Productos",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-                // En caso de ser nuevo producto.
-                else
-                {
-                    Categoria categoria;
-                    categoria = (Categoria)CategoriabindingSource.Current;
-                    int resultado = _categoriaLOG.GuardarCategoria(categoria);
+
+                    resultado = _categoriaLOG.ActualizarCategoria(categoria, _id);
 
                     if (resultado > 0)
                     {
-                        MessageBox.Show("Producto Agregado con Exito", "Tienda | Registro Productos",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("categoria actualizado con exito", "Tienda | Registro categorias",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                         this.Close();
                     }
                     else
                     {
-                        MessageBox.Show("No se logro agregagr el producto", "Tienda | Registro Productos",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("No se logro acutalizar el categoria", "Tienda | Registro categorias",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    CategoriabindingSource.EndEdit();
+
+                    Categoria categoria;
+                    categoria = (Categoria)CategoriabindingSource.Current;
+
+                    resultado = _categoriaLOG.GuardarCategoria(categoria);
+
+                    if (resultado > 0)
+                    {
+                        MessageBox.Show("categoria agregado con exito", "Tienda | Registro categorias",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se logro guardar el categoria", "Tienda | Registro categorias",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
 
             }
             catch (Exception)
             {
-                MessageBox.Show("Ocurrio un Error", "Tienda | Registro Categorias",
+                MessageBox.Show("Ocurrio un Error", "Tienda | Registro categorias",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }

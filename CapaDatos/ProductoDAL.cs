@@ -11,6 +11,24 @@ namespace CapaDatos
     {
         ContextoBD _db;
 
+        public int EliminarProducto(int id)
+        {
+            _db = new ContextoBD();
+            int resultado = 0;
+
+            var producto = _db.Productos.Find(id);
+
+            if (producto != null)
+            {
+                producto.Estado = false;
+                _db.SaveChanges();
+
+                resultado = producto.ProductoId;
+            }
+
+            return resultado;
+        }
+
         public int Guardar(Producto producto, int id = 0, bool esActualizacion = false)
         {
             _db = new ContextoBD();

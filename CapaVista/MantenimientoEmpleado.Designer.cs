@@ -45,7 +45,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cmbMarcas = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.empleadoIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EmpleadoId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.apellidoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CorreoElectronico = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -121,7 +121,7 @@
             this.dgvEmpleados.AutoGenerateColumns = false;
             this.dgvEmpleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEmpleados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.empleadoIdDataGridViewTextBoxColumn,
+            this.EmpleadoId,
             this.nombreDataGridViewTextBoxColumn,
             this.apellidoDataGridViewTextBoxColumn,
             this.CorreoElectronico,
@@ -136,6 +136,7 @@
             this.dgvEmpleados.RowHeadersWidth = 51;
             this.dgvEmpleados.Size = new System.Drawing.Size(1127, 462);
             this.dgvEmpleados.TabIndex = 12;
+            this.dgvEmpleados.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgEmpleado_CellClick);
             // 
             // EmpleadoBindingSource
             // 
@@ -225,14 +226,14 @@
             this.label6.TabIndex = 27;
             this.label6.Text = "Fabricante";
             // 
-            // empleadoIdDataGridViewTextBoxColumn
+            // EmpleadoId
             // 
-            this.empleadoIdDataGridViewTextBoxColumn.DataPropertyName = "EmpleadoId";
-            this.empleadoIdDataGridViewTextBoxColumn.HeaderText = "EmpleadoId";
-            this.empleadoIdDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.empleadoIdDataGridViewTextBoxColumn.Name = "empleadoIdDataGridViewTextBoxColumn";
-            this.empleadoIdDataGridViewTextBoxColumn.ReadOnly = true;
-            this.empleadoIdDataGridViewTextBoxColumn.Width = 125;
+            this.EmpleadoId.DataPropertyName = "EmpleadoId";
+            this.EmpleadoId.HeaderText = "Codigo";
+            this.EmpleadoId.MinimumWidth = 6;
+            this.EmpleadoId.Name = "EmpleadoId";
+            this.EmpleadoId.ReadOnly = true;
+            this.EmpleadoId.Width = 125;
             // 
             // nombreDataGridViewTextBoxColumn
             // 
@@ -340,7 +341,7 @@
         private System.Windows.Forms.BindingSource EmpleadoBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn dicreecionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn correoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn empleadoIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EmpleadoId;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn apellidoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn CorreoElectronico;

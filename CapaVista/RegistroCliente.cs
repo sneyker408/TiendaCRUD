@@ -11,13 +11,15 @@ namespace CapaVista
         ClienteLOG _clienteLOG;
         int _id = 0;
 
-        public RegistroCliente()
+        public RegistroCliente(int id = 0)
         {
             InitializeComponent();
 
+            _id = id;
+
             if (_id > 0)
             {
-                this.Text = "Tienda | Edición de Productos";
+                this.Text = "Vapesney | Edición de Cliente";
                 btnGuardarClien.Text = "Actualizar";
 
                 CargarDatos(_id);
@@ -161,7 +163,7 @@ namespace CapaVista
 
             if (ValidarCorreoElectronico(txtCorreo.Text))
             {
-                if (!_clienteLOG.CorreoElectronicoExiste(txtCorreo.Text))
+                if (!_clienteLOG.CorreoElectronicoExiste(txtCorreo.Text) || btnGuardarClien.Text == "Actualizar")
                 {
                     GuardarCliente();
                 }

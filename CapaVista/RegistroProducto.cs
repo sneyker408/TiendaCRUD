@@ -29,7 +29,7 @@ namespace CapaVista
 
             if (_id > 0)
             {
-                this.Text = "Tienda | Edición de Productos";
+                this.Text = "Vapes | Edición de Producto";
                 btnGuardar.Text = "Actualizar";
 
                 CargarDatos(_id);

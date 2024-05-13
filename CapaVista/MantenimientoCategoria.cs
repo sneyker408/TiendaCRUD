@@ -54,6 +54,38 @@ namespace CapaVista
                         objRegistroCategoria.ShowDialog();
                         CargarCategoria();
                     }
+
+                    else if (dgvCategoria.Columns[e.ColumnIndex].Name.Equals("Eliminar"))
+                    {
+                        var desicion = MessageBox.Show("¿Está seguro que desea eliminar el categoria?", "Tienda | Edicion Categoria",
+                        MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                        _categoriaLOG = new CategoriaLOG();
+
+                        int resultado = 0;
+
+                        if (desicion != DialogResult.Yes)
+                        {
+                            MessageBox.Show("El categoria no se eliminara", "Tienda | Edicion Categorias",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            resultado = _categoriaLOG.EliminarCategoria(id);
+                            CargarCategoria();
+
+                            if (resultado > 0)
+                            {
+                                MessageBox.Show("Categoria eliminado con exito.", "Tienda | Edicion de Categoria",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                            else
+                            {
+                                MessageBox.Show("No se logro eliminar el categoria.", "Tienda | Edicion de Categoria",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        }
+                    }
+
                 }
             }
             catch (Exception)

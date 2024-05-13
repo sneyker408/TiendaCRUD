@@ -79,5 +79,23 @@ namespace CapaDatos
             }
             return nombreCategoria;
         }
+
+        public int EliminarCategoria(int id)
+        {
+            _db = new ContextoBD();
+            int resultado = 0;
+
+            var categoria = _db.Categorias.Find(id);
+
+            if (categoria != null)
+            {
+                categoria.Estado = false;
+                _db.SaveChanges();
+
+                resultado = categoria.CategoriaId;
+            }
+
+            return resultado;
+        }
     }
 }

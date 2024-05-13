@@ -11,6 +11,23 @@ namespace CapaDatos
     {
         ContextoBD _db;
 
+        public int EliminarEmpleado(int id)
+        {
+            _db = new ContextoBD();
+            int resultado = 0;
+
+            var empleado = _db.Empleados.Find(id);
+
+            if (empleado != null)
+            {
+                _db.SaveChanges();
+
+                resultado = empleado.EmpleadoId;
+            }
+
+            return resultado;
+        }
+
         public int Guardar(Empleado empleado, int id = 0, bool esActualizacion = false)
         {
             _db = new ContextoBD();

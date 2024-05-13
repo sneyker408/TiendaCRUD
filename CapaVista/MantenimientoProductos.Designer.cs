@@ -39,14 +39,6 @@
             this.cmbMarcas = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.dgvProductos = new System.Windows.Forms.DataGridView();
-            this.btnNuevo = new System.Windows.Forms.Button();
-            this.btnVolver = new System.Windows.Forms.Button();
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.rdbInactivos = new System.Windows.Forms.RadioButton();
-            this.rdbActivos = new System.Windows.Forms.RadioButton();
-            this.productoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ProductoId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,6 +51,14 @@
             this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
             this.NombreCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NombreFabricante = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnNuevo = new System.Windows.Forms.Button();
+            this.btnVolver = new System.Windows.Forms.Button();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.rdbInactivos = new System.Windows.Forms.RadioButton();
+            this.rdbActivos = new System.Windows.Forms.RadioButton();
+            this.productoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gpbxFiltro.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -176,83 +176,6 @@
             this.dgvProductos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductos_CellClick);
             this.dgvProductos.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvProductos_CellFormatting);
             // 
-            // btnNuevo
-            // 
-            this.btnNuevo.Location = new System.Drawing.Point(13, 623);
-            this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(75, 37);
-            this.btnNuevo.TabIndex = 2;
-            this.btnNuevo.Text = "Nuevo";
-            this.btnNuevo.UseVisualStyleBackColor = true;
-            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
-            // 
-            // btnVolver
-            // 
-            this.btnVolver.Location = new System.Drawing.Point(1065, 623);
-            this.btnVolver.Name = "btnVolver";
-            this.btnVolver.Size = new System.Drawing.Size(75, 37);
-            this.btnVolver.TabIndex = 3;
-            this.btnVolver.Text = "Atras";
-            this.btnVolver.UseVisualStyleBackColor = true;
-            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
-            // 
-            // dataGridViewImageColumn1
-            // 
-            this.dataGridViewImageColumn1.HeaderText = "Editar";
-            this.dataGridViewImageColumn1.Image = global::CapaVista.Properties.Resources.edit_v2;
-            this.dataGridViewImageColumn1.MinimumWidth = 6;
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            this.dataGridViewImageColumn1.ReadOnly = true;
-            this.dataGridViewImageColumn1.Width = 125;
-            // 
-            // dataGridViewImageColumn2
-            // 
-            this.dataGridViewImageColumn2.HeaderText = "Eliminar";
-            this.dataGridViewImageColumn2.Image = global::CapaVista.Properties.Resources.delete;
-            this.dataGridViewImageColumn2.MinimumWidth = 6;
-            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
-            this.dataGridViewImageColumn2.ReadOnly = true;
-            this.dataGridViewImageColumn2.Width = 125;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.rdbInactivos);
-            this.groupBox2.Controls.Add(this.rdbActivos);
-            this.groupBox2.Location = new System.Drawing.Point(994, 24);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(146, 104);
-            this.groupBox2.TabIndex = 5;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Filtrar por estado";
-            // 
-            // rdbInactivos
-            // 
-            this.rdbInactivos.AutoSize = true;
-            this.rdbInactivos.Location = new System.Drawing.Point(6, 65);
-            this.rdbInactivos.Name = "rdbInactivos";
-            this.rdbInactivos.Size = new System.Drawing.Size(96, 28);
-            this.rdbInactivos.TabIndex = 1;
-            this.rdbInactivos.Text = "Inactivos";
-            this.rdbInactivos.UseVisualStyleBackColor = true;
-            this.rdbInactivos.UseWaitCursor = true;
-            // 
-            // rdbActivos
-            // 
-            this.rdbActivos.AutoSize = true;
-            this.rdbActivos.Checked = true;
-            this.rdbActivos.Location = new System.Drawing.Point(6, 37);
-            this.rdbActivos.Name = "rdbActivos";
-            this.rdbActivos.Size = new System.Drawing.Size(84, 28);
-            this.rdbActivos.TabIndex = 0;
-            this.rdbActivos.TabStop = true;
-            this.rdbActivos.Text = "Activos";
-            this.rdbActivos.UseVisualStyleBackColor = true;
-            this.rdbActivos.UseWaitCursor = true;
-            // 
-            // productoBindingSource
-            // 
-            this.productoBindingSource.DataSource = typeof(CapaEntidades.Producto);
-            // 
             // ProductoId
             // 
             this.ProductoId.DataPropertyName = "ProductoId";
@@ -368,6 +291,83 @@
             this.NombreFabricante.Visible = false;
             this.NombreFabricante.Width = 125;
             // 
+            // btnNuevo
+            // 
+            this.btnNuevo.Location = new System.Drawing.Point(13, 623);
+            this.btnNuevo.Name = "btnNuevo";
+            this.btnNuevo.Size = new System.Drawing.Size(75, 37);
+            this.btnNuevo.TabIndex = 2;
+            this.btnNuevo.Text = "Nuevo";
+            this.btnNuevo.UseVisualStyleBackColor = true;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
+            // 
+            // btnVolver
+            // 
+            this.btnVolver.Location = new System.Drawing.Point(1065, 623);
+            this.btnVolver.Name = "btnVolver";
+            this.btnVolver.Size = new System.Drawing.Size(75, 37);
+            this.btnVolver.TabIndex = 3;
+            this.btnVolver.Text = "Atras";
+            this.btnVolver.UseVisualStyleBackColor = true;
+            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
+            // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.HeaderText = "Editar";
+            this.dataGridViewImageColumn1.Image = global::CapaVista.Properties.Resources.edit_v2;
+            this.dataGridViewImageColumn1.MinimumWidth = 6;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.ReadOnly = true;
+            this.dataGridViewImageColumn1.Width = 125;
+            // 
+            // dataGridViewImageColumn2
+            // 
+            this.dataGridViewImageColumn2.HeaderText = "Eliminar";
+            this.dataGridViewImageColumn2.Image = global::CapaVista.Properties.Resources.delete;
+            this.dataGridViewImageColumn2.MinimumWidth = 6;
+            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
+            this.dataGridViewImageColumn2.ReadOnly = true;
+            this.dataGridViewImageColumn2.Width = 125;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.rdbInactivos);
+            this.groupBox2.Controls.Add(this.rdbActivos);
+            this.groupBox2.Location = new System.Drawing.Point(994, 24);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(146, 104);
+            this.groupBox2.TabIndex = 5;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Filtrar por estado";
+            // 
+            // rdbInactivos
+            // 
+            this.rdbInactivos.AutoSize = true;
+            this.rdbInactivos.Location = new System.Drawing.Point(6, 65);
+            this.rdbInactivos.Name = "rdbInactivos";
+            this.rdbInactivos.Size = new System.Drawing.Size(96, 28);
+            this.rdbInactivos.TabIndex = 1;
+            this.rdbInactivos.Text = "Inactivos";
+            this.rdbInactivos.UseVisualStyleBackColor = true;
+            this.rdbInactivos.UseWaitCursor = true;
+            // 
+            // rdbActivos
+            // 
+            this.rdbActivos.AutoSize = true;
+            this.rdbActivos.Checked = true;
+            this.rdbActivos.Location = new System.Drawing.Point(6, 37);
+            this.rdbActivos.Name = "rdbActivos";
+            this.rdbActivos.Size = new System.Drawing.Size(84, 28);
+            this.rdbActivos.TabIndex = 0;
+            this.rdbActivos.TabStop = true;
+            this.rdbActivos.Text = "Activos";
+            this.rdbActivos.UseVisualStyleBackColor = true;
+            this.rdbActivos.UseWaitCursor = true;
+            // 
+            // productoBindingSource
+            // 
+            this.productoBindingSource.DataSource = typeof(CapaEntidades.Producto);
+            // 
             // MantenimientoProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 24F);
@@ -384,7 +384,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "MantenimientoProductos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Tienda | Mantenimiento de Productos";
+            this.Text = "Vapesney | Mantenimiento de Productos";
             this.gpbxFiltro.ResumeLayout(false);
             this.gpbxFiltro.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();

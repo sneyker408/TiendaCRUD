@@ -35,7 +35,7 @@
             this.dgvFabricante = new System.Windows.Forms.DataGridView();
             this.FabricanteBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.fabricanteIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FabricanteId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreFabricanteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.estadoDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Editar = new System.Windows.Forms.DataGridViewImageColumn();
@@ -77,7 +77,7 @@
             this.dgvFabricante.AutoGenerateColumns = false;
             this.dgvFabricante.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvFabricante.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.fabricanteIdDataGridViewTextBoxColumn,
+            this.FabricanteId,
             this.nombreFabricanteDataGridViewTextBoxColumn,
             this.estadoDataGridViewCheckBoxColumn,
             this.Editar,
@@ -90,6 +90,7 @@
             this.dgvFabricante.RowHeadersWidth = 51;
             this.dgvFabricante.Size = new System.Drawing.Size(980, 398);
             this.dgvFabricante.TabIndex = 10;
+            this.dgvFabricante.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgFabricante_CellClick);
             // 
             // FabricanteBindingSource
             // 
@@ -106,14 +107,14 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filtro por Fabricante";
             // 
-            // fabricanteIdDataGridViewTextBoxColumn
+            // FabricanteId
             // 
-            this.fabricanteIdDataGridViewTextBoxColumn.DataPropertyName = "FabricanteId";
-            this.fabricanteIdDataGridViewTextBoxColumn.HeaderText = "FabricanteId";
-            this.fabricanteIdDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.fabricanteIdDataGridViewTextBoxColumn.Name = "fabricanteIdDataGridViewTextBoxColumn";
-            this.fabricanteIdDataGridViewTextBoxColumn.ReadOnly = true;
-            this.fabricanteIdDataGridViewTextBoxColumn.Width = 125;
+            this.FabricanteId.DataPropertyName = "FabricanteId";
+            this.FabricanteId.HeaderText = "FabricanteId";
+            this.FabricanteId.MinimumWidth = 6;
+            this.FabricanteId.Name = "FabricanteId";
+            this.FabricanteId.ReadOnly = true;
+            this.FabricanteId.Width = 125;
             // 
             // nombreFabricanteDataGridViewTextBoxColumn
             // 
@@ -177,7 +178,7 @@
         private System.Windows.Forms.DataGridView dgvFabricante;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.BindingSource FabricanteBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fabricanteIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FabricanteId;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreFabricanteDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn estadoDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewImageColumn Editar;

@@ -47,5 +47,11 @@ namespace CapaLogica
                 return contexto.Empleados.Any(c => c.CorreoElectronico == correoElectronico);
             }
         }
+
+        public int EliminarEmpleado(int id)
+        {
+            _empleadoDAL = new EmpleadoDAL();
+            return _empleadoDAL.EliminarEmpleado(id);
+        }
     }
 }

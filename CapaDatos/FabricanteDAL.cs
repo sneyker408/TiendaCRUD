@@ -76,5 +76,23 @@ namespace CapaDatos
                 return _db.Fabricantes.Where(c => c.Estado == true).ToList();
             }
         }
+
+        public int EliminarFabricante(int id)
+        {
+            _db = new ContextoBD();
+            int resultado = 0;
+
+            var fabricante = _db.Fabricantes.Find(id);
+
+            if (fabricante != null)
+            {
+                fabricante.Estado = false;
+                _db.SaveChanges();
+
+                resultado = fabricante.FabricanteId;
+            }
+
+            return resultado;
+        }
     }
 }

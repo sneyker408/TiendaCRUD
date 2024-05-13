@@ -176,10 +176,6 @@ namespace CapaVista
                 montoTotal += decimal.Parse(row.Cells["SubTotal"].Value.ToString());
             }
 
-            //foreach (DataRow row in detalleVenta.Rows)
-            //{
-            //    montoTotal += (int)row["SubTotal"];
-            //}
 
             txtMonto.Text = montoTotal.ToString();
         }

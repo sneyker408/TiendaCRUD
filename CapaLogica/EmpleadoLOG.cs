@@ -59,5 +59,31 @@ namespace CapaLogica
             _empleadoDAL = new EmpleadoDAL();
             return _empleadoDAL.NumeroTelefonoExiste(inactivo);
         }
+
+        public object ObtenerTodosTelefonos()
+        {
+            _empleadoDAL = new EmpleadoDAL();
+            return _empleadoDAL.TodosTelefonos();
+        }
+
+        public object ObtenerTodosCorreos()
+        {
+            _empleadoDAL = new EmpleadoDAL();
+            return _empleadoDAL.TodosCorreos();
+        }
+
+        public Empleado ObtenerCorreoPorNombre(string nombrecorreo)
+        {
+            _empleadoDAL = new EmpleadoDAL();
+
+            return _empleadoDAL.ObtenerCorreoPorNombre(nombrecorreo);
+        }
+
+        public Empleado ObtenerClientePorTelefono(int numeroTelefono)
+        {
+            _empleadoDAL = new EmpleadoDAL();
+
+            return _empleadoDAL.ObtenerClientePorTelefono(numeroTelefono);
+        }
     }
 }

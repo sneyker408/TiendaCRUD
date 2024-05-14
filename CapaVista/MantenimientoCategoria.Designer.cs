@@ -72,7 +72,7 @@
             // 
             this.BtnAtrasMCate.BackColor = System.Drawing.Color.Transparent;
             this.BtnAtrasMCate.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnAtrasMCate.Location = new System.Drawing.Point(849, 539);
+            this.BtnAtrasMCate.Location = new System.Drawing.Point(728, 539);
             this.BtnAtrasMCate.Margin = new System.Windows.Forms.Padding(4);
             this.BtnAtrasMCate.Name = "BtnAtrasMCate";
             this.BtnAtrasMCate.Size = new System.Drawing.Size(156, 50);
@@ -99,7 +99,7 @@
             this.dgvCategoria.Name = "dgvCategoria";
             this.dgvCategoria.ReadOnly = true;
             this.dgvCategoria.RowHeadersWidth = 51;
-            this.dgvCategoria.Size = new System.Drawing.Size(980, 417);
+            this.dgvCategoria.Size = new System.Drawing.Size(859, 417);
             this.dgvCategoria.TabIndex = 10;
             this.dgvCategoria.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgCategoria_CellClick);
             // 
@@ -274,7 +274,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1030, 602);
+            this.ClientSize = new System.Drawing.Size(902, 602);
             this.Controls.Add(this.groupBox);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.BtnNuevoMCate);

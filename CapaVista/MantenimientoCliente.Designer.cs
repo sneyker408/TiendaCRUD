@@ -202,7 +202,7 @@
             this.gpbxFiltro.Size = new System.Drawing.Size(1007, 115);
             this.gpbxFiltro.TabIndex = 6;
             this.gpbxFiltro.TabStop = false;
-            this.gpbxFiltro.Text = "Filtros por Producto";
+            this.gpbxFiltro.Text = "Filtros por Clientes";
             // 
             // cbxTelefono
             // 

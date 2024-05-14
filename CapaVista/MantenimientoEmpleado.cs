@@ -1,4 +1,5 @@
-﻿using CapaLogica;
+﻿using CapaEntidades;
+using CapaLogica;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,8 +19,25 @@ namespace CapaVista
         public MantenimientoEmpleado()
         {
             InitializeComponent();
+            MostrarTelefonosyCorreo();
+            LimpiarCamposTexto();
             cargarEmpleado();
+            
+        }
 
+        private void MostrarTelefonosyCorreo()
+        {
+            _empleadoLOG = new EmpleadoLOG();
+            cbxTelefono.DataSource = _empleadoLOG.ObtenerTodosTelefonos();
+            cbxTelefono.DisplayMember = "Telefono";
+            cbxTelefono.ValueMember = "EmpleadoId";
+            cbxTelefono.SelectedIndex = -1;
+
+            _empleadoLOG = new EmpleadoLOG();
+            cbxCorreo.DataSource = _empleadoLOG.ObtenerTodosTelefonos();
+            cbxCorreo.DisplayMember = "Correo";
+            cbxCorreo.ValueMember = "EmpleadoId";
+            cbxCorreo.SelectedIndex = -1;
         }
 
         private void btnVolver_Click(object sender, EventArgs e)
@@ -95,5 +113,216 @@ namespace CapaVista
                 MessageBox.Show("Ocurrio un error");
             }
         }
+
+        private void txtNombre_TextChanged(object sender, EventArgs e)
+        {
+
+            if (!string.IsNullOrEmpty(txtNombre.Text.ToLower()))
+            {
+                _empleadoLOG = new EmpleadoLOG();
+                var clientesFiltrados = _empleadoLOG.ObtenerEmpleados().Where(c => c.Nombre.ToLower().Contains(txtNombre.Text)).ToList();
+
+                dgvEmpleados.DataSource = clientesFiltrados;
+            }
+            else
+            {
+                cargarEmpleado();
+            }
+        }
+
+        private void txtApellido_TextChanged(object sender, EventArgs e)
+        {
+
+            if (!string.IsNullOrEmpty(txtApellido.Text.ToLower()))
+            {
+                _empleadoLOG = new EmpleadoLOG();
+                var clientesFiltrados = _empleadoLOG.ObtenerEmpleados().Where(c => c.Apellido.ToLower().Contains(txtApellido.Text)).ToList();
+
+                dgvEmpleados.DataSource = clientesFiltrados;
+            }
+            else
+            {
+                cargarEmpleado();
+            }
+        }
+
+        private void txtDireccion_TextChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtDireccion.Text))
+            {
+                string direccionBusqueda = txtDireccion.Text.ToLower(); // Convertir a minúsculas
+
+                _empleadoLOG = new EmpleadoLOG();
+                var clientesFiltrados = _empleadoLOG.ObtenerEmpleados()
+                    .Where(c => c.Direccion.ToLower().Contains(direccionBusqueda))
+                    .ToList();
+
+                dgvEmpleados.DataSource = clientesFiltrados;
+            }
+            else
+            {
+                cargarEmpleado();
+            }
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            LimpiarCamposTexto();
+        }
+
+        private void LimpiarCamposTexto()
+        {
+            txtCodigo.Text = "";
+            txtNombre.Text = "";
+            txtApellido.Text = "";
+            txtDireccion.Text = "";
+            cbxTelefono.SelectedIndex = -1;
+            cbxCorreo.SelectedIndex = -1;
+            cbxCorreo.Text = "";
+        }
+
+        private void txtCodigo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtCodigo_TextChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtCodigo.Text))
+            {
+                int codigo = int.Parse(txtCodigo.Text);
+                _empleadoLOG = new EmpleadoLOG();
+
+                var categoria = _empleadoLOG.ObtenerEmpleadoPorId(codigo);
+
+                if (categoria != null)
+                {
+                    cbxCorreo.SelectedValue = categoria.EmpleadoId;
+                    txtNombre.Text = categoria.Nombre;
+                    txtApellido.Text = categoria.Apellido;
+                    txtDireccion.Text = categoria.Direccion;
+                    cbxTelefono.Text = categoria.Telefono.ToString();
+                    dgvEmpleados.DataSource = new List<Empleado> { categoria };
+
+                }
+                else
+                {
+                    // Limpiar los controles si no se encuentra el fabricante
+                    cbxCorreo.SelectedIndex = -1;
+                    txtNombre.Text = "";
+                    txtApellido.Text = "";
+                    txtDireccion.Text = "";
+                    cbxTelefono.SelectedIndex = -1;
+                    dgvEmpleados.DataSource = null;
+                }
+            }
+            else
+            {
+                // Limpiar los controles si el TextBox está vacío
+                cbxCorreo.SelectedIndex = -1;
+                cbxCorreo.Text = "";
+                txtNombre.Text = "";
+                txtApellido.Text = "";
+                txtDireccion.Text = "";
+                cbxTelefono.SelectedIndex = -1;
+                dgvEmpleados.DataSource = _empleadoLOG.ObtenerEmpleados();
+            }
+        }
+
+        private void cbxCorreo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbxCorreo.SelectedIndex != -1)
+            {
+                string nombrecorreo = cbxCorreo.Text;
+                _empleadoLOG = new EmpleadoLOG();
+
+                var cliente = _empleadoLOG.ObtenerCorreoPorNombre(nombrecorreo);
+
+                if (cliente != null)
+                {
+                    // Mostrar el cliente seleccionado en el DataGridView
+                    txtCodigo.Text = cliente.EmpleadoId.ToString();
+                    dgvEmpleados.DataSource = new List<Empleado> { cliente };
+
+                }
+                else
+                {
+                    // Limpiar los controles si no se encuentra el cliente
+                    txtCodigo.Text = "";
+                    txtNombre.Text = "";
+                    txtApellido.Text = "";
+                    txtDireccion.Text = "";
+                    cbxTelefono.SelectedIndex = -1;
+                    dgvEmpleados.DataSource = null;
+                }
+            }
+            else
+            {
+                // Limpiar los controles si no hay nada seleccionado en el ComboBox
+                txtCodigo.Text = "";
+                txtNombre.Text = "";
+                txtApellido.Text = "";
+                txtDireccion.Text = "";
+                cbxTelefono.SelectedIndex = -1;
+                dgvEmpleados.DataSource = _empleadoLOG.ObtenerTodosCorreos();
+            }
+        }
+
+        private void cbxCorreo_TextUpdate(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(cbxCorreo.Text))
+            {
+                // Si el texto del ComboBox está vacío, limpiar el TextBox y actualizar el DataGridView
+                txtCodigo.Text = "";
+                dgvEmpleados.DataSource = _empleadoLOG.ObtenerTodosCorreos();
+            }
+        }
+
+        private void cbxTelefono_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbxTelefono.SelectedIndex != -1)
+            {
+                int numeroTelefono = Convert.ToInt32(cbxTelefono.Text);
+                _empleadoLOG = new EmpleadoLOG();
+
+                var empleado = _empleadoLOG.ObtenerClientePorTelefono(numeroTelefono);
+
+                if (empleado != null)
+                {
+                    // Mostrar el cliente seleccionado en el DataGridView
+                    txtCodigo.Text = empleado.EmpleadoId.ToString();
+                    dgvEmpleados.DataSource = new List<Empleado> { empleado };
+                }
+                else
+                {
+                    // Limpiar los controles si no se encuentra el cliente
+                    txtCodigo.Text = "";
+                    txtNombre.Text = "";
+                    txtApellido.Text = "";
+                    txtDireccion.Text = "";
+                    cbxTelefono.SelectedIndex = -1;
+                    dgvEmpleados.DataSource = null;
+                }
+            }
+            else
+            {
+                // Limpiar los controles si no hay nada seleccionado en el ComboBox
+                txtCodigo.Text = "";
+                txtNombre.Text = "";
+                txtApellido.Text = "";
+                txtDireccion.Text = "";
+                cbxTelefono.SelectedIndex = -1;
+                dgvEmpleados.DataSource = _empleadoLOG.ObtenerTodosTelefonos();
+            }
+        }
+
+        private void cbxTelefono_TextUpdate(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

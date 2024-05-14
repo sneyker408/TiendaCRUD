@@ -81,6 +81,7 @@ namespace CapaDatos
         }
 
         public int EliminarFabricante(int id)
+
         {
             _db = new ContextoBD();
             int resultado = 0;
@@ -111,6 +112,12 @@ namespace CapaDatos
             _db = new ContextoBD();
 
             return _db.Fabricantes.Where(f => f.Estado == estadoActivo).ToList();
+        }
+
+        public object TodosFabricantes()
+        {
+            _db = new ContextoBD();
+            return _db.Fabricantes.ToList();
         }
     }
 }

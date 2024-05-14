@@ -52,5 +52,36 @@ namespace CapaLogica
             _categoriaDAL = new CategoriaDAL();
             return _categoriaDAL.EliminarCategoria(id);
         }
+
+        public object ObtenerTodasCategorias()
+        {
+            _categoriaDAL = new CategoriaDAL();
+            return _categoriaDAL.TodasCategorias();
+        }
+
+        public List<Categoria> ObtenerFabricantesPorEstado(bool estadoActivo)
+        {
+            return _categoriaDAL.ObtenerCategoriaPorEstado(estadoActivo);
+        }
+
+        public Categoria ObtenerFabricantePorId(int codigo)
+        {
+            _categoriaDAL = new CategoriaDAL();
+            return _categoriaDAL.LeerPorId(codigo);
+        }
+
+        public List<Categoria> ObtenerCategoria(bool inactivo = false)
+        {
+            _categoriaDAL = new CategoriaDAL();
+            return _categoriaDAL.Categorias(inactivo);
+        }
+
+        public Categoria ObtenerCategoriaPorNombre(string nombreCategoria)
+        {
+            _categoriaDAL = new CategoriaDAL();
+
+            return _categoriaDAL.ObtenerCategoriaPorNombre(nombreCategoria);
+        }
+
     }
 }

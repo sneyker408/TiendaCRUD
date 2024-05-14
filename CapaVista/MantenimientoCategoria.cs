@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CapaEntidades;
 
 namespace CapaVista
 {
@@ -18,7 +19,23 @@ namespace CapaVista
         public MantenimientoCategoria()
         {
             InitializeComponent();
+            // Desasociar el evento SelectedIndexChanged
+            cbxNombreCate.SelectedIndexChanged -= cbxNombreCate_SelectedIndexChanged;
+
             CargarCategoria();
+            MostrarCategoria();
+
+            // Volver a asociar el evento SelectedIndexChanged
+            cbxNombreCate.SelectedIndexChanged += cbxNombreCate_SelectedIndexChanged;
+        }
+
+        private void MostrarCategoria()
+        {
+            _categoriaLOG = new CategoriaLOG();
+            cbxNombreCate.DataSource = _categoriaLOG.ObtenerTodasCategorias();
+            cbxNombreCate.DisplayMember = "NombreCategoria";
+            cbxNombreCate.ValueMember = "CategoriaId";
+            cbxNombreCate.SelectedIndex = -1;
         }
 
         private void BtnNuevoMCate_Click(object sender, EventArgs e)
@@ -43,7 +60,13 @@ namespace CapaVista
             }
         }
 
-
+        private void txtCodigo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
 
         private void BtnAtrasMCate_Click(object sender, EventArgs e)
         {
@@ -62,7 +85,7 @@ namespace CapaVista
                     {
                         RegistroCategoria objRegistroCategoria = new RegistroCategoria(id);
                         objRegistroCategoria.ShowDialog();
-                        CargarCategoria();
+                        CargarOtraCategoria();
                     }
 
                     else if (dgvCategoria.Columns[e.ColumnIndex].Name.Equals("Eliminar"))
@@ -104,14 +127,133 @@ namespace CapaVista
             }
         }
 
+        private void CargarOtraCategoria()
+        {
+            _categoriaLOG = new CategoriaLOG();
+
+            dgvCategoria.DataSource = _categoriaLOG.ObtenerCategoria();
+        }
+
         private void rdbActivos_CheckedChanged(object sender, EventArgs e)
         {
-            CargarCategoria();
+            if (rdbActivos.Checked)
+            {
+                dgvCategoria.DataSource = _categoriaLOG.ObtenerFabricantesPorEstado(true);
+            }
         }
 
         private void rdbInactivos_CheckedChanged(object sender, EventArgs e)
         {
-            CargarCategoria();
+            if (rdbInactivos.Checked)
+            {
+                dgvCategoria.DataSource = _categoriaLOG.ObtenerFabricantesPorEstado(false);
+            }
+        }
+
+        private void txtCodigo_TextChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtCodigo.Text))
+            {
+                int codigo = int.Parse(txtCodigo.Text);
+                _categoriaLOG = new CategoriaLOG();
+
+                var categoria = _categoriaLOG.ObtenerFabricantePorId(codigo);
+
+                if (categoria != null)
+                {
+                    // Actualizar el estado del ComboBox y del DataGridView
+                    if (categoria.Estado == true)
+                    {
+                        cbxNombreCate.SelectedValue = categoria.CategoriaId;
+                        dgvCategoria.DataSource = new List<Categoria> {categoria};
+                        rdbActivos.Checked = true;
+                        rdbInactivos.Checked = false;
+                    }
+                    else
+                    {
+                        // Si el fabricante está inactivo, seleccionar el RadioButton inactivo y deseleccionar el activo
+                        cbxNombreCate.SelectedValue = categoria.CategoriaId;
+                        dgvCategoria.DataSource = new List<Categoria>{categoria};
+                        rdbActivos.Checked = false;
+                        rdbInactivos.Checked = true;
+
+                    }
+                }
+                else
+                {
+                    // Limpiar los controles si no se encuentra el fabricante
+                    cbxNombreCate.SelectedIndex = -1;
+                    dgvCategoria.DataSource = null;
+                    rdbActivos.Checked = false;
+                    rdbInactivos.Checked = false;
+                }
+            }
+            else
+            {
+                // Limpiar los controles si el TextBox está vacío
+                cbxNombreCate.SelectedIndex = -1;
+                cbxNombreCate.Text = "";
+                dgvCategoria.DataSource = _categoriaLOG.ObtenerCategoria();
+                rdbActivos.Checked = false;
+                rdbInactivos.Checked = false;
+            }
+        }
+
+        private void cbxNombreCate_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbxNombreCate.SelectedIndex != -1)
+            {
+                string nombreCategoria = cbxNombreCate.Text;
+                _categoriaLOG = new CategoriaLOG();
+
+                var categoria = _categoriaLOG.ObtenerCategoriaPorNombre(nombreCategoria);
+
+                if (categoria != null)
+                {
+                    // Actualizar el estado del ComboBox y del DataGridView
+                    if (categoria.Estado == true)
+                    {
+                        txtCodigo.Text = categoria.CategoriaId.ToString();
+                        dgvCategoria.DataSource = new List<Categoria> { categoria };
+                        rdbActivos.Checked = true;
+                        rdbInactivos.Checked = false;
+                    }
+                    else
+                    {
+                        // Si el fabricante está inactivo, seleccionar el RadioButton inactivo y deseleccionar el activo
+                        txtCodigo.Text = categoria.CategoriaId.ToString();
+                        dgvCategoria.DataSource = new List<Categoria> { categoria };
+                        rdbActivos.Checked = false;
+                        rdbInactivos.Checked = true;
+                    }
+                }
+                else
+                {
+                    // Limpiar los controles si no se encuentra el fabricante
+                    txtCodigo.Text = "";
+                    dgvCategoria.DataSource = null;
+                    rdbActivos.Checked = false;
+                    rdbInactivos.Checked = false;
+                }
+            }
+            else
+            {
+                // Limpiar los controles si no hay nada seleccionado en el ComboBox
+                txtCodigo.Text = "";
+                dgvCategoria.DataSource = _categoriaLOG.ObtenerCategoria();
+                rdbActivos.Checked = false;
+                rdbInactivos.Checked = false;
+            }
+        }
+
+        private void cbxNombreCate_TextUpdate(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(cbxNombreCate.Text))
+            {
+                // Si el texto del ComboBox está vacío, limpiar el TextBox y actualizar el DataGridView
+                txtCodigo.Text = "";
+                dgvCategoria.DataSource = _categoriaLOG.ObtenerCategoria();
+            }
         }
     }
 }

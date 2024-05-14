@@ -89,13 +89,33 @@ namespace CapaDatos
 
             if (categoria != null)
             {
-                categoria.Estado = false;
+                _db.Categorias.Remove(categoria);
                 _db.SaveChanges();
 
                 resultado = categoria.CategoriaId;
             }
 
             return resultado;
+        }
+
+        public object TodasCategorias()
+        {
+            _db = new ContextoBD();
+            return _db.Categorias.ToList();
+        }
+
+        public List<Categoria> ObtenerCategoriaPorEstado(bool estadoActivo)
+        {
+            _db = new ContextoBD();
+
+            return _db.Categorias.Where(f => f.Estado == estadoActivo).ToList();
+        }
+
+        public Categoria ObtenerCategoriaPorNombre(string nombreCategoria)
+        {
+            _db = new ContextoBD();
+
+            return _db.Categorias.FirstOrDefault(f => f.NombreCategoria.Contains(nombreCategoria));
         }
     }
 }

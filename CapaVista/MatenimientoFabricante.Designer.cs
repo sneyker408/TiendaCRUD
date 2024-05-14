@@ -100,6 +100,7 @@
             this.dgvFabricante.Size = new System.Drawing.Size(980, 398);
             this.dgvFabricante.TabIndex = 10;
             this.dgvFabricante.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgFabricante_CellClick);
+            this.dgvFabricante.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodigo_KeyPress);
             // 
             // FabricanteId
             // 

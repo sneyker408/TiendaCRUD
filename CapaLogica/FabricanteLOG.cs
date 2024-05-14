@@ -67,5 +67,11 @@ namespace CapaLogica
         {
             return _fabricanteDAL.ObtenerFabricantesPorEstado(estadoActivo);
         }
+
+        public object ObtenerTodosFabricantes()
+        {
+            _fabricanteDAL = new FabricanteDAL();
+            return _fabricanteDAL.TodosFabricantes();
+        }
     }
 }

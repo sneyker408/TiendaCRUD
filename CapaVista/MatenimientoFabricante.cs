@@ -32,7 +32,7 @@ namespace CapaVista
         private void MostrarFabricante()
         {
             _fabricanteLOG = new FabricanteLOG();
-            cbxNombreFabri.DataSource = _fabricanteLOG.ObtenerFabricantes();
+            cbxNombreFabri.DataSource = _fabricanteLOG.ObtenerTodosFabricantes();
             cbxNombreFabri.DisplayMember = "NombreFabricante";
             cbxNombreFabri.ValueMember = "FabricanteId";
             cbxNombreFabri.SelectedIndex = -1;
@@ -165,17 +165,16 @@ namespace CapaVista
                     {
                         cbxNombreFabri.SelectedValue = fabricante.FabricanteId;
                         dgvFabricante.DataSource = new List<Fabricante> { fabricante };
-                        // Si el fabricante está activo, seleccionar el RadioButton activo y deseleccionar el inactivo
                         rdbActivos.Checked = true;
                         rdbInactivos.Checked = false;
                     }
                     else
                     {
                         // Si el fabricante está inactivo, seleccionar el RadioButton inactivo y deseleccionar el activo
+                        cbxNombreFabri.SelectedValue = fabricante.FabricanteId;
+                        dgvFabricante.DataSource = new List<Fabricante> { fabricante };
                         rdbActivos.Checked = false;
                         rdbInactivos.Checked = true;
-                        cbxNombreFabri.SelectedIndex = -1;
-                        dgvFabricante.DataSource = null;
 
                     }
                 }
@@ -221,8 +220,8 @@ namespace CapaVista
                     else
                     {
                         // Si el fabricante está inactivo, seleccionar el RadioButton inactivo y deseleccionar el activo
-                        txtCodigo.Text = "";
-                        dgvFabricante.DataSource = null;
+                        txtCodigo.Text = fabricante.FabricanteId.ToString();
+                        dgvFabricante.DataSource = new List<Fabricante> { fabricante };
                         rdbActivos.Checked = false;
                         rdbInactivos.Checked = true;
                     }

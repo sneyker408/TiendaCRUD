@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,6 +11,8 @@ namespace CapaDatos
     public class FabricanteDAL
     {
         ContextoBD _db;
+
+        Fabricante _fabricantes;
 
         public int Guardar(Fabricante fabricante, int id = 0, bool esActualizacion = false)
         {
@@ -86,13 +89,28 @@ namespace CapaDatos
 
             if (fabricante != null)
             {
-                fabricante.Estado = false;
+                _db.Fabricantes.Remove(fabricante);
                 _db.SaveChanges();
 
                 resultado = fabricante.FabricanteId;
             }
 
             return resultado;
+        }
+
+        public Fabricante ObtenerFabricantePorNombre(string nombreFabricante)
+        {
+            _db = new ContextoBD();
+
+            return _db.Fabricantes.FirstOrDefault(f => f.NombreFabricante.Contains(nombreFabricante));
+        }
+
+
+        public List<Fabricante> ObtenerFabricantesPorEstado(bool estadoActivo)
+        {
+            _db = new ContextoBD();
+
+            return _db.Fabricantes.Where(f => f.Estado == estadoActivo).ToList();
         }
     }
 }

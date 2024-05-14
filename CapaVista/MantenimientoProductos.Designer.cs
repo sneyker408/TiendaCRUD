@@ -36,7 +36,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.cmbMarcas = new System.Windows.Forms.ComboBox();
+            this.cmbFabricante = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.dgvProductos = new System.Windows.Forms.DataGridView();
             this.ProductoId = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -72,7 +72,7 @@
             this.gpbxFiltro.Controls.Add(this.label7);
             this.gpbxFiltro.Controls.Add(this.txtNombre);
             this.gpbxFiltro.Controls.Add(this.label1);
-            this.gpbxFiltro.Controls.Add(this.cmbMarcas);
+            this.gpbxFiltro.Controls.Add(this.cmbFabricante);
             this.gpbxFiltro.Controls.Add(this.label6);
             this.gpbxFiltro.Location = new System.Drawing.Point(13, 13);
             this.gpbxFiltro.Name = "gpbxFiltro";
@@ -127,17 +127,17 @@
             this.label1.TabIndex = 29;
             this.label1.Text = "Nombre";
             // 
-            // cmbMarcas
+            // cmbFabricante
             // 
-            this.cmbMarcas.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.cmbMarcas.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cmbMarcas.DisplayMember = "Nombre";
-            this.cmbMarcas.FormattingEnabled = true;
-            this.cmbMarcas.Location = new System.Drawing.Point(681, 29);
-            this.cmbMarcas.Name = "cmbMarcas";
-            this.cmbMarcas.Size = new System.Drawing.Size(241, 32);
-            this.cmbMarcas.TabIndex = 28;
-            this.cmbMarcas.ValueMember = "idMarca";
+            this.cmbFabricante.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cmbFabricante.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmbFabricante.DisplayMember = "Nombre";
+            this.cmbFabricante.FormattingEnabled = true;
+            this.cmbFabricante.Location = new System.Drawing.Point(681, 29);
+            this.cmbFabricante.Name = "cmbFabricante";
+            this.cmbFabricante.Size = new System.Drawing.Size(241, 32);
+            this.cmbFabricante.TabIndex = 28;
+            this.cmbFabricante.ValueMember = "idMarca";
             // 
             // label6
             // 
@@ -333,7 +333,7 @@
             // 
             this.groupBox2.Controls.Add(this.rdbInactivos);
             this.groupBox2.Controls.Add(this.rdbActivos);
-            this.groupBox2.Location = new System.Drawing.Point(994, 24);
+            this.groupBox2.Location = new System.Drawing.Point(974, 24);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(146, 104);
             this.groupBox2.TabIndex = 5;
@@ -343,19 +343,20 @@
             // rdbInactivos
             // 
             this.rdbInactivos.AutoSize = true;
-            this.rdbInactivos.Location = new System.Drawing.Point(6, 65);
+            this.rdbInactivos.Location = new System.Drawing.Point(18, 65);
             this.rdbInactivos.Name = "rdbInactivos";
             this.rdbInactivos.Size = new System.Drawing.Size(96, 28);
             this.rdbInactivos.TabIndex = 1;
             this.rdbInactivos.Text = "Inactivos";
             this.rdbInactivos.UseVisualStyleBackColor = true;
             this.rdbInactivos.UseWaitCursor = true;
+            this.rdbInactivos.CheckedChanged += new System.EventHandler(this.rdbInactivos_CheckedChanged);
             // 
             // rdbActivos
             // 
             this.rdbActivos.AutoSize = true;
             this.rdbActivos.Checked = true;
-            this.rdbActivos.Location = new System.Drawing.Point(6, 37);
+            this.rdbActivos.Location = new System.Drawing.Point(18, 31);
             this.rdbActivos.Name = "rdbActivos";
             this.rdbActivos.Size = new System.Drawing.Size(84, 28);
             this.rdbActivos.TabIndex = 0;
@@ -363,6 +364,7 @@
             this.rdbActivos.Text = "Activos";
             this.rdbActivos.UseVisualStyleBackColor = true;
             this.rdbActivos.UseWaitCursor = true;
+            this.rdbActivos.CheckedChanged += new System.EventHandler(this.rdbActivos_CheckedChanged);
             // 
             // productoBindingSource
             // 
@@ -408,7 +410,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cmbMarcas;
+        private System.Windows.Forms.ComboBox cmbFabricante;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.RadioButton rdbInactivos;

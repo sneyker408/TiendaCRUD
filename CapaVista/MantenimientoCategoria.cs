@@ -32,8 +32,18 @@ namespace CapaVista
         {
             _categoriaLOG = new CategoriaLOG();
 
-            dgvCategoria.DataSource = _categoriaLOG.ObtenerCategorias();
+            if (rdbActivos.Checked)
+            {
+                dgvCategoria.DataSource = _categoriaLOG.ObtenerCategorias();
+            }
+            else if (rdbInactivos.Checked)
+            {
+
+                dgvCategoria.DataSource = _categoriaLOG.ObtenerCategorias(true);
+            }
         }
+
+
 
         private void BtnAtrasMCate_Click(object sender, EventArgs e)
         {
@@ -92,6 +102,16 @@ namespace CapaVista
             {
                 MessageBox.Show("Ocurrio un error");
             }
+        }
+
+        private void rdbActivos_CheckedChanged(object sender, EventArgs e)
+        {
+            CargarCategoria();
+        }
+
+        private void rdbInactivos_CheckedChanged(object sender, EventArgs e)
+        {
+            CargarCategoria();
         }
     }
 }

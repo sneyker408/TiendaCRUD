@@ -22,6 +22,7 @@ namespace CapaVista
             InitializeComponent();
 
             CargarProductos();
+            MostrarFabricanteYCategorias();
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
@@ -35,8 +36,31 @@ namespace CapaVista
         {
             _productoLOG = new ProductoLOG();
 
-            dgvProductos.DataSource = _productoLOG.ObtenerProductos();
+            if (rdbActivos.Checked)
+            {
+                dgvProductos.DataSource = _productoLOG.ObtenerProductos();
+            }
+            else if (rdbInactivos.Checked)
+            {
 
+                dgvProductos.DataSource = _productoLOG.ObtenerProductos(true);
+            }
+
+        }
+
+        private void MostrarFabricanteYCategorias()
+        {
+            _categoriaLOG = new CategoriaLOG();
+            cmbCategorias.DataSource = _categoriaLOG.ObtenerCategorias();
+            cmbCategorias.DisplayMember = "NombreCategoria";
+            cmbCategorias.ValueMember = "CategoriaId";
+            cmbCategorias.SelectedIndex = -1;
+
+            _fabricanteLOG = new FabricanteLOG();
+            cmbFabricante.DataSource = _fabricanteLOG.ObtenerFabricantes();
+            cmbFabricante.DisplayMember = "NombreFabricante";
+            cmbFabricante.ValueMember = "FabricanteId";
+            cmbFabricante.SelectedIndex = -1;
         }
 
         private void btnVolver_Click(object sender, EventArgs e)
@@ -123,5 +147,14 @@ namespace CapaVista
 
         }
 
+        private void rdbActivos_CheckedChanged(object sender, EventArgs e)
+        {
+            CargarProductos();
+        }
+
+        private void rdbInactivos_CheckedChanged(object sender, EventArgs e)
+        {
+            CargarProductos();
+        }
     }
 }

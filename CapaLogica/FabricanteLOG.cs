@@ -19,6 +19,11 @@ namespace CapaLogica
             return _fabricanteDAL.Guardar(fabricante, id, Actualizacion);
         }
 
+        public FabricanteLOG()
+        {
+            _fabricanteDAL = new FabricanteDAL();
+        }
+
         public Fabricante ObtenerFabricantePorId(int codigo)
         {
             _fabricanteDAL = new FabricanteDAL();
@@ -51,6 +56,16 @@ namespace CapaLogica
         {
             _fabricanteDAL = new FabricanteDAL();
             return _fabricanteDAL.EliminarFabricante(id);
+        }
+
+        public Fabricante ObtenerFabricantePorNombre(string nombreFabricante)
+        {
+            return _fabricanteDAL.ObtenerFabricantePorNombre(nombreFabricante);
+        }
+
+        public List<Fabricante> ObtenerFabricantesPorEstado(bool estadoActivo)
+        {
+            return _fabricanteDAL.ObtenerFabricantesPorEstado(estadoActivo);
         }
     }
 }

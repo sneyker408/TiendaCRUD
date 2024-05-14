@@ -65,7 +65,9 @@ namespace CapaVista
         private void btnGuardarFabri_Click(object sender, EventArgs e)
         {
             GuardarFabricante();
+            
         }
+
 
         private void btnCancelarFabri_Click(object sender, EventArgs e)
         {

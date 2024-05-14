@@ -55,11 +55,18 @@ namespace CapaDatos
             return resultado;
         }
 
-        public List<Producto> Leer()
+        public List<Producto> Leer(bool inactivos = false)
         {
             _db = new ContextoBD();
-
-            return _db.Productos.Where(p => p.Estado == true).ToList();
+            if(inactivos)
+            {
+                return _db.Productos.Where(p => p.Estado == false).ToList();
+            }
+            else
+            {
+                return _db.Productos.Where(p => p.Estado == true).ToList();
+            }
+            
         }
 
         public Producto LeerPorId(int id)

@@ -33,11 +33,11 @@ namespace CapaLogica
             return _productoDAL.Guardar(producto, id, true);
         }
 
-        public List<Producto> ObtenerProductos()
+        public List<Producto> ObtenerProductos(bool inactivos = false)
         {
             _productoDAL = new ProductoDAL();
 
-            return _productoDAL.Leer();
+            return _productoDAL.Leer(inactivos);
         }
 
         public int EliminarProducto(int id)

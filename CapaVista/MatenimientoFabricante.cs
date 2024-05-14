@@ -1,4 +1,5 @@
-﻿using CapaLogica;
+﻿using CapaEntidades;
+using CapaLogica;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,13 +15,44 @@ namespace CapaVista
     public partial class MatenimientoFabricante : Form
     {
         FabricanteLOG _fabricanteLOG;
+
         public MatenimientoFabricante()
         {
             InitializeComponent();
+            // Desasociar el evento SelectedIndexChanged
+            cbxNombreFabri.SelectedIndexChanged -= cbxNombreFabri_SelectedIndexChanged;
+
             CargarFabricante();
+            MostrarFabricante();
+
+            // Volver a asociar el evento SelectedIndexChanged
+            cbxNombreFabri.SelectedIndexChanged += cbxNombreFabri_SelectedIndexChanged;
+        }
+
+        private void MostrarFabricante()
+        {
+            _fabricanteLOG = new FabricanteLOG();
+            cbxNombreFabri.DataSource = _fabricanteLOG.ObtenerFabricantes();
+            cbxNombreFabri.DisplayMember = "NombreFabricante";
+            cbxNombreFabri.ValueMember = "FabricanteId";
+            cbxNombreFabri.SelectedIndex = -1;
         }
 
         private void CargarFabricante()
+        {
+            _fabricanteLOG = new FabricanteLOG();
+
+            if (rdbActivos.Checked)
+            {
+                dgvFabricante.DataSource = _fabricanteLOG.ObtenerFabricantes();
+            }
+            else if (rdbInactivos.Checked)
+            {
+                dgvFabricante.DataSource = _fabricanteLOG.ObtenerFabricantes(true);
+            }
+        }
+
+        private void CargarotroFabri()
         {
             _fabricanteLOG = new FabricanteLOG();
 
@@ -31,11 +63,20 @@ namespace CapaVista
         {
             RegistroFabricante objRegistroFabri = new RegistroFabricante();
             objRegistroFabri.ShowDialog();
+            CargarFabricante();
         }
 
         private void BtnAtrasMFabri_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void txtCodigo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
 
         private void dgFabricante_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -50,20 +91,20 @@ namespace CapaVista
                     {
                         RegistroFabricante objRegistroFabricante = new RegistroFabricante(id);
                         objRegistroFabricante.ShowDialog();
-                        CargarFabricante();
+                        CargarotroFabri();
                     }
 
                     else if (dgvFabricante.Columns[e.ColumnIndex].Name.Equals("Eliminar"))
                     {
-                        var desicion = MessageBox.Show("¿Está seguro que desea eliminar el categoria?", "Tienda | Edicion Categoria",
-                        MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                        var desicion = MessageBox.Show("¿Está seguro que desea eliminar el fabricante?", "Tienda | Edicion Fabricante",
+                            MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                         _fabricanteLOG = new FabricanteLOG();
 
                         int resultado = 0;
 
                         if (desicion != DialogResult.Yes)
                         {
-                            MessageBox.Show("El categoria no se eliminara", "Tienda | Edicion Categorias",
+                            MessageBox.Show("El fabricante no se eliminará", "Tienda | Edicion Fabricante",
                                 MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         else
@@ -73,23 +114,148 @@ namespace CapaVista
 
                             if (resultado > 0)
                             {
-                                MessageBox.Show("Categoria eliminado con exito.", "Tienda | Edicion de Categoria",
-                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                MessageBox.Show("Fabricante eliminado con éxito.", "Tienda | Edicion de Fabricante",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
                             else
                             {
-                                MessageBox.Show("No se logro eliminar el categoria.", "Tienda | Edicion de Categoria",
-                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                MessageBox.Show("No se logró eliminar el fabricante.", "Tienda | Edicion de Fabricante",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
                         }
                     }
-
                 }
+                
             }
             catch (Exception)
             {
-                MessageBox.Show("Ocurrio un error");
+                MessageBox.Show("Ocurrió un error");
             }
         }
+
+        private void rdbActivos_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdbActivos.Checked)
+            {
+                dgvFabricante.DataSource = _fabricanteLOG.ObtenerFabricantesPorEstado(true);
+            }
+        }
+
+        private void rdbInactivos_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdbInactivos.Checked)
+            {
+                dgvFabricante.DataSource = _fabricanteLOG.ObtenerFabricantesPorEstado(false);
+            }
+        }
+
+        private void txtCodigo_TextChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtCodigo.Text))
+            {
+                int codigo = int.Parse(txtCodigo.Text);
+                _fabricanteLOG = new FabricanteLOG();
+
+                var fabricante = _fabricanteLOG.ObtenerFabricantePorId(codigo);
+
+                if (fabricante != null)
+                {
+                    // Actualizar el estado del ComboBox y del DataGridView
+                    if (fabricante.Estado == true)
+                    {
+                        cbxNombreFabri.SelectedValue = fabricante.FabricanteId;
+                        dgvFabricante.DataSource = new List<Fabricante> { fabricante };
+                        // Si el fabricante está activo, seleccionar el RadioButton activo y deseleccionar el inactivo
+                        rdbActivos.Checked = true;
+                        rdbInactivos.Checked = false;
+                    }
+                    else
+                    {
+                        // Si el fabricante está inactivo, seleccionar el RadioButton inactivo y deseleccionar el activo
+                        rdbActivos.Checked = false;
+                        rdbInactivos.Checked = true;
+                        cbxNombreFabri.SelectedIndex = -1;
+                        dgvFabricante.DataSource = null;
+
+                    }
+                }
+                else
+                {
+                    // Limpiar los controles si no se encuentra el fabricante
+                    cbxNombreFabri.SelectedIndex = -1;
+                    dgvFabricante.DataSource = null;
+                    rdbActivos.Checked = false;
+                    rdbInactivos.Checked = false;
+                }
+            }
+            else
+            {
+                // Limpiar los controles si el TextBox está vacío
+                cbxNombreFabri.SelectedIndex = -1;
+                cbxNombreFabri.Text = "";
+                dgvFabricante.DataSource = _fabricanteLOG.ObtenerFabricantes();
+                rdbActivos.Checked = false;
+                rdbInactivos.Checked = false;
+            }
+        }
+
+        private void cbxNombreFabri_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbxNombreFabri.SelectedIndex != -1)
+            {
+                string nombreFabricante = cbxNombreFabri.Text;
+                _fabricanteLOG = new FabricanteLOG();
+
+                var fabricante = _fabricanteLOG.ObtenerFabricantePorNombre(nombreFabricante);
+
+                if (fabricante != null)
+                {
+                    // Actualizar el estado del ComboBox y del DataGridView
+                    if (fabricante.Estado == true)
+                    {
+                        txtCodigo.Text = fabricante.FabricanteId.ToString();
+                        dgvFabricante.DataSource = new List<Fabricante> { fabricante };
+                        rdbActivos.Checked = true;
+                        rdbInactivos.Checked = false;
+                    }
+                    else
+                    {
+                        // Si el fabricante está inactivo, seleccionar el RadioButton inactivo y deseleccionar el activo
+                        txtCodigo.Text = "";
+                        dgvFabricante.DataSource = null;
+                        rdbActivos.Checked = false;
+                        rdbInactivos.Checked = true;
+                    }
+                }
+                else
+                {
+                    // Limpiar los controles si no se encuentra el fabricante
+                    txtCodigo.Text = "";
+                    dgvFabricante.DataSource = null;
+                    rdbActivos.Checked = false;
+                    rdbInactivos.Checked = false;
+                }
+            }
+            else
+            {
+                // Limpiar los controles si no hay nada seleccionado en el ComboBox
+                txtCodigo.Text = "";
+                dgvFabricante.DataSource = _fabricanteLOG.ObtenerFabricantes();
+                rdbActivos.Checked = false;
+                rdbInactivos.Checked = false;
+            }
+        }
+
+        private void cbxNombreFabri_TextUpdate(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(cbxNombreFabri.Text))
+            {
+                // Si el texto del ComboBox está vacío, limpiar el TextBox y actualizar el DataGridView
+                txtCodigo.Text = "";
+                dgvFabricante.DataSource = _fabricanteLOG.ObtenerFabricantes();
+            }
+        }
+
+        
     }
 }

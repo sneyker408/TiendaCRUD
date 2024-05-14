@@ -102,7 +102,6 @@ namespace CapaVista
                     }
                 }
 
-                // Debemos de indicar si es un nuevo producto oh una edición
                 int resultado;
 
                 if (_id > 0)

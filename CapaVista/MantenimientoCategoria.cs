@@ -60,17 +60,17 @@ namespace CapaVista
             }
         }
 
+        private void BtnAtrasMCate_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
         private void txtCodigo_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
             }
-        }
-
-        private void BtnAtrasMCate_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
 
         private void dgCategoria_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -194,7 +194,7 @@ namespace CapaVista
                 cbxNombreCate.SelectedIndex = -1;
                 cbxNombreCate.Text = "";
                 dgvCategoria.DataSource = _categoriaLOG.ObtenerCategoria();
-                rdbActivos.Checked = false;
+                rdbActivos.Checked = true;
                 rdbInactivos.Checked = false;
             }
         }
@@ -255,5 +255,7 @@ namespace CapaVista
                 dgvCategoria.DataSource = _categoriaLOG.ObtenerCategoria();
             }
         }
+
+
     }
 }

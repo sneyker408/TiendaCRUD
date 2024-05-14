@@ -28,6 +28,12 @@ namespace CapaDatos
             return resultado;
         }
 
+        public List<Cliente> FiltrarPorNombre(string nombre)
+        {
+            _db = new ContextoBD();
+            return _db.Clientes.Where(p => p.Nombre == nombre).ToList();
+        }
+
         public int Guardar(Cliente cliente, int id = 0, bool esActualizacion = false)
         {
             _db = new ContextoBD();
@@ -72,6 +78,33 @@ namespace CapaDatos
         {
             _db = new ContextoBD();
 
+            return _db.Clientes.ToList();
+        }
+
+        public Cliente ObtenerClientePorTelefono(int numeroTelefono)
+        {
+            _db = new ContextoBD();
+
+            return _db.Clientes.FirstOrDefault(f => f.NumeroTelefono == numeroTelefono);
+        }
+
+        public Cliente ObtenerCorreoPorNombre(string nombrecorreo)
+        {
+            using (var _db = new ContextoBD())
+            {
+                return _db.Clientes.FirstOrDefault(f => f.CorreoElectronico.Contains(nombrecorreo));
+            }
+        }
+
+        public object TodosCorreos()
+        {
+            _db = new ContextoBD();
+            return _db.Clientes.ToList();
+        }
+
+        public object TodosTelefonos()
+        {
+            _db = new ContextoBD();
             return _db.Clientes.ToList();
         }
     }

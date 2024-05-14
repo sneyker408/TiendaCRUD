@@ -1,4 +1,5 @@
-﻿using CapaLogica;
+﻿using CapaEntidades;
+using CapaLogica;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Serialization;
 
 namespace CapaVista
 {
@@ -18,7 +20,11 @@ namespace CapaVista
         public MantenimientoCliente()
         {
             InitializeComponent();
+            MostrarCorreo();
+            MostrarTelefonos();
+            LimpiarCamposTexto();
             cargarCliente();
+
         }
 
         private void btnVolver_Click(object sender, EventArgs e)
@@ -39,6 +45,35 @@ namespace CapaVista
 
             dgvClientes.DataSource = _clienteLOG.ObtenerClientes();
 
+        }
+
+        private void MostrarTelefonos()
+        {
+            _clienteLOG = new ClienteLOG();
+            cbxTelefono.DataSource = _clienteLOG.ObtenerTodosTelefonos();
+            cbxTelefono.DisplayMember = "Telefono";
+            cbxTelefono.ValueMember = "ClienteId";
+            cbxTelefono.SelectedIndex = -1;
+        }
+
+        private void MostrarCorreo()
+        {
+            _clienteLOG = new ClienteLOG();
+            cbxCorreo.DataSource = _clienteLOG.ObtenerTodosCorreos();
+            cbxCorreo.DisplayMember = "Correo";
+            cbxCorreo.ValueMember = "ClienteId";
+            cbxCorreo.SelectedIndex = -1;
+        }
+
+        private void LimpiarCamposTexto()
+        {
+            txtCodigo.Text = "";
+            txtNombre.Text = "";
+            txtApellido.Text = "";
+            txtDireccion.Text = "";
+            cbxTelefono.SelectedIndex = -1;
+            cbxCorreo.SelectedIndex = -1;
+            cbxCorreo.Text = "";
         }
 
         private void dgCliente_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -94,5 +129,210 @@ namespace CapaVista
                 MessageBox.Show("Ocurrio un error");
             }
         }
+
+        private void txtCodigo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtCodigo_TextChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtCodigo.Text))
+            {
+                int codigo = int.Parse(txtCodigo.Text);
+                _clienteLOG = new ClienteLOG();
+
+                var categoria = _clienteLOG.ObtenerClientePorId(codigo);
+
+                if (categoria != null)
+                {   
+                    cbxCorreo.SelectedValue = categoria.ClienteId;
+                    txtNombre.Text = categoria.Nombre;
+                    txtApellido.Text = categoria.Apellido;
+                    txtDireccion.Text = categoria.Direccion;
+                    cbxTelefono.Text = categoria.NumeroTelefono.ToString();
+                    dgvClientes.DataSource = new List<Cliente> { categoria };
+      
+                }
+                else
+                {
+                    // Limpiar los controles si no se encuentra el fabricante
+                    cbxCorreo.SelectedIndex = -1;
+                    txtNombre.Text = "";
+                    txtApellido.Text = "";
+                    txtDireccion.Text = "";
+                    cbxTelefono.SelectedIndex = -1;
+                    dgvClientes.DataSource = null;
+                }
+            }
+            else
+            {
+                // Limpiar los controles si el TextBox está vacío
+                cbxCorreo.SelectedIndex = -1;
+                cbxCorreo.Text = "";
+                txtNombre.Text = "";
+                txtApellido.Text = "";
+                txtDireccion.Text = "";
+                cbxTelefono.SelectedIndex = -1;
+                dgvClientes.DataSource = _clienteLOG.ObtenerClientes();
+            }
+        }
+
+        private void cbxCorreo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbxCorreo.SelectedIndex != -1)
+            {
+                string nombrecorreo = cbxCorreo.Text;
+                _clienteLOG = new ClienteLOG();
+
+                var cliente = _clienteLOG.ObtenerCorreoPorNombre(nombrecorreo);
+
+                if (cliente != null)
+                {
+                    // Mostrar el cliente seleccionado en el DataGridView
+                    txtCodigo.Text = cliente.ClienteId.ToString();
+                    dgvClientes.DataSource = new List<Cliente> { cliente };
+
+                }
+                else
+                {
+                    // Limpiar los controles si no se encuentra el cliente
+                    txtCodigo.Text = "";
+                    txtNombre.Text = "";
+                    txtApellido.Text = "";
+                    txtDireccion.Text = "";
+                    cbxTelefono.SelectedIndex = -1;
+                    dgvClientes.DataSource = null;
+                }
+            }
+            else
+            {
+                // Limpiar los controles si no hay nada seleccionado en el ComboBox
+                txtCodigo.Text = "";
+                txtNombre.Text = "";
+                txtApellido.Text = "";
+                txtDireccion.Text = "";
+                cbxTelefono.SelectedIndex = -1;
+                dgvClientes.DataSource = _clienteLOG.ObtenerTodosCorreos();
+            }
+        }
+
+        private void cbxCorreo_TextUpdate(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(cbxCorreo.Text))
+            {
+                // Si el texto del ComboBox está vacío, limpiar el TextBox y actualizar el DataGridView
+                txtCodigo.Text = "";
+                dgvClientes.DataSource = _clienteLOG.ObtenerTodosCorreos();
+            }
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            LimpiarCamposTexto();
+        }
+
+        private void cbxTelefono_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbxTelefono.SelectedIndex != -1)
+            {
+                int numeroTelefono = Convert.ToInt32(cbxTelefono.Text);
+                _clienteLOG = new ClienteLOG();
+
+                var cliente = _clienteLOG.ObtenerClientePorTelefono(numeroTelefono);
+
+                if (cliente != null)
+                {
+                    // Mostrar el cliente seleccionado en el DataGridView
+                    txtCodigo.Text = cliente.ClienteId.ToString();
+                    dgvClientes.DataSource = new List<Cliente> { cliente };
+                }
+                else
+                {
+                    // Limpiar los controles si no se encuentra el cliente
+                    txtCodigo.Text = "";
+                    txtNombre.Text = "";
+                    txtApellido.Text = "";
+                    txtDireccion.Text = "";
+                    cbxTelefono.SelectedIndex = -1;
+                    dgvClientes.DataSource = null;
+                }
+            }
+            else
+            {
+                // Limpiar los controles si no hay nada seleccionado en el ComboBox
+                txtCodigo.Text = "";
+                txtNombre.Text = "";
+                txtApellido.Text = "";
+                txtDireccion.Text = "";
+                cbxTelefono.SelectedIndex = -1;
+                dgvClientes.DataSource = _clienteLOG.ObtenerTodosTelefonos();
+            }
+        }
+
+        private void cbxTelefono_TextUpdate(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(cbxTelefono.Text))
+            {
+                // Si el texto del ComboBox está vacío, limpiar el TextBox y actualizar el DataGridView
+                txtCodigo.Text = "";
+                dgvClientes.DataSource = _clienteLOG.ObtenerTodosTelefonos();
+            }
+        }
+
+        private void txtNombre_TextChanged(object sender, EventArgs e)
+        {
+
+            if (!string.IsNullOrEmpty(txtNombre.Text.ToLower()))
+            {
+                _clienteLOG = new ClienteLOG();
+                var clientesFiltrados = _clienteLOG.ObtenerClientes().Where(c => c.Nombre.ToLower().Contains(txtNombre.Text)).ToList();
+
+                dgvClientes.DataSource = clientesFiltrados;
+            }
+            else
+            {
+                cargarCliente();
+            }
+        }
+
+        private void txtApellido_TextChanged(object sender, EventArgs e)
+        {
+
+            if (!string.IsNullOrEmpty(txtApellido.Text.ToLower()))
+            {
+                _clienteLOG = new ClienteLOG();
+                var clientesFiltrados = _clienteLOG.ObtenerClientes().Where(c => c.Apellido.ToLower().Contains(txtApellido.Text)).ToList();
+
+                dgvClientes.DataSource = clientesFiltrados;
+            }
+            else
+            {
+                cargarCliente();
+            }
+        }
+
+        private void txtDireccion_TextChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtDireccion.Text))
+            {
+                string direccionBusqueda = txtDireccion.Text.ToLower(); // Convertir a minúsculas
+
+                _clienteLOG = new ClienteLOG();
+                var clientesFiltrados = _clienteLOG.ObtenerClientes()
+                    .Where(c => c.Direccion.ToLower().Contains(direccionBusqueda))
+                    .ToList();
+
+                dgvClientes.DataSource = clientesFiltrados;
+            }
+            else
+            {
+                cargarCliente();
+            }
+        }
+
     }
 }

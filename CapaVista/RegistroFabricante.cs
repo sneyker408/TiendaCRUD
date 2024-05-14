@@ -102,13 +102,52 @@ namespace CapaVista
                 }
 
 
-                if (FabricanteExiste(txtFabricante.Text) && btnGuardarFabri.Text == "Guardar")
+                if (_id > 0)
                 {
-                    MessageBox.Show("El nombre del fabricante ya existe. Por favor, elija otro nombre.", "Tienda | Registro Fabricante",
-                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    txtFabricante.Focus();
-                    txtFabricante.BackColor = Color.LightYellow;
-                    return;
+
+                    int codigo = (_id);
+
+                    _fabricanteLOG = new FabricanteLOG();
+
+                    var fabricante = _fabricanteLOG.ObtenerFabricantePorId(codigo);
+
+                    var nombrefabri = _fabricanteLOG.EstraerNombreFabricante(codigo);
+
+                    var EstadoFabri = _fabricanteLOG.ObtenerFabricantesPorEstadoSegunid(codigo);
+
+
+                    if (nombrefabri != txtFabricante.Text)
+                    {
+                        MessageBox.Show("El nombre del fabricante ya existe. Por favor, elija otro nombre.", "Tienda | Registro Fabricante",
+                            MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        txtFabricante.Focus();
+                        txtFabricante.BackColor = Color.LightYellow;
+                        return;
+                    }
+                }
+                else
+                {
+                    int codigo = (_id);
+
+                    _fabricanteLOG = new FabricanteLOG();
+                    var EstadoFabri = _fabricanteLOG.ObtenerFabricantesPorEstadoSegunid(codigo);
+
+                    if (FabricanteExiste(txtFabricante.Text))
+                    {
+                        MessageBox.Show("El nombre del fabricante ya existe. Por favor, elija otro nombre.", "Tienda | Registro Fabricante",
+                            MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        txtFabricante.Focus();
+                        txtFabricante.BackColor = Color.LightYellow;
+                        return;
+                    }
+                    else if (EstadoFabri == false)
+                    {
+                        MessageBox.Show("El nombre del fabricante ya existe como inactivo. Por favor, elija otro nombre o active el fabricante existente.", "Tienda | Registro Fabricante",
+                            MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        txtFabricante.Focus();
+                        txtFabricante.BackColor = Color.LightYellow;
+                        return;
+                    }
                 }
 
                 int resultado;

@@ -73,5 +73,11 @@ namespace CapaLogica
             _fabricanteDAL = new FabricanteDAL();
             return _fabricanteDAL.TodosFabricantes();
         }
+
+        public bool ObtenerFabricantesPorEstadoSegunid(int codigo)
+        {
+            _fabricanteDAL = new FabricanteDAL();
+            return _fabricanteDAL.ObtenerEstadoCategoriaDesdeBD(codigo);
+        }
     }
 }

@@ -56,7 +56,7 @@ namespace CapaVista
 
                 if (string.IsNullOrEmpty(txtNombre.Text))
                 {
-                    MessageBox.Show("Se requiere el nombre del Empleado", "Tienda | Registro Empleado",
+                    MessageBox.Show("Se requiere el nombre del Empleado", "Vapesney | Registro Empleado",
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     txtNombre.Focus();
                     txtNombre.BackColor = Color.LightYellow;
@@ -65,7 +65,7 @@ namespace CapaVista
 
                 if (string.IsNullOrEmpty(txtApellido.Text))
                 {
-                    MessageBox.Show("Se requiere el apellido del Empleado", "Tienda | Registro Empleado",
+                    MessageBox.Show("Se requiere el apellido del Empleado", "Vapesney | Registro Empleado",
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     txtApellido.Focus();
                     txtApellido.BackColor = Color.LightYellow;
@@ -74,7 +74,7 @@ namespace CapaVista
 
                 if (string.IsNullOrEmpty(txtCorreo.Text))
                 {
-                    MessageBox.Show("Se requiere el Correo del Empleado", "Tienda | Registro Empleado",
+                    MessageBox.Show("Se requiere el Correo del Empleado", "Vapesney | Registro Empleado",
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     txtCorreo.Focus();
                     txtCorreo.BackColor = Color.LightYellow;
@@ -83,7 +83,7 @@ namespace CapaVista
 
                 if (string.IsNullOrEmpty(txtDireccion.Text))
                 {
-                    MessageBox.Show("Se requiere la dirección del Empleado", "Tienda | Registro Empleado",
+                    MessageBox.Show("Se requiere la dirección del Empleado", "Vapesney | Registro Empleado",
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     txtDireccion.Focus();
                     txtDireccion.BackColor = Color.LightYellow;
@@ -92,7 +92,7 @@ namespace CapaVista
 
                 if (string.IsNullOrEmpty(txtNumero.Text) || Convert.ToDecimal(txtNumero.Text) == 0)
                 {
-                    MessageBox.Show("Se requiere el número del Empleado", "Tienda | Registro Empleado",
+                    MessageBox.Show("Se requiere el número del Empleado", "Vapesney | Registro Empleado",
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     txtNumero.Focus();
                     txtNumero.BackColor = Color.LightYellow;
@@ -109,14 +109,14 @@ namespace CapaVista
 
                     if (resultado > 0)
                     {
-                        MessageBox.Show("Empleado actualizado con éxito", "Tienda | Registro Empleado",
+                        MessageBox.Show("Empleado actualizado con éxito", "Vapesney | Registro Empleado",
                             MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                         this.Close();
                     }
                     else
                     {
-                        MessageBox.Show("No se logró actualizar el empleado", "Tienda | Registro Empleado",
+                        MessageBox.Show("No se logró actualizar el empleado", "Vapesney | Registro Empleado",
                             MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
@@ -131,21 +131,21 @@ namespace CapaVista
 
                     if (resultado > 0)
                     {
-                        MessageBox.Show("Empleado agregado con éxito", "Tienda | Registro Empleado",
+                        MessageBox.Show("Empleado agregado con éxito", "Vapesney | Registro Empleado",
                             MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                         this.Close();
                     }
                     else
                     {
-                        MessageBox.Show("No se logró guardar el empleado", "Tienda | Registro Empleado",
+                        MessageBox.Show("No se logró guardar el empleado", "Vapesney | Registro Empleado",
                             MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
             catch (Exception)
             {
-                MessageBox.Show("Ocurrió un error", "Tienda | Registro Empleado",
+                MessageBox.Show("Ocurrió un error", "Vapesney | Registro Empleado",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }

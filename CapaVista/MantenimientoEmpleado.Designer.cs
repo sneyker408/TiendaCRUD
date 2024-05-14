@@ -225,7 +225,6 @@
             this.cbxTelefono.TabIndex = 42;
             this.cbxTelefono.ValueMember = "idCategoria";
             this.cbxTelefono.SelectedIndexChanged += new System.EventHandler(this.cbxTelefono_SelectedIndexChanged);
-            this.cbxTelefono.TextUpdate += new System.EventHandler(this.cbxTelefono_TextUpdate);
             // 
             // label4
             // 

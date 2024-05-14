@@ -193,7 +193,7 @@ namespace CapaVista
                 cbxNombreFabri.SelectedIndex = -1;
                 cbxNombreFabri.Text = "";
                 dgvFabricante.DataSource = _fabricanteLOG.ObtenerFabricantes();
-                rdbActivos.Checked = false;
+                rdbActivos.Checked = true;
                 rdbInactivos.Checked = false;
             }
         }
@@ -240,7 +240,7 @@ namespace CapaVista
                 // Limpiar los controles si no hay nada seleccionado en el ComboBox
                 txtCodigo.Text = "";
                 dgvFabricante.DataSource = _fabricanteLOG.ObtenerFabricantes();
-                rdbActivos.Checked = false;
+                rdbActivos.Checked = true;
                 rdbInactivos.Checked = false;
             }
         }

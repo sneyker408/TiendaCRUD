@@ -118,5 +118,17 @@ namespace CapaDatos
             _db = new ContextoBD();
             return _db.Fabricantes.ToList();
         }
+
+        public bool ObtenerEstadoCategoriaDesdeBD(int codigo)
+        {
+            bool estadoFabri = false;
+            _db = new ContextoBD();
+            Fabricante fabricante = _db.Fabricantes.FirstOrDefault(p => p.FabricanteId == codigo);
+            if (fabricante != null)
+            {
+                estadoFabri = fabricante.Estado;
+            }
+            return estadoFabri;
+        }
     }
 }

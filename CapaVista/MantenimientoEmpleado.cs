@@ -319,10 +319,5 @@ namespace CapaVista
             }
         }
 
-        private void cbxTelefono_TextUpdate(object sender, EventArgs e)
-        {
-
-        }
-
     }
 }

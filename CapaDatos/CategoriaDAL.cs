@@ -117,5 +117,17 @@ namespace CapaDatos
 
             return _db.Categorias.FirstOrDefault(f => f.NombreCategoria.Contains(nombreCategoria));
         }
+
+        public bool ObtenerEstadoCategoriaDesdeBD(int codigo)
+        {
+            bool estadoCate = false;
+            _db = new ContextoBD();
+            Categoria categoria = _db.Categorias.FirstOrDefault(p => p.CategoriaId == codigo);
+            if (categoria != null)
+            {
+                estadoCate = categoria.Estado;
+            }
+            return estadoCate;
+        }
     }
 }

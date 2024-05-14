@@ -30,7 +30,6 @@ namespace CapaEntidades
         public string CorreoElectronico { get; set; }
 
         [Required]
-        [StringLength(20)]
-        public string Telefono { get; set; }
+        public int Telefono { get; set; }
     }
 }

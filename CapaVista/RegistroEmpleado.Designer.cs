@@ -55,7 +55,7 @@
             this.btnGuardarEmple.TabIndex = 55;
             this.btnGuardarEmple.Text = "Guardar";
             this.btnGuardarEmple.UseVisualStyleBackColor = true;
-            this.btnGuardarEmple.Click += new System.EventHandler(this.btnGuardarEmple_Click_1);
+            this.btnGuardarEmple.Click += new System.EventHandler(this.btnGuardarEmple_Click);
             // 
             // txtNumero
             // 

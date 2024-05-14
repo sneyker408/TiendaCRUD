@@ -67,5 +67,12 @@ namespace CapaDatos
 
             return _db.Clientes.Find(id);
         }
+
+        public List<Cliente> NumeroTelefonoExiste(bool inactivo = false)
+        {
+            _db = new ContextoBD();
+
+            return _db.Clientes.ToList();
+        }
     }
 }

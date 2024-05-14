@@ -67,5 +67,12 @@ namespace CapaDatos
 
             return _db.Empleados.Find(id);
         }
+
+        public List<Empleado> NumeroTelefonoExiste(bool inactivo = false)
+        {
+            _db = new ContextoBD();
+
+            return _db.Empleados.ToList();
+        }
     }
 }

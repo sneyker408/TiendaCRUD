@@ -7,13 +7,13 @@ namespace CapaDatos.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class modificaciontablaempleadonombreDireccion : IMigrationMetadata
+    public sealed partial class firstmigration : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(modificaciontablaempleadonombreDireccion));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(firstmigration));
         
         string IMigrationMetadata.Id
         {
-            get { return "202405130025206_modificacion tabla empleado nombre Direccion"; }
+            get { return "202405141608114_first migration"; }
         }
         
         string IMigrationMetadata.Source

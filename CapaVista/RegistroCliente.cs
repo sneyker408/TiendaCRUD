@@ -1,6 +1,7 @@
 ﻿using CapaEntidades;
 using CapaLogica;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -157,12 +158,47 @@ namespace CapaVista
             }
         }
 
+        private bool ValidarNumeroTelefono(int numeroTelefono)
+        {
+            List<Cliente> clientes = _clienteLOG.NumeroTelefonoExiste();
+
+            foreach (Cliente cliente in clientes)
+            {
+                if (cliente.NumeroTelefono == numeroTelefono)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
         private void btnGuardarClien_Click(object sender, EventArgs e)
         {
             _clienteLOG = new ClienteLOG();
 
             if (ValidarCorreoElectronico(txtCorreo.Text))
             {
+                // Intenta convertir el texto del cuadro de texto a un número entero
+                if (int.TryParse(txtNumero.Text, out int numeroTelefono))
+                {
+                    if (ValidarNumeroTelefono(numeroTelefono) && btnGuardarClien.Text == "Guardar")
+                    {
+                        MessageBox.Show("El número de teléfono ya existe en la base de datos", "Tienda | Registro Cliente",
+                                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        txtNumero.Focus();
+                        txtNumero.BackColor = Color.LightYellow;
+                        return;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("El número de teléfono no es válido", "Tienda | Registro Cliente",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtNumero.Focus();
+                    txtNumero.BackColor = Color.LightYellow;
+                    return;
+                }
+
                 if (!_clienteLOG.CorreoElectronicoExiste(txtCorreo.Text) || btnGuardarClien.Text == "Actualizar")
                 {
                     GuardarCliente();
@@ -183,5 +219,6 @@ namespace CapaVista
                 txtCorreo.BackColor = Color.LightYellow;
             }
         }
+
     }
 }

@@ -54,5 +54,12 @@ namespace CapaLogica
             _clienteDAL = new ClienteDAL();
             return _clienteDAL.EliminarCliente(id);
         }
+
+        public List<Cliente> NumeroTelefonoExiste(bool inactivo = false)
+        {
+            _clienteDAL = new ClienteDAL();
+            return _clienteDAL.NumeroTelefonoExiste(inactivo);
+
+        }
     }
 }

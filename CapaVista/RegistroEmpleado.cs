@@ -164,20 +164,54 @@ namespace CapaVista
         }
 
 
-        private void btnGuardarEmple_Click_1(object sender, EventArgs e)
+        private bool ValidarNumeroTelefono(int numeroTelefono)
+        {
+            List<Empleado> empleados = _empleadoLOG.NumeroTelefonoExiste();
+
+            foreach (Empleado empleado in empleados)
+            {
+                if (empleado.Telefono == numeroTelefono)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        private void btnGuardarEmple_Click(object sender, EventArgs e)
         {
             _empleadoLOG = new EmpleadoLOG();
 
             if (ValidarCorreoElectronico(txtCorreo.Text))
             {
-                if (!_empleadoLOG.CorreoElectronicoExiste(txtCorreo.Text) || btnGuardarEmple.Text == "Actualizar")
+                // Intenta convertir el texto del cuadro de texto a un número entero
+                if (int.TryParse(txtNumero.Text, out int numeroTelefono))
                 {
-                    GuardarEmpleado();
-                    this.Close();
+                    if (ValidarNumeroTelefono(numeroTelefono) && btnGuardarEmple.Text == "Guardar")
+                    {
+                        MessageBox.Show("El número de teléfono ya existe en la base de datos", "Vapesney | Registro Empleado",
+                                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        txtNumero.Focus();
+                        txtNumero.BackColor = Color.LightYellow;
+                        return;
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("El correo electrónico ya existe en la base de datos", "Tienda | Registro Empleado",
+                    MessageBox.Show("El número de teléfono no es válido", "Tienda | Registro Cliente",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtNumero.Focus();
+                    txtNumero.BackColor = Color.LightYellow;
+                    return;
+                }
+
+                if (!_empleadoLOG.CorreoElectronicoExiste(txtCorreo.Text) || btnGuardarEmple.Text == "Actualizar")
+                {
+                    GuardarEmpleado();
+                }
+                else
+                {
+                    MessageBox.Show("El correo electrónico ya existe en la base de datos", "Tienda | Registro Cliente",
                                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     txtCorreo.Focus();
                     txtCorreo.BackColor = Color.LightYellow;
@@ -185,7 +219,7 @@ namespace CapaVista
             }
             else
             {
-                MessageBox.Show("El formato del correo electrónico no es válido", "Tienda | Registro Empleado",
+                MessageBox.Show("El formato del correo electrónico no es válido", "Tienda | Registro Cliente",
                                 MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtCorreo.Focus();
                 txtCorreo.BackColor = Color.LightYellow;

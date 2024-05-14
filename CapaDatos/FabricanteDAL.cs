@@ -12,7 +12,6 @@ namespace CapaDatos
     {
         ContextoBD _db;
 
-        Fabricante _fabricantes;
 
         public int Guardar(Fabricante fabricante, int id = 0, bool esActualizacion = false)
         {

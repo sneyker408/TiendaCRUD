@@ -53,5 +53,11 @@ namespace CapaLogica
             _empleadoDAL = new EmpleadoDAL();
             return _empleadoDAL.EliminarEmpleado(id);
         }
+
+        public List<Empleado> NumeroTelefonoExiste(bool inactivo = false)
+        {
+            _empleadoDAL = new EmpleadoDAL();
+            return _empleadoDAL.NumeroTelefonoExiste(inactivo);
+        }
     }
 }

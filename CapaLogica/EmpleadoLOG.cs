@@ -85,5 +85,29 @@ namespace CapaLogica
 
             return _empleadoDAL.ObtenerClientePorTelefono(numeroTelefono);
         }
+
+        public string ExtraercorreoEmpleado(int codigo)
+        {
+            _empleadoDAL = new EmpleadoDAL();
+            return _empleadoDAL.ObtenercorreoEmpleadoDesdeBD(codigo);
+        }
+
+        public string ExtrarnumeroEmpleado(int codigo)
+        {
+            _empleadoDAL = new EmpleadoDAL();
+            return _empleadoDAL.ObtenernumeroEmpleadoDesdeBD(codigo);
+        }
+
+        public List<string> ObtenerCorreos()
+        {
+            List<string> correos = new List<string>();
+
+            using (var _db = new ContextoBD())
+            {
+                correos = _db.Empleados.Select(c => c.CorreoElectronico).ToList();
+            }
+
+            return correos;
+        }
     }
 }

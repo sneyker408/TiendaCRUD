@@ -88,12 +88,36 @@ namespace CapaDatos
             return _db.Clientes.FirstOrDefault(f => f.NumeroTelefono == numeroTelefono);
         }
 
+        public string ObtenercorreoFabricanteDesdeBD(int codigo)
+        {
+            string correoClien = string.Empty;
+            _db = new ContextoBD();
+            Cliente cliente = _db.Clientes.FirstOrDefault(m => m.ClienteId == codigo);
+            if (cliente != null)
+            {
+                correoClien = cliente.CorreoElectronico;
+            }
+            return correoClien;
+        }
+
         public Cliente ObtenerCorreoPorNombre(string nombrecorreo)
         {
             using (var _db = new ContextoBD())
             {
                 return _db.Clientes.FirstOrDefault(f => f.CorreoElectronico.Contains(nombrecorreo));
             }
+        }
+
+        public string ObtenernumeroFabricanteDesdeBD(int codigo)
+        {
+            string correoClien = string.Empty;
+            _db = new ContextoBD();
+            Cliente cliente = _db.Clientes.FirstOrDefault(m => m.ClienteId == codigo);
+            if (cliente != null)
+            {
+                correoClien = cliente.NumeroTelefono.ToString();
+            }
+            return correoClien;
         }
 
         public object TodosCorreos()

@@ -94,5 +94,29 @@ namespace CapaLogica
             _clienteDAL = new ClienteDAL();
             return _clienteDAL.FiltrarPorNombre(nombre);
         }
+
+        public string ExtraercorreoFabricante(int codigo)
+        {
+            _clienteDAL = new ClienteDAL();
+            return _clienteDAL.ObtenercorreoFabricanteDesdeBD(codigo);
+        }
+
+        public string estrarnumeroclien(int codigo)
+        {
+            _clienteDAL = new ClienteDAL();
+            return _clienteDAL.ObtenernumeroFabricanteDesdeBD(codigo);
+        }
+
+        public List<string> ObtenerCorreos()
+        {
+            List<string> correos = new List<string>();
+
+            using (var _db = new ContextoBD())
+            {
+                correos = _db.Clientes.Select(c => c.CorreoElectronico).ToList();
+            }
+
+            return correos;
+        }
     }
 }

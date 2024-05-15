@@ -48,6 +48,22 @@ namespace CapaVista
             this.Close();
         }
 
+        private bool CorreoExiste(string correo)
+        {
+
+            List<Empleado> clientes = _empleadoLOG.ObtenerEmpleados();
+
+
+            foreach (Empleado cliente in clientes)
+            {
+                if (string.Equals(cliente.Nombre, correo, StringComparison.OrdinalIgnoreCase))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
         private void GuardarEmpleado()
         {
             try
@@ -97,6 +113,64 @@ namespace CapaVista
                     txtNumero.Focus();
                     txtNumero.BackColor = Color.LightYellow;
                     return;
+                }
+
+                if (_id > 0)
+                {
+                    int codigo = _id;
+                    _empleadoLOG = new EmpleadoLOG();
+                    var correoCliente = _empleadoLOG.ExtraercorreoEmpleado(codigo);
+                    var numeroCliente = _empleadoLOG.ExtrarnumeroEmpleado(codigo);
+
+                    if (correoCliente == txtCorreo.Text)
+                    {
+
+                    }
+
+                    else if (!_empleadoLOG.ObtenerCorreos().Contains(txtCorreo.Text))
+                    {
+
+                    }
+                    else if (_empleadoLOG.ObtenerCorreos().Contains(txtCorreo.Text))
+                    {
+                        MessageBox.Show("El correo del cliente ya existe. Por favor, elija otro correo.", "Vapesney | Registro Fabricante",
+                            MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        txtCorreo.Focus();
+                        txtCorreo.BackColor = Color.LightYellow;
+                        return;
+                    }
+
+                    if (numeroCliente != txtNumero.Text)
+                    {
+                        MessageBox.Show("El número del Cliente ya existe. Por favor, elija otro número.", "Vapesney | Registro Fabricante",
+                            MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        txtNumero.Focus();
+                        txtNumero.BackColor = Color.LightYellow;
+                        return;
+                    }
+                }
+                else
+                {
+                    _empleadoLOG = new EmpleadoLOG();
+                    var numeroCliente = _empleadoLOG.ExtrarnumeroEmpleado(_id);
+
+                    if (CorreoExiste(txtCorreo.Text))
+                    {
+                        MessageBox.Show("El correo del cliente ya existe. Por favor, elija otro correo.", "Vapesney | Registro Fabricante",
+                            MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        txtCorreo.Focus();
+                        txtCorreo.BackColor = Color.LightYellow;
+                        return;
+                    }
+
+                    if (numeroCliente == txtNumero.Text)
+                    {
+                        MessageBox.Show("El número del Clinete ya existe. Por favor, elija otro número.", "Vapesney | Registro Fabricante",
+                            MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        txtNumero.Focus();
+                        txtNumero.BackColor = Color.LightYellow;
+                        return;
+                    }
                 }
 
                 int resultado;

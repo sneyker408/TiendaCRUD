@@ -43,6 +43,22 @@ namespace CapaVista
             this.Close();
         }
 
+        private bool CorreoExiste(string correo)
+        {
+
+            List<Cliente> clientes = _clienteLOG.ObtenerClientes();
+
+
+            foreach (Cliente cliente in clientes)
+            {
+                if (string.Equals(cliente.Nombre, correo, StringComparison.OrdinalIgnoreCase))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
         private void GuardarCliente()
         {
             try
@@ -51,7 +67,7 @@ namespace CapaVista
 
                 if (string.IsNullOrEmpty(txtNombre.Text))
                 {
-                    MessageBox.Show("Se requiere el nombre del Cliente", "Tienda | Registro Cliente",
+                    MessageBox.Show("Se requiere el nombre del Cliente", "Vapesney | Registro Cliente",
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     txtNombre.Focus();
                     txtNombre.BackColor = Color.LightYellow;
@@ -60,7 +76,7 @@ namespace CapaVista
 
                 if (string.IsNullOrEmpty(txtApellido.Text))
                 {
-                    MessageBox.Show("Se requiere el apellido del Cliente", "Tienda | Registro Cliente",
+                    MessageBox.Show("Se requiere el apellido del Cliente", "Vapesney | Registro Cliente",
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     txtApellido.Focus();
                     txtApellido.BackColor = Color.LightYellow;
@@ -69,7 +85,7 @@ namespace CapaVista
 
                 if (string.IsNullOrEmpty(txtCorreo.Text))
                 {
-                    MessageBox.Show("Se requiere el Correo del Cliente", "Tienda | Registro Cliente",
+                    MessageBox.Show("Se requiere el Correo del Cliente", "Vapesney | Registro Cliente",
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     txtCorreo.Focus();
                     txtCorreo.BackColor = Color.LightYellow;
@@ -78,7 +94,7 @@ namespace CapaVista
 
                 if (string.IsNullOrEmpty(txtDireccion.Text))
                 {
-                    MessageBox.Show("Se requiere la dirección del Cliente", "Tienda | Registro Cliente",
+                    MessageBox.Show("Se requiere la dirección del Cliente", "Vapesney | Registro Cliente",
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     txtDireccion.Focus();
                     txtDireccion.BackColor = Color.LightYellow;
@@ -87,11 +103,69 @@ namespace CapaVista
 
                 if (string.IsNullOrEmpty(txtNumero.Text) || Convert.ToDecimal(txtNumero.Text) == 0)
                 {
-                    MessageBox.Show("Se requiere el número del Cliente", "Tienda | Registro Cliente",
+                    MessageBox.Show("Se requiere el número del Cliente", "Vapesney | Registro Cliente",
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     txtNumero.Focus();
                     txtNumero.BackColor = Color.LightYellow;
                     return;
+                }
+
+                if (_id > 0)
+                {
+                    int codigo = _id;
+                    _clienteLOG = new ClienteLOG();
+                    var correoCliente = _clienteLOG.ExtraercorreoFabricante(codigo);
+                    var numeroCliente = _clienteLOG.estrarnumeroclien(codigo);
+
+                    if(correoCliente == txtCorreo.Text)
+                    {
+
+                    }
+
+                    else if (!_clienteLOG.ObtenerCorreos().Contains(txtCorreo.Text))
+                    {
+                        
+                    }
+                    else if (_clienteLOG.ObtenerCorreos().Contains(txtCorreo.Text))
+                    {
+                        MessageBox.Show("El correo del cliente ya existe. Por favor, elija otro correo.", "Vapesney | Registro Fabricante",
+                            MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        txtCorreo.Focus();
+                        txtCorreo.BackColor = Color.LightYellow;
+                        return;
+                    }
+
+                    if (numeroCliente != txtNumero.Text)
+                    {
+                        MessageBox.Show("El número del Cliente ya existe. Por favor, elija otro número.", "Vapesney | Registro Fabricante",
+                            MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        txtNumero.Focus();
+                        txtNumero.BackColor = Color.LightYellow;
+                        return;
+                    }
+                }
+                else
+                {
+                    _clienteLOG = new ClienteLOG();
+                    var numeroCliente = _clienteLOG.estrarnumeroclien(_id);
+
+                    if (CorreoExiste(txtCorreo.Text))
+                    {
+                        MessageBox.Show("El correo del cliente ya existe. Por favor, elija otro correo.", "Vapesney | Registro Fabricante",
+                            MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        txtCorreo.Focus();
+                        txtCorreo.BackColor = Color.LightYellow;
+                        return;
+                    }
+
+                    if (numeroCliente == txtNumero.Text)
+                    {
+                        MessageBox.Show("El número del Clinete ya existe. Por favor, elija otro número.", "Vapesney | Registro Fabricante",
+                            MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        txtNumero.Focus();
+                        txtNumero.BackColor = Color.LightYellow;
+                        return;
+                    }
                 }
 
                 int resultado;
@@ -104,14 +178,14 @@ namespace CapaVista
 
                     if (resultado > 0)
                     {
-                        MessageBox.Show("Cliente actualizado con éxito", "Tienda | Registro Cliente",
+                        MessageBox.Show("Cliente actualizado con éxito", "Vapesney | Registro Cliente",
                             MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                         this.Close();
                     }
                     else
                     {
-                        MessageBox.Show("No se logró actualizar el cliente", "Tienda | Registro Cliente",
+                        MessageBox.Show("No se logró actualizar el cliente", "Vapesney | Registro Cliente",
                             MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }

@@ -1,4 +1,5 @@
-﻿    using CapaLogica;
+﻿using CapaEntidades;
+using CapaLogica;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -51,16 +52,16 @@ namespace CapaVista
         private void MostrarFabricanteYCategorias()
         {
             _categoriaLOG = new CategoriaLOG();
-            cmbCategorias.DataSource = _categoriaLOG.ObtenerCategorias();
-            cmbCategorias.DisplayMember = "NombreCategoria";
-            cmbCategorias.ValueMember = "CategoriaId";
-            cmbCategorias.SelectedIndex = -1;
+            cbxCategorias.DataSource = _categoriaLOG.ObtenerCategorias();
+            cbxCategorias.DisplayMember = "NombreCategoria";
+            cbxCategorias.ValueMember = "CategoriaId";
+            cbxCategorias.SelectedIndex = -1;
 
             _fabricanteLOG = new FabricanteLOG();
-            cmbFabricante.DataSource = _fabricanteLOG.ObtenerFabricantes();
-            cmbFabricante.DisplayMember = "NombreFabricante";
-            cmbFabricante.ValueMember = "FabricanteId";
-            cmbFabricante.SelectedIndex = -1;
+            cbxFabricante.DataSource = _fabricanteLOG.ObtenerFabricantes();
+            cbxFabricante.DisplayMember = "NombreFabricante";
+            cbxFabricante.ValueMember = "FabricanteId";
+            cbxFabricante.SelectedIndex = -1;
         }
 
         private void btnVolver_Click(object sender, EventArgs e)
@@ -155,6 +156,180 @@ namespace CapaVista
         private void rdbInactivos_CheckedChanged(object sender, EventArgs e)
         {
             CargarProductos();
+        }
+
+        private void txtCodigo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
+
+        private void txtCodigo_TextChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtCodigo.Text))
+            {
+                int codigo = int.Parse(txtCodigo.Text);
+                _productoLOG = new ProductoLOG();
+
+                var categoria = _productoLOG.ObtenerProductoPorId(codigo);
+
+                if (categoria != null)
+                {
+                    // Actualizar el estado del ComboBox y del DataGridView
+                    if (categoria.Estado == true)
+                    {
+                        cbxCategorias.SelectedValue = categoria.CategoriaId;
+                        cbxFabricante.SelectedValue = categoria.FabricanteId;
+                        txtNombre.Text = categoria.Nombre;
+                        dgvProductos.DataSource = new List<Producto> { categoria };
+                        rdbActivos.Checked = true;
+                        rdbInactivos.Checked = false;
+                    }
+                    else
+                    {
+                        // Si el fabricante está inactivo, seleccionar el RadioButton inactivo y deseleccionar el activo
+                        cbxCategorias.SelectedValue = categoria.CategoriaId;
+                        cbxFabricante.SelectedValue = categoria.FabricanteId;
+                        txtNombre.Text = categoria.Nombre;
+                        dgvProductos.DataSource = new List<Producto> { categoria };
+                        rdbActivos.Checked = false;
+                        rdbInactivos.Checked = true;
+
+
+                    }
+                }
+                else
+                {
+                    // Limpiar los controles si no se encuentra el fabricante
+                    cbxCategorias.SelectedIndex = -1;
+                    cbxFabricante.SelectedIndex = -1;
+                    txtNombre.Text = "";
+                    dgvProductos.DataSource = null;
+                    rdbActivos.Checked = true;
+                    rdbInactivos.Checked = false;
+                    dgvProductos.DataSource = categoria;
+                }
+            }
+            else
+            {
+                // Limpiar los controles si el TextBox está vacío
+                cbxCategorias.SelectedIndex = -1;
+                cbxCategorias.Text = "";
+                cbxFabricante.SelectedIndex = -1;
+                cbxFabricante.Text = "";
+                txtNombre.Text = "";
+                dgvProductos.DataSource = _productoLOG.ObtenerProductos();
+                rdbActivos.Checked = true;
+                rdbInactivos.Checked = false;
+            }
+        }
+
+        private void btnReiniciar_Click(object sender, EventArgs e)
+        {
+            LimpiarCamposTexto();
+        }
+
+        private void LimpiarCamposTexto()
+        {
+            txtCodigo.Text = "";
+            cbxCategorias.SelectedIndex = -1;
+            cbxCategorias.Text = "";
+            cbxFabricante.SelectedIndex = -1;
+            cbxFabricante.Text = "";
+            txtNombre.Text = "";
+        }
+
+        private void txtNombre_TextChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtNombre.Text.ToLower()))
+            {
+                _productoLOG = new ProductoLOG();
+                var clientesFiltrados = _productoLOG.ObtenerProductos().Where(c => c.Nombre.ToLower().Contains(txtNombre.Text.ToLower())).ToList();
+
+                dgvProductos.DataSource = clientesFiltrados;
+            }
+            else
+            {
+                CargarProductos();
+            }
+        }
+
+        private void cbxCategoria_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbxCategorias.SelectedIndex != -1)
+            {
+                string nombreCategoria = cbxCategorias.Text;
+                _productoLOG = new ProductoLOG();
+
+                var productos = _productoLOG.ObtenerProductoPorCategoria(nombreCategoria);
+
+                if (productos != null && productos.Count > 0)
+                {
+                    dgvProductos.DataSource = productos;
+                }
+                else
+                {
+                    // Limpiar los controles si no se encuentran productos para la categoría seleccionada
+                    dgvProductos.DataSource = productos;
+                }
+            }
+            else
+            {
+                // Limpiar los controles si no hay nada seleccionado en el ComboBox
+                LimpiarCamposTexto();
+                dgvProductos.DataSource = _productoLOG.ObtenerProductos();
+            }
+        }
+
+        private void cbxFabricante_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbxFabricante.SelectedIndex != -1)
+            {
+                string nombreFarbicante = cbxFabricante.Text;
+                _productoLOG = new ProductoLOG();
+
+                var productos = _productoLOG.ObtenerProductoPorFabricante(nombreFarbicante);
+
+                if (productos != null && productos.Count > 0)
+                {
+                    dgvProductos.DataSource = productos;
+                }
+                else
+                {
+                    // Limpiar los controles si no se encuentran productos para la categoría seleccionada
+                    dgvProductos.DataSource = productos;
+                }
+            }
+            else
+            {
+                // Limpiar los controles si no hay nada seleccionado en el ComboBox
+                LimpiarCamposTexto();
+                dgvProductos.DataSource = _productoLOG.ObtenerProductos();
+            }
+        }
+
+        private void LimpiarControlesProducto()
+        {
+            txtCodigo.Text = "";
+            txtNombre.Text = "";
+            dgvProductos.DataSource = null;
+        }
+
+        private void cbxCategoria_TextUpdate(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(cbxCategorias.Text))
+            {
+                // Si el texto del ComboBox está vacío, limpiar el TextBox y actualizar el DataGridView
+                txtCodigo.Text = "";
+                dgvProductos.DataSource = _productoLOG.ObtenerProductos();
+            }
+        }
+
+        private void cbxFabricante_TextUpdate(object sender, EventArgs e)
+        {
+            // Si el texto del ComboBox está vacío, limpiar el TextBox y actualizar el DataGridView
+            dgvProductos.DataSource = _productoLOG.ObtenerProductos();
+            cbxCategorias.Items.Clear();
+
         }
     }
 }

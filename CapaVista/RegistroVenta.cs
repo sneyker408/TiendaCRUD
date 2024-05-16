@@ -73,7 +73,7 @@ namespace CapaVista
                     txtCantidad.Focus();
                     txtCantidad.BackColor = Color.LightYellow;
                 }
-                if (cantidad <= exitencia)
+                else if (cantidad <= exitencia)
                 {
                     if (producto != null)
                     {

@@ -12,10 +12,10 @@ using System.Windows.Forms;
 
 namespace CapaVista
 {
-    public partial class ValidacionEmpleado : Form
+    public partial class ValidacionContra : Form
     {
 
-        public ValidacionEmpleado()
+        public ValidacionContra()
         {
             InitializeComponent();
             txtContraseña.PasswordChar = '*';
@@ -39,8 +39,8 @@ namespace CapaVista
             }
             else if (txtContraseña.Text.Equals("admin123"))
             {
-                MantenimientoEmpleado objmantenimientoEmpleado = new MantenimientoEmpleado();
-                objmantenimientoEmpleado.ShowDialog();
+                InicioAdmin objInicioAdmin = new InicioAdmin();
+                objInicioAdmin.ShowDialog();
             }
             else
             {

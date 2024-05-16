@@ -17,13 +17,30 @@ namespace CapaVista
         ProductoLOG _productoLOG;
         FabricanteLOG _fabricanteLOG;
         CategoriaLOG _categoriaLOG;
+        private bool _esAdmin;
 
-        public MantenimientoProductos()
+        public MantenimientoProductos(bool esAdmin)
         {
             InitializeComponent();
+            _esAdmin = esAdmin;
+
 
             CargarProductos();
             MostrarFabricanteYCategorias();
+            AjustarVisibilidadControles();
+        }
+
+        private void AjustarVisibilidadControles()
+        {
+            // Ajustar la visibilidad de los botones y columnas según el origen
+            if (!_esAdmin)
+            {
+                btnNuevo.Visible = false;
+                if (dgvProductos.Columns["Editar"] != null)
+                    dgvProductos.Columns["Editar"].Visible = false;
+                if (dgvProductos.Columns["Eliminar"] != null)
+                    dgvProductos.Columns["Eliminar"].Visible = false;
+            }
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
@@ -52,13 +69,13 @@ namespace CapaVista
         private void MostrarFabricanteYCategorias()
         {
             _categoriaLOG = new CategoriaLOG();
-            cbxCategorias.DataSource = _categoriaLOG.ObtenerCategorias();
+            cbxCategorias.DataSource = _categoriaLOG.ObtenerTodasCategorias();
             cbxCategorias.DisplayMember = "NombreCategoria";
             cbxCategorias.ValueMember = "CategoriaId";
             cbxCategorias.SelectedIndex = -1;
 
             _fabricanteLOG = new FabricanteLOG();
-            cbxFabricante.DataSource = _fabricanteLOG.ObtenerFabricantes();
+            cbxFabricante.DataSource = _fabricanteLOG.ObtenerTodosFabricantes();
             cbxFabricante.DisplayMember = "NombreFabricante";
             cbxFabricante.ValueMember = "FabricanteId";
             cbxFabricante.SelectedIndex = -1;
@@ -150,17 +167,30 @@ namespace CapaVista
 
         private void rdbActivos_CheckedChanged(object sender, EventArgs e)
         {
-            CargarProductos();
+            if (string.IsNullOrEmpty(txtCodigo.Text))
+            {
+                LimpiarCamposTexto();
+                CargarProductos();
+            }
         }
 
         private void rdbInactivos_CheckedChanged(object sender, EventArgs e)
         {
-            CargarProductos();
+            
+            if (string.IsNullOrEmpty(txtCodigo.Text))
+            {
+                LimpiarCamposTexto();
+                CargarProductos();
+            }
         }
 
         private void txtCodigo_KeyPress(object sender, KeyPressEventArgs e)
         {
-
+            // Permitir solo dígitos y teclas de control (como Backspace)
+    if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+    {
+        e.Handled = true;
+    }
         }
 
         private void txtCodigo_TextChanged(object sender, EventArgs e)
@@ -170,43 +200,47 @@ namespace CapaVista
                 int codigo = int.Parse(txtCodigo.Text);
                 _productoLOG = new ProductoLOG();
 
-                var categoria = _productoLOG.ObtenerProductoPorId(codigo);
+                var producto = _productoLOG.ObtenerProductoPorId(codigo);
+                var codigoFabri = _productoLOG.ExtraerCodigoFabricante(codigo);
+                var codigoCate = _productoLOG.ExtraerCodigoCategoria(codigo);
 
-                if (categoria != null)
+                var nombreFabri = _fabricanteLOG.EstraerNombreFabricante(codigoFabri);
+                var nomcreCate = _categoriaLOG.ExtraerNombreCategoria(codigoCate);
+
+                if (producto != null)
                 {
                     // Actualizar el estado del ComboBox y del DataGridView
-                    if (categoria.Estado == true)
+                    if (producto.Estado == true)
                     {
-                        cbxCategorias.SelectedValue = categoria.CategoriaId;
-                        cbxFabricante.SelectedValue = categoria.FabricanteId;
-                        txtNombre.Text = categoria.Nombre;
-                        dgvProductos.DataSource = new List<Producto> { categoria };
+                        cbxCategorias.Text = nomcreCate;
+                        cbxFabricante.Text = nombreFabri;
+                        txtNombre.Text = producto.Nombre;
+                        dgvProductos.DataSource = new List<Producto> { producto };
                         rdbActivos.Checked = true;
                         rdbInactivos.Checked = false;
+                        
                     }
+                    
                     else
                     {
                         // Si el fabricante está inactivo, seleccionar el RadioButton inactivo y deseleccionar el activo
-                        cbxCategorias.SelectedValue = categoria.CategoriaId;
-                        cbxFabricante.SelectedValue = categoria.FabricanteId;
-                        txtNombre.Text = categoria.Nombre;
-                        dgvProductos.DataSource = new List<Producto> { categoria };
+                        cbxCategorias.Text = nomcreCate;
+                        cbxFabricante.Text = nombreFabri;
+                        txtNombre.Text = producto.Nombre;
+                        dgvProductos.DataSource = new List<Producto> { producto };
                         rdbActivos.Checked = false;
                         rdbInactivos.Checked = true;
-
-
+                        
                     }
                 }
                 else
                 {
-                    // Limpiar los controles si no se encuentra el fabricante
-                    cbxCategorias.SelectedIndex = -1;
-                    cbxFabricante.SelectedIndex = -1;
-                    txtNombre.Text = "";
-                    dgvProductos.DataSource = null;
-                    rdbActivos.Checked = true;
-                    rdbInactivos.Checked = false;
-                    dgvProductos.DataSource = categoria;
+                    cbxCategorias.Text = "-";
+                    cbxCategorias.Text = "-";
+                    cbxFabricante.Text = "-";
+                    cbxFabricante.Text = "-";
+                    txtNombre.Text = "-";
+                    dgvProductos.DataSource = new List<Producto> { producto };
                 }
             }
             else
@@ -226,6 +260,8 @@ namespace CapaVista
         private void btnReiniciar_Click(object sender, EventArgs e)
         {
             LimpiarCamposTexto();
+            rdbActivos.Checked = true;
+            rdbInactivos.Checked = false;
         }
 
         private void LimpiarCamposTexto()
@@ -243,9 +279,8 @@ namespace CapaVista
             if (!string.IsNullOrEmpty(txtNombre.Text.ToLower()))
             {
                 _productoLOG = new ProductoLOG();
-                var clientesFiltrados = _productoLOG.ObtenerProductos().Where(c => c.Nombre.ToLower().Contains(txtNombre.Text.ToLower())).ToList();
-
-                dgvProductos.DataSource = clientesFiltrados;
+                var productosFiltrados = _productoLOG.ObtenertodsProductos().Where(c => c.Nombre.ToLower().Contains(txtNombre.Text.ToLower())).ToList();
+                dgvProductos.DataSource = productosFiltrados;
             }
             else
             {
@@ -282,6 +317,7 @@ namespace CapaVista
 
         private void cbxFabricante_SelectedIndexChanged(object sender, EventArgs e)
         {
+
             if (cbxFabricante.SelectedIndex != -1)
             {
                 string nombreFarbicante = cbxFabricante.Text;
@@ -307,13 +343,6 @@ namespace CapaVista
             }
         }
 
-        private void LimpiarControlesProducto()
-        {
-            txtCodigo.Text = "";
-            txtNombre.Text = "";
-            dgvProductos.DataSource = null;
-        }
-
         private void cbxCategoria_TextUpdate(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(cbxCategorias.Text))
@@ -326,10 +355,12 @@ namespace CapaVista
 
         private void cbxFabricante_TextUpdate(object sender, EventArgs e)
         {
-            // Si el texto del ComboBox está vacío, limpiar el TextBox y actualizar el DataGridView
-            dgvProductos.DataSource = _productoLOG.ObtenerProductos();
-            cbxCategorias.Items.Clear();
-
+            if (string.IsNullOrEmpty(cbxCategorias.Text))
+            {
+                // Si el texto del ComboBox está vacío, limpiar el TextBox y actualizar el DataGridView
+                txtCodigo.Text = "";
+                dgvProductos.DataSource = _productoLOG.ObtenerProductos();
+            }
         }
     }
 }

@@ -40,6 +40,13 @@ namespace CapaLogica
             return _productoDAL.Leer(inactivos);
         }
 
+        public List<Producto> ObtenertodsProductos(bool inactivos = false)
+        {
+            _productoDAL = new ProductoDAL();
+
+            return _productoDAL.LeerTodosProdcutos(inactivos);
+        }
+
         public int EliminarProducto(int id)
         {
             _productoDAL = new ProductoDAL();
@@ -67,6 +74,36 @@ namespace CapaLogica
         {
             _productoDAL = new ProductoDAL();
             return _productoDAL.ObtenerCategoriaIdPorProductoId(productoId);
+        }
+
+        public int ExtraerCodigoFabricante(int codigo)
+        {
+            _productoDAL = new ProductoDAL();
+            return _productoDAL.ObtenerCodigoFabricanteDesdeBD(codigo);
+        }
+
+        public int ExtraerCodigoCategoria(int codigo)
+        {
+            _productoDAL = new ProductoDAL();
+            return _productoDAL.ObtenerCodigoCategoriaDesdeBD(codigo);
+        }
+
+        public string ExtraerNombreProduc(int codigo)
+        {
+            _productoDAL = new ProductoDAL();
+            return _productoDAL.ObtenerNombreProductoDesdeBD(codigo);
+        }
+
+        public List<string> ObtenerNombre()
+        {
+            List<string> productos = new List<string>();
+
+            using (var _db = new ContextoBD())
+            {
+                productos = _db.Productos.Select(c => c.Nombre).ToList();
+            }
+
+            return productos;
         }
     }
 }

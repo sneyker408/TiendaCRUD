@@ -36,7 +36,7 @@ namespace CapaVista
             }
             else
             {
-                MostrarMarcasYCategorias();
+                MostrarFabricanteYCategorias();
                 productoBindingSource.MoveLast();
                 productoBindingSource.AddNew();
             }            
@@ -102,6 +102,46 @@ namespace CapaVista
                     }
                 }
 
+                if (_id > 0)
+                {
+                    int codigo = _id;
+                    _productoLOG = new ProductoLOG();
+                    var nombreProduc = _productoLOG.ExtraerNombreProduc(codigo);
+
+                    if (nombreProduc == txtNombre.Text)
+                    {
+
+                    }
+
+                    else if (!_productoLOG.ObtenerNombre().Contains(txtNombre.Text))
+                    {
+
+                    }
+                    else if (_productoLOG.ObtenerNombre().Contains(txtNombre.Text))
+                    {
+                        MessageBox.Show("El Nombre del producto ya existe. Por favor, elija otro nombre.", "Vapesney | Registro Fabricante",
+                            MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        txtNombre.Focus();
+                        txtNombre.BackColor = Color.LightYellow;
+                        return;
+                    }
+
+                }
+                else
+                {
+                    _productoLOG = new ProductoLOG();
+
+                    if (NombreExiste(txtNombre.Text))
+                    {
+                        MessageBox.Show("El Nombre del producto ya existe. Por favor, elija otro nombre.", "Vapesney | Registro Fabricante",
+                            MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        txtNombre.Focus();
+                        txtNombre.BackColor = Color.LightYellow;
+                        return;
+                    }
+
+                }
+
                 int resultado;
 
                 if (_id > 0)
@@ -156,23 +196,38 @@ namespace CapaVista
             }
         }
 
+        private bool NombreExiste(string text)
+        {
+            List<Producto> productos = _productoLOG.ObtenerProductos();
+
+
+            foreach (Producto producto in productos)
+            {
+                if (string.Equals(producto.Nombre, text, StringComparison.OrdinalIgnoreCase))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
         private void CargarDatos(int id)
         {
             _productoLOG = new ProductoLOG();
             productoBindingSource.DataSource = _productoLOG.ObtenerProductoPorId(id);
-            MostrarMarcasYCategorias();
+            MostrarFabricanteYCategorias();
         }
 
-        private void MostrarMarcasYCategorias()
+        private void MostrarFabricanteYCategorias()
         {
             _categoriaLOG = new CategoriaLOG();
-            cmbCategorias.DataSource = _categoriaLOG.ObtenerCategorias();
+            cmbCategorias.DataSource = _categoriaLOG.ObtenerTodasCategorias();
             cmbCategorias.DisplayMember = "NombreCategoria";
             cmbCategorias.ValueMember = "CategoriaId";
             cmbCategorias.SelectedIndex = -1;
 
             _fabricanteLOG = new FabricanteLOG();
-            cmbFabricante.DataSource = _fabricanteLOG.ObtenerFabricantes();
+            cmbFabricante.DataSource = _fabricanteLOG.ObtenerTodosFabricantes();
             cmbFabricante.DisplayMember = "NombreFabricante";
             cmbFabricante.ValueMember = "FabricanteId";
             cmbFabricante.SelectedIndex = -1;

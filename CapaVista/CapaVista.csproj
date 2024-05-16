@@ -56,11 +56,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="Inicio.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Inicio.Designer.cs">
+      <DependentUpon>Inicio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InicioAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InicioAdmin.Designer.cs">
+      <DependentUpon>InicioAdmin.cs</DependentUpon>
     </Compile>
     <Compile Include="MantenimientoCategoria.cs">
       <SubType>Form</SubType>
@@ -130,14 +136,17 @@
     <Compile Include="RegistroVenta.Designer.cs">
       <DependentUpon>RegistroVenta.cs</DependentUpon>
     </Compile>
-    <Compile Include="ValidacionEmpleado.cs">
+    <Compile Include="ValidacionContra.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ValidacionEmpleado.Designer.cs">
-      <DependentUpon>ValidacionEmpleado.cs</DependentUpon>
+    <Compile Include="ValidacionContra.Designer.cs">
+      <DependentUpon>ValidacionContra.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Inicio.resx">
+      <DependentUpon>Inicio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InicioAdmin.resx">
+      <DependentUpon>InicioAdmin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MantenimientoCategoria.resx">
       <DependentUpon>MantenimientoCategoria.cs</DependentUpon>
@@ -182,8 +191,8 @@
     <EmbeddedResource Include="RegistroVenta.resx">
       <DependentUpon>RegistroVenta.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ValidacionEmpleado.resx">
-      <DependentUpon>ValidacionEmpleado.cs</DependentUpon>
+    <EmbeddedResource Include="ValidacionContra.resx">
+      <DependentUpon>ValidacionContra.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\CapaEntidades.Categoria.datasource" />

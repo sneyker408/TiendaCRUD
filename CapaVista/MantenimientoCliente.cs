@@ -16,15 +16,31 @@ namespace CapaVista
     public partial class MantenimientoCliente : Form
     {
         ClienteLOG _clienteLOG;
+        private bool _esAdmin;
 
-        public MantenimientoCliente()
+        public MantenimientoCliente(bool esAdmin)
         {
+            _esAdmin = esAdmin;
             InitializeComponent();
             MostrarCorreo();
             MostrarTelefonos();
             LimpiarCamposTexto();
             cargarCliente();
+            AjustarVisibilidadControles();
 
+        }
+
+        private void AjustarVisibilidadControles()
+        {
+            // Ajustar la visibilidad de los botones y columnas según el origen
+            if (!_esAdmin)
+            {
+                btnNuevo.Visible = false;
+                if (dgvClientes.Columns["Editar"] != null)
+                    dgvClientes.Columns["Editar"].Visible = false;
+                if (dgvClientes.Columns["Eliminar"] != null)
+                    dgvClientes.Columns["Eliminar"].Visible = false;
+            }
         }
 
         private void btnVolver_Click(object sender, EventArgs e)
@@ -146,10 +162,11 @@ namespace CapaVista
                 _clienteLOG = new ClienteLOG();
 
                 var categoria = _clienteLOG.ObtenerClientePorId(codigo);
+                var correo = _clienteLOG.ExtraercorreoFabricante(codigo);
 
                 if (categoria != null)
-                {   
-                    cbxCorreo.SelectedValue = categoria.ClienteId;
+                {
+                    cbxCorreo.Text = correo;
                     txtNombre.Text = categoria.Nombre;
                     txtApellido.Text = categoria.Apellido;
                     txtDireccion.Text = categoria.Direccion;
@@ -158,13 +175,12 @@ namespace CapaVista
       
                 }
                 else
-                {
-                    // Limpiar los controles si no se encuentra el fabricante
-                    cbxCorreo.SelectedIndex = -1;
-                    txtNombre.Text = "";
-                    txtApellido.Text = "";
-                    txtDireccion.Text = "";
-                    cbxTelefono.SelectedIndex = -1;
+                {   
+                    txtNombre.Text = "-";
+                    txtApellido.Text = "-";
+                    txtDireccion.Text = "-";
+                    cbxTelefono.Text = "-";
+                    cbxCorreo.Text = "-";
                     dgvClientes.DataSource = null;
                 }
             }

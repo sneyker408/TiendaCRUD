@@ -1,6 +1,6 @@
 ﻿namespace CapaVista
 {
-    partial class Form1
+    partial class InicioAdmin
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InicioAdmin));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.ventasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MnRegistroVentas = new System.Windows.Forms.ToolStripMenuItem();
@@ -45,6 +45,8 @@
             this.mantenimientoClienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nuevoClienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.empleadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mantenimientoEmpleadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.agregarEmpleadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -182,12 +184,29 @@
             // 
             // empleadoToolStripMenuItem
             // 
+            this.empleadoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mantenimientoEmpleadosToolStripMenuItem,
+            this.agregarEmpleadoToolStripMenuItem});
             this.empleadoToolStripMenuItem.Name = "empleadoToolStripMenuItem";
             this.empleadoToolStripMenuItem.Size = new System.Drawing.Size(101, 28);
             this.empleadoToolStripMenuItem.Text = "Empleado";
             this.empleadoToolStripMenuItem.Click += new System.EventHandler(this.empleadoToolStripMenuItem_Click);
             // 
-            // Form1
+            // mantenimientoEmpleadosToolStripMenuItem
+            // 
+            this.mantenimientoEmpleadosToolStripMenuItem.Name = "mantenimientoEmpleadosToolStripMenuItem";
+            this.mantenimientoEmpleadosToolStripMenuItem.Size = new System.Drawing.Size(298, 28);
+            this.mantenimientoEmpleadosToolStripMenuItem.Text = "Mantenimiento Empleados";
+            this.mantenimientoEmpleadosToolStripMenuItem.Click += new System.EventHandler(this.mantenimientoEmpleadosToolStripMenuItem_Click);
+            // 
+            // agregarEmpleadoToolStripMenuItem
+            // 
+            this.agregarEmpleadoToolStripMenuItem.Name = "agregarEmpleadoToolStripMenuItem";
+            this.agregarEmpleadoToolStripMenuItem.Size = new System.Drawing.Size(298, 28);
+            this.agregarEmpleadoToolStripMenuItem.Text = "Agregar Empleado";
+            this.agregarEmpleadoToolStripMenuItem.Click += new System.EventHandler(this.agregarEmpleadoToolStripMenuItem_Click);
+            // 
+            // InicioAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -198,7 +217,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.Name = "Form1";
+            this.Name = "InicioAdmin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Vapesney | Menu Principal";
             this.menuStrip1.ResumeLayout(false);
@@ -226,6 +245,8 @@
         private System.Windows.Forms.ToolStripMenuItem nuevoFabricanteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mantenimientoClienteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem nuevoClienteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mantenimientoEmpleadosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem agregarEmpleadoToolStripMenuItem;
     }
 }
 

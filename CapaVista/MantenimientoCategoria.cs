@@ -15,18 +15,36 @@ namespace CapaVista
     public partial class MantenimientoCategoria : Form
     {
         CategoriaLOG _categoriaLOG;
-
-        public MantenimientoCategoria()
+        private bool _esAdmin;
+        public MantenimientoCategoria(bool esAdmin)
         {
             InitializeComponent();
+            _esAdmin = esAdmin;
+
             // Desasociar el evento SelectedIndexChanged
             cbxNombreCate.SelectedIndexChanged -= cbxNombreCate_SelectedIndexChanged;
 
             CargarCategoria();
             MostrarCategoria();
 
+            // Ajustar la visibilidad de los controles según el origen
+            AjustarVisibilidadControles();
+
             // Volver a asociar el evento SelectedIndexChanged
             cbxNombreCate.SelectedIndexChanged += cbxNombreCate_SelectedIndexChanged;
+        }
+
+        private void AjustarVisibilidadControles()
+        {
+            // Ajustar la visibilidad de los botones y columnas según el origen
+            if (!_esAdmin)
+            {
+                BtnNuevoMCate.Visible = false;
+                if (dgvCategoria.Columns["Editar"] != null)
+                    dgvCategoria.Columns["Editar"].Visible = false;
+                if (dgvCategoria.Columns["Eliminar"] != null)
+                    dgvCategoria.Columns["Eliminar"].Visible = false;
+            }
         }
 
         private void MostrarCategoria()
@@ -158,13 +176,14 @@ namespace CapaVista
                 _categoriaLOG = new CategoriaLOG();
 
                 var categoria = _categoriaLOG.ObtenerFabricantePorId(codigo);
+                var nombrecate = _categoriaLOG.ExtraerNombreCategoria(codigo);
 
                 if (categoria != null)
                 {
                     // Actualizar el estado del ComboBox y del DataGridView
                     if (categoria.Estado == true)
                     {
-                        cbxNombreCate.SelectedValue = categoria.CategoriaId;
+                        cbxNombreCate.Text = nombrecate;
                         dgvCategoria.DataSource = new List<Categoria> {categoria};
                         rdbActivos.Checked = true;
                         rdbInactivos.Checked = false;
@@ -182,10 +201,8 @@ namespace CapaVista
                 else
                 {
                     // Limpiar los controles si no se encuentra el fabricante
-                    cbxNombreCate.SelectedIndex = -1;
+                    cbxNombreCate.Text = "-";
                     dgvCategoria.DataSource = null;
-                    rdbActivos.Checked = false;
-                    rdbInactivos.Checked = false;
                 }
             }
             else

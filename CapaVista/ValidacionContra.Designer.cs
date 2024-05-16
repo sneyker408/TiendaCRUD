@@ -1,6 +1,6 @@
 ﻿namespace CapaVista
 {
-    partial class ValidacionEmpleado
+    partial class ValidacionContra
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ValidacionEmpleado));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ValidacionContra));
             this.label1 = new System.Windows.Forms.Label();
             this.txtContraseña = new System.Windows.Forms.TextBox();
             this.btnNuevo = new System.Windows.Forms.Button();

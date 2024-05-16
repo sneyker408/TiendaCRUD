@@ -197,10 +197,11 @@ namespace CapaVista
                 _empleadoLOG = new EmpleadoLOG();
 
                 var categoria = _empleadoLOG.ObtenerEmpleadoPorId(codigo);
+                var correo = _empleadoLOG.ExtraercorreoEmpleado(codigo);
 
                 if (categoria != null)
                 {
-                    cbxCorreo.SelectedValue = categoria.EmpleadoId;
+                    cbxCorreo.Text = correo;
                     txtNombre.Text = categoria.Nombre;
                     txtApellido.Text = categoria.Apellido;
                     txtDireccion.Text = categoria.Direccion;
@@ -210,12 +211,11 @@ namespace CapaVista
                 }
                 else
                 {
-                    // Limpiar los controles si no se encuentra el fabricante
-                    cbxCorreo.SelectedIndex = -1;
-                    txtNombre.Text = "";
-                    txtApellido.Text = "";
-                    txtDireccion.Text = "";
-                    cbxTelefono.SelectedIndex = -1;
+                    txtNombre.Text = "-";
+                    txtApellido.Text = "-";
+                    txtDireccion.Text = "-";
+                    cbxTelefono.Text = "-";
+                    cbxCorreo.Text = "-";
                     dgvEmpleados.DataSource = null;
                 }
             }

@@ -10,16 +10,16 @@ using System.Windows.Forms;
 
 namespace CapaVista
 {
-    public partial class Form1 : Form
+    public partial class InicioAdmin : Form
     {
-        public Form1()
+        public InicioAdmin()
         {
             InitializeComponent();
         }
 
         private void MnMttmProductos_Click(object sender, EventArgs e)
         {
-            MantenimientoProductos objMttProducto = new MantenimientoProductos();
+            MantenimientoProductos objMttProducto = new MantenimientoProductos(true);
             objMttProducto.ShowDialog();
         }
 
@@ -44,21 +44,21 @@ namespace CapaVista
             
         }
 
-        private void mantenimientoCategoriaToolStripMenuItem_Click(object sender, EventArgs e)
+        private void btnAbrirMantenimientoCategoria_Click(object sender, EventArgs e)
         {
-            MantenimientoCategoria objMnCat = new MantenimientoCategoria();
-            objMnCat.ShowDialog();
+            MantenimientoCategoria mantenimientoCategoria = new MantenimientoCategoria(true);
+            mantenimientoCategoria.ShowDialog();
         }
 
         private void mantenimientoFabricanteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MatenimientoFabricante objMantenimientoFabri = new MatenimientoFabricante();
+            MatenimientoFabricante objMantenimientoFabri = new MatenimientoFabricante(true);
             objMantenimientoFabri.ShowDialog();
         }
 
         private void mantenimientoClienteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MantenimientoCliente objmantenimientoCliente = new MantenimientoCliente();
+            MantenimientoCliente objmantenimientoCliente = new MantenimientoCliente(true);
             objmantenimientoCliente.ShowDialog();
         }
 
@@ -82,14 +82,31 @@ namespace CapaVista
 
         private void empleadoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ValidacionEmpleado ObjValidacionEmpleado = new ValidacionEmpleado();
-            ObjValidacionEmpleado.ShowDialog();
+            MantenimientoEmpleado ObjMantenimientoEmple = new MantenimientoEmpleado();
+            ObjMantenimientoEmple.ShowDialog();
         }
 
         private void nuevoProductoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             RegistroProducto objRegistroProducto = new RegistroProducto();
             objRegistroProducto.ShowDialog();
+        }
+
+        private void mantenimientoCategoriaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void mantenimientoEmpleadosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MantenimientoCategoria mantenimientoCategoria = new MantenimientoCategoria(true);
+            mantenimientoCategoria.ShowDialog();
+        }
+
+        private void agregarEmpleadoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RegistroEmpleado objRegistroEmple = new RegistroEmpleado();
+            objRegistroEmple.ShowDialog();
         }
     }
 }

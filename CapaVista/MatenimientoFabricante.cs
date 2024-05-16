@@ -15,18 +15,33 @@ namespace CapaVista
     public partial class MatenimientoFabricante : Form
     {
         FabricanteLOG _fabricanteLOG;
-
-        public MatenimientoFabricante()
+        private bool _esAdmin;
+        public MatenimientoFabricante(bool esAdmin)
         {
+            _esAdmin = esAdmin;
             InitializeComponent();
             // Desasociar el evento SelectedIndexChanged
             cbxNombreFabri.SelectedIndexChanged -= cbxNombreFabri_SelectedIndexChanged;
 
             CargarFabricante();
             MostrarFabricante();
+            AjustarVisibilidadControles();
 
             // Volver a asociar el evento SelectedIndexChanged
             cbxNombreFabri.SelectedIndexChanged += cbxNombreFabri_SelectedIndexChanged;
+        }
+
+        private void AjustarVisibilidadControles()
+        {
+            // Ajustar la visibilidad de los botones y columnas según el origen
+            if (!_esAdmin)
+            {
+                BtnNuevoMFabri.Visible = false;
+                if (dgvFabricante.Columns["Editar"] != null)
+                    dgvFabricante.Columns["Editar"].Visible = false;
+                if (dgvFabricante.Columns["Eliminar"] != null)
+                    dgvFabricante.Columns["Eliminar"].Visible = false;
+            }
         }
 
         private void MostrarFabricante()
@@ -157,13 +172,14 @@ namespace CapaVista
                 _fabricanteLOG = new FabricanteLOG();
 
                 var fabricante = _fabricanteLOG.ObtenerFabricantePorId(codigo);
+                var nombrefabri = _fabricanteLOG.EstraerNombreFabricante(codigo);
 
                 if (fabricante != null)
                 {
                     // Actualizar el estado del ComboBox y del DataGridView
                     if (fabricante.Estado == true)
                     {
-                        cbxNombreFabri.SelectedValue = fabricante.FabricanteId;
+                        cbxNombreFabri.Text = nombrefabri;
                         dgvFabricante.DataSource = new List<Fabricante> { fabricante };
                         rdbActivos.Checked = true;
                         rdbInactivos.Checked = false;
@@ -181,10 +197,8 @@ namespace CapaVista
                 else
                 {
                     // Limpiar los controles si no se encuentra el fabricante
-                    cbxNombreFabri.SelectedIndex = -1;
+                    cbxNombreFabri.Text = "-";
                     dgvFabricante.DataSource = null;
-                    rdbActivos.Checked = false;
-                    rdbInactivos.Checked = false;
                 }
             }
             else

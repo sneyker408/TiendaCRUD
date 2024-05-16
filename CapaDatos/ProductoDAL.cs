@@ -69,6 +69,13 @@ namespace CapaDatos
             
         }
 
+        public List<Producto> LeerTodosProdcutos(bool inactivos = false)
+        {
+            _db = new ContextoBD();
+            return _db.Productos.ToList();
+
+        }
+
         public Producto LeerPorId(int id)
         {
             _db = new ContextoBD();
@@ -95,6 +102,30 @@ namespace CapaDatos
                     return null;
                 }
             }
+        }
+
+        public int ObtenerCodigoCategoriaDesdeBD(int codigo)
+        {
+            _db = new ContextoBD();
+            Producto producto = _db.Productos.FirstOrDefault(m => m.ProductoId == codigo);
+            if (producto != null)
+            {
+                return producto.CategoriaId;
+            }
+            return 0;
+        }
+
+        public int ObtenerCodigoFabricanteDesdeBD(int codigo)
+        {
+            _db = new ContextoBD();
+            Producto producto = _db.Productos.FirstOrDefault(m => m.ProductoId == codigo);
+
+            if (producto != null)
+            {
+                return producto.FabricanteId;
+            }
+            return 0;
+
         }
 
         public List<Producto> ObtenerProdcutoPorCategoria(int categoriaId)
@@ -146,6 +177,18 @@ namespace CapaDatos
                     return new List<Producto>(); // Retorna una lista vacía si no se encuentra la categoría
                 }
             }
+        }
+
+        public string ObtenerNombreProductoDesdeBD(int codigo)
+        {
+            string nombreCategoria = string.Empty;
+            _db = new ContextoBD();
+            Producto categoria = _db.Productos.FirstOrDefault(m => m.ProductoId == codigo);
+            if (categoria != null)
+            {
+                nombreCategoria = categoria.Nombre;
+            }
+            return nombreCategoria;
         }
     }
 }

@@ -67,45 +67,45 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(54, 82);
+            this.label1.Location = new System.Drawing.Point(32, 64);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(136, 24);
+            this.label1.Size = new System.Drawing.Size(115, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Código Producto:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(317, 79);
+            this.label2.Location = new System.Drawing.Point(308, 61);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(144, 24);
+            this.label2.Size = new System.Drawing.Size(119, 20);
             this.label2.TabIndex = 1;
             this.label2.Text = "Nombre Producto:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(90, 148);
+            this.label3.Location = new System.Drawing.Point(32, 105);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(80, 24);
+            this.label3.Size = new System.Drawing.Size(65, 20);
             this.label3.TabIndex = 2;
             this.label3.Text = "Cantidad:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(296, 151);
+            this.label4.Location = new System.Drawing.Point(308, 102);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(96, 24);
+            this.label4.Size = new System.Drawing.Size(81, 20);
             this.label4.TabIndex = 3;
             this.label4.Text = "Existencias:";
             // 
             // txtCodigo
             // 
             this.txtCodigo.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productoBindingSource, "ProductoId", true));
-            this.txtCodigo.Location = new System.Drawing.Point(176, 81);
+            this.txtCodigo.Location = new System.Drawing.Point(157, 63);
             this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Size = new System.Drawing.Size(100, 30);
+            this.txtCodigo.Size = new System.Drawing.Size(100, 26);
             this.txtCodigo.TabIndex = 4;
             this.txtCodigo.TextChanged += new System.EventHandler(this.txtCodigo_TextChanged);
             this.txtCodigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodigo_KeyPress);
@@ -121,32 +121,32 @@
             this.cbxNombreProd.DataSource = this.productoBindingSource;
             this.cbxNombreProd.DisplayMember = "Nombre";
             this.cbxNombreProd.FormattingEnabled = true;
-            this.cbxNombreProd.Location = new System.Drawing.Point(467, 79);
+            this.cbxNombreProd.Location = new System.Drawing.Point(458, 61);
             this.cbxNombreProd.Name = "cbxNombreProd";
-            this.cbxNombreProd.Size = new System.Drawing.Size(312, 32);
+            this.cbxNombreProd.Size = new System.Drawing.Size(312, 28);
             this.cbxNombreProd.TabIndex = 5;
             this.cbxNombreProd.ValueMember = "ProductoId";
             this.cbxNombreProd.SelectedIndexChanged += new System.EventHandler(this.cbxNombreProd_SelectedIndexChanged);
             // 
             // txtCantidad
             // 
-            this.txtCantidad.Location = new System.Drawing.Point(176, 142);
+            this.txtCantidad.Location = new System.Drawing.Point(157, 99);
             this.txtCantidad.Name = "txtCantidad";
-            this.txtCantidad.Size = new System.Drawing.Size(100, 30);
+            this.txtCantidad.Size = new System.Drawing.Size(100, 26);
             this.txtCantidad.TabIndex = 6;
             // 
             // txtExistencias
             // 
             this.txtExistencias.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productoBindingSource, "Existencias", true));
-            this.txtExistencias.Location = new System.Drawing.Point(398, 148);
+            this.txtExistencias.Location = new System.Drawing.Point(410, 99);
             this.txtExistencias.Name = "txtExistencias";
             this.txtExistencias.ReadOnly = true;
-            this.txtExistencias.Size = new System.Drawing.Size(89, 30);
+            this.txtExistencias.Size = new System.Drawing.Size(89, 26);
             this.txtExistencias.TabIndex = 7;
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(704, 145);
+            this.btnAgregar.Location = new System.Drawing.Point(695, 95);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(75, 34);
             this.btnAgregar.TabIndex = 8;
@@ -180,10 +180,10 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvDetalleVenta.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvDetalleVenta.Location = new System.Drawing.Point(36, 200);
+            this.dgvDetalleVenta.Location = new System.Drawing.Point(12, 180);
             this.dgvDetalleVenta.Name = "dgvDetalleVenta";
             this.dgvDetalleVenta.RowHeadersWidth = 51;
-            this.dgvDetalleVenta.Size = new System.Drawing.Size(743, 193);
+            this.dgvDetalleVenta.Size = new System.Drawing.Size(829, 300);
             this.dgvDetalleVenta.TabIndex = 9;
             this.dgvDetalleVenta.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetalleVenta_CellValueChanged);
             // 
@@ -234,23 +234,23 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(587, 436);
+            this.label5.Location = new System.Drawing.Point(308, 142);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(103, 24);
+            this.label5.Size = new System.Drawing.Size(82, 20);
             this.label5.TabIndex = 10;
             this.label5.Text = "Monto Total:";
             // 
             // txtMonto
             // 
-            this.txtMonto.Location = new System.Drawing.Point(679, 430);
+            this.txtMonto.Location = new System.Drawing.Point(410, 139);
             this.txtMonto.Name = "txtMonto";
             this.txtMonto.ReadOnly = true;
-            this.txtMonto.Size = new System.Drawing.Size(100, 30);
+            this.txtMonto.Size = new System.Drawing.Size(89, 26);
             this.txtMonto.TabIndex = 11;
             // 
             // btnProcesar
             // 
-            this.btnProcesar.Location = new System.Drawing.Point(17, 486);
+            this.btnProcesar.Location = new System.Drawing.Point(12, 486);
             this.btnProcesar.Name = "btnProcesar";
             this.btnProcesar.Size = new System.Drawing.Size(75, 31);
             this.btnProcesar.TabIndex = 12;
@@ -260,7 +260,7 @@
             // 
             // btnVolver
             // 
-            this.btnVolver.Location = new System.Drawing.Point(704, 486);
+            this.btnVolver.Location = new System.Drawing.Point(766, 486);
             this.btnVolver.Name = "btnVolver";
             this.btnVolver.Size = new System.Drawing.Size(75, 31);
             this.btnVolver.TabIndex = 13;
@@ -271,9 +271,9 @@
             // txtCodigoEmpleado
             // 
             this.txtCodigoEmpleado.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.empleadoBindingSource, "EmpleadoId", true));
-            this.txtCodigoEmpleado.Location = new System.Drawing.Point(176, 24);
+            this.txtCodigoEmpleado.Location = new System.Drawing.Point(157, 24);
             this.txtCodigoEmpleado.Name = "txtCodigoEmpleado";
-            this.txtCodigoEmpleado.Size = new System.Drawing.Size(100, 30);
+            this.txtCodigoEmpleado.Size = new System.Drawing.Size(100, 26);
             this.txtCodigoEmpleado.TabIndex = 14;
             this.txtCodigoEmpleado.TextChanged += new System.EventHandler(this.txtCodigoEmple_TextChanged);
             this.txtCodigoEmpleado.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodigoEmpre_KeyPress);
@@ -289,9 +289,9 @@
             this.cbxNombreEmple.DataSource = this.empleadoBindingSource;
             this.cbxNombreEmple.DisplayMember = "Nombre";
             this.cbxNombreEmple.FormattingEnabled = true;
-            this.cbxNombreEmple.Location = new System.Drawing.Point(467, 24);
+            this.cbxNombreEmple.Location = new System.Drawing.Point(458, 24);
             this.cbxNombreEmple.Name = "cbxNombreEmple";
-            this.cbxNombreEmple.Size = new System.Drawing.Size(312, 32);
+            this.cbxNombreEmple.Size = new System.Drawing.Size(312, 28);
             this.cbxNombreEmple.TabIndex = 15;
             this.cbxNombreEmple.ValueMember = "EmpleadoId";
             this.cbxNombreEmple.SelectedIndexChanged += new System.EventHandler(this.cbxNombremple_SelectedIndexChanged);
@@ -299,18 +299,18 @@
             // txtPrecio
             // 
             this.txtPrecio.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productoBindingSource, "Existencias", true));
-            this.txtPrecio.Location = new System.Drawing.Point(609, 148);
+            this.txtPrecio.Location = new System.Drawing.Point(600, 98);
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.ReadOnly = true;
-            this.txtPrecio.Size = new System.Drawing.Size(89, 30);
+            this.txtPrecio.Size = new System.Drawing.Size(89, 26);
             this.txtPrecio.TabIndex = 17;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(543, 151);
+            this.label6.Location = new System.Drawing.Point(534, 101);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(60, 24);
+            this.label6.Size = new System.Drawing.Size(52, 20);
             this.label6.TabIndex = 16;
             this.label6.Text = "Precio:";
             // 
@@ -319,7 +319,7 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(32, 24);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(140, 24);
+            this.label7.Size = new System.Drawing.Size(119, 20);
             this.label7.TabIndex = 18;
             this.label7.Text = "Codigo Empleado";
             // 
@@ -328,15 +328,15 @@
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(308, 27);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(153, 24);
+            this.label8.Size = new System.Drawing.Size(127, 20);
             this.label8.TabIndex = 19;
             this.label8.Text = "Nombre Empleado:";
             // 
             // RegistroVenta
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 24F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 535);
+            this.ClientSize = new System.Drawing.Size(853, 529);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txtPrecio);

@@ -32,9 +32,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MantenimientoProductos));
             this.gpbxFiltro = new System.Windows.Forms.GroupBox();
             this.txtCodigo = new System.Windows.Forms.TextBox();
+            this.productoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label2 = new System.Windows.Forms.Label();
             this.cbxFabricante = new System.Windows.Forms.ComboBox();
-            this.productoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnReiniciar = new System.Windows.Forms.Button();
             this.cbxCategorias = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -78,7 +78,7 @@
             this.gpbxFiltro.Controls.Add(this.txtNombre);
             this.gpbxFiltro.Controls.Add(this.label1);
             this.gpbxFiltro.Controls.Add(this.label6);
-            this.gpbxFiltro.Location = new System.Drawing.Point(13, 13);
+            this.gpbxFiltro.Location = new System.Drawing.Point(13, 12);
             this.gpbxFiltro.Name = "gpbxFiltro";
             this.gpbxFiltro.Size = new System.Drawing.Size(955, 115);
             this.gpbxFiltro.TabIndex = 0;
@@ -90,18 +90,22 @@
             this.txtCodigo.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productoBindingSource, "ProductoId", true));
             this.txtCodigo.Location = new System.Drawing.Point(110, 47);
             this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Size = new System.Drawing.Size(116, 30);
+            this.txtCodigo.Size = new System.Drawing.Size(116, 26);
             this.txtCodigo.TabIndex = 36;
             this.txtCodigo.TextChanged += new System.EventHandler(this.txtCodigo_TextChanged);
             this.txtCodigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodigo_KeyPress);
             // 
+            // productoBindingSource
+            // 
+            this.productoBindingSource.DataSource = typeof(CapaEntidades.Producto);
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(24, 50);
+            this.label2.Location = new System.Drawing.Point(37, 50);
             this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(61, 24);
+            this.label2.Size = new System.Drawing.Size(53, 20);
             this.label2.TabIndex = 35;
             this.label2.Text = "Codigo";
             // 
@@ -114,19 +118,15 @@
             this.cbxFabricante.FormattingEnabled = true;
             this.cbxFabricante.Location = new System.Drawing.Point(701, 31);
             this.cbxFabricante.Name = "cbxFabricante";
-            this.cbxFabricante.Size = new System.Drawing.Size(234, 32);
+            this.cbxFabricante.Size = new System.Drawing.Size(234, 28);
             this.cbxFabricante.TabIndex = 34;
             this.cbxFabricante.ValueMember = "idCategoria";
             this.cbxFabricante.SelectedIndexChanged += new System.EventHandler(this.cbxFabricante_SelectedIndexChanged);
             this.cbxFabricante.TextUpdate += new System.EventHandler(this.cbxFabricante_TextUpdate);
             // 
-            // productoBindingSource
-            // 
-            this.productoBindingSource.DataSource = typeof(CapaEntidades.Producto);
-            // 
             // btnReiniciar
             // 
-            this.btnReiniciar.Location = new System.Drawing.Point(756, 68);
+            this.btnReiniciar.Location = new System.Drawing.Point(756, 72);
             this.btnReiniciar.Name = "btnReiniciar";
             this.btnReiniciar.Size = new System.Drawing.Size(124, 33);
             this.btnReiniciar.TabIndex = 33;
@@ -143,7 +143,7 @@
             this.cbxCategorias.FormattingEnabled = true;
             this.cbxCategorias.Location = new System.Drawing.Point(354, 69);
             this.cbxCategorias.Name = "cbxCategorias";
-            this.cbxCategorias.Size = new System.Drawing.Size(234, 32);
+            this.cbxCategorias.Size = new System.Drawing.Size(234, 28);
             this.cbxCategorias.TabIndex = 32;
             this.cbxCategorias.ValueMember = "idCategoria";
             this.cbxCategorias.SelectedIndexChanged += new System.EventHandler(this.cbxCategoria_SelectedIndexChanged);
@@ -152,10 +152,10 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(254, 72);
+            this.label7.Location = new System.Drawing.Point(268, 72);
             this.label7.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(80, 24);
+            this.label7.Size = new System.Drawing.Size(66, 20);
             this.label7.TabIndex = 31;
             this.label7.Text = "Categoria";
             // 
@@ -163,7 +163,7 @@
             // 
             this.txtNombre.Location = new System.Drawing.Point(354, 29);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(234, 30);
+            this.txtNombre.Size = new System.Drawing.Size(234, 26);
             this.txtNombre.TabIndex = 30;
             this.txtNombre.TextChanged += new System.EventHandler(this.txtNombre_TextChanged);
             // 
@@ -173,17 +173,17 @@
             this.label1.Location = new System.Drawing.Point(268, 32);
             this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(69, 24);
+            this.label1.Size = new System.Drawing.Size(57, 20);
             this.label1.TabIndex = 29;
             this.label1.Text = "Nombre";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(607, 35);
+            this.label6.Location = new System.Drawing.Point(613, 34);
             this.label6.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(86, 24);
+            this.label6.Size = new System.Drawing.Size(71, 20);
             this.label6.TabIndex = 27;
             this.label6.Text = "Fabricante";
             // 
@@ -209,7 +209,7 @@
             this.dgvProductos.Name = "dgvProductos";
             this.dgvProductos.ReadOnly = true;
             this.dgvProductos.RowHeadersWidth = 51;
-            this.dgvProductos.Size = new System.Drawing.Size(1127, 462);
+            this.dgvProductos.Size = new System.Drawing.Size(1178, 462);
             this.dgvProductos.TabIndex = 1;
             this.dgvProductos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductos_CellClick);
             this.dgvProductos.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvProductos_CellFormatting);
@@ -337,7 +337,7 @@
             // 
             // btnVolver
             // 
-            this.btnVolver.Location = new System.Drawing.Point(1065, 623);
+            this.btnVolver.Location = new System.Drawing.Point(1116, 623);
             this.btnVolver.Name = "btnVolver";
             this.btnVolver.Size = new System.Drawing.Size(75, 37);
             this.btnVolver.TabIndex = 3;
@@ -367,7 +367,7 @@
             // 
             this.groupBox2.Controls.Add(this.rdbInactivos);
             this.groupBox2.Controls.Add(this.rdbActivos);
-            this.groupBox2.Location = new System.Drawing.Point(974, 13);
+            this.groupBox2.Location = new System.Drawing.Point(1024, 13);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(146, 115);
             this.groupBox2.TabIndex = 5;
@@ -379,7 +379,7 @@
             this.rdbInactivos.AutoSize = true;
             this.rdbInactivos.Location = new System.Drawing.Point(18, 65);
             this.rdbInactivos.Name = "rdbInactivos";
-            this.rdbInactivos.Size = new System.Drawing.Size(96, 28);
+            this.rdbInactivos.Size = new System.Drawing.Size(79, 24);
             this.rdbInactivos.TabIndex = 1;
             this.rdbInactivos.Text = "Inactivos";
             this.rdbInactivos.UseVisualStyleBackColor = true;
@@ -392,7 +392,7 @@
             this.rdbActivos.Checked = true;
             this.rdbActivos.Location = new System.Drawing.Point(18, 31);
             this.rdbActivos.Name = "rdbActivos";
-            this.rdbActivos.Size = new System.Drawing.Size(84, 28);
+            this.rdbActivos.Size = new System.Drawing.Size(71, 24);
             this.rdbActivos.TabIndex = 0;
             this.rdbActivos.TabStop = true;
             this.rdbActivos.Text = "Activos";
@@ -402,9 +402,9 @@
             // 
             // MantenimientoProductos
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 24F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1152, 681);
+            this.ClientSize = new System.Drawing.Size(1204, 681);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.btnNuevo);

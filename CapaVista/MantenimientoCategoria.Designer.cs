@@ -59,10 +59,9 @@
             // 
             this.BtnNuevoMCate.BackColor = System.Drawing.Color.Transparent;
             this.BtnNuevoMCate.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnNuevoMCate.Location = new System.Drawing.Point(25, 539);
-            this.BtnNuevoMCate.Margin = new System.Windows.Forms.Padding(4);
+            this.BtnNuevoMCate.Location = new System.Drawing.Point(19, 438);
             this.BtnNuevoMCate.Name = "BtnNuevoMCate";
-            this.BtnNuevoMCate.Size = new System.Drawing.Size(156, 50);
+            this.BtnNuevoMCate.Size = new System.Drawing.Size(117, 41);
             this.BtnNuevoMCate.TabIndex = 12;
             this.BtnNuevoMCate.Text = "Nuevo";
             this.BtnNuevoMCate.UseVisualStyleBackColor = false;
@@ -72,10 +71,9 @@
             // 
             this.BtnAtrasMCate.BackColor = System.Drawing.Color.Transparent;
             this.BtnAtrasMCate.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnAtrasMCate.Location = new System.Drawing.Point(728, 539);
-            this.BtnAtrasMCate.Margin = new System.Windows.Forms.Padding(4);
+            this.BtnAtrasMCate.Location = new System.Drawing.Point(546, 438);
             this.BtnAtrasMCate.Name = "BtnAtrasMCate";
-            this.BtnAtrasMCate.Size = new System.Drawing.Size(156, 50);
+            this.BtnAtrasMCate.Size = new System.Drawing.Size(117, 41);
             this.BtnAtrasMCate.TabIndex = 11;
             this.BtnAtrasMCate.Text = "Atras";
             this.BtnAtrasMCate.UseVisualStyleBackColor = false;
@@ -94,12 +92,11 @@
             this.Editar,
             this.Eliminar});
             this.dgvCategoria.DataSource = this.CategoriabindingSource;
-            this.dgvCategoria.Location = new System.Drawing.Point(25, 105);
-            this.dgvCategoria.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvCategoria.Location = new System.Drawing.Point(61, 79);
             this.dgvCategoria.Name = "dgvCategoria";
             this.dgvCategoria.ReadOnly = true;
             this.dgvCategoria.RowHeadersWidth = 51;
-            this.dgvCategoria.Size = new System.Drawing.Size(859, 417);
+            this.dgvCategoria.Size = new System.Drawing.Size(555, 339);
             this.dgvCategoria.TabIndex = 10;
             this.dgvCategoria.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgCategoria_CellClick);
             // 
@@ -177,9 +174,11 @@
             // 
             this.groupBox2.Controls.Add(this.rdbInactivos);
             this.groupBox2.Controls.Add(this.rdbActivos);
-            this.groupBox2.Location = new System.Drawing.Point(667, 13);
+            this.groupBox2.Location = new System.Drawing.Point(500, 11);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(217, 70);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Size = new System.Drawing.Size(163, 57);
             this.groupBox2.TabIndex = 6;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Filtrar por estado";
@@ -187,9 +186,10 @@
             // rdbInactivos
             // 
             this.rdbInactivos.AutoSize = true;
-            this.rdbInactivos.Location = new System.Drawing.Point(105, 31);
+            this.rdbInactivos.Location = new System.Drawing.Point(79, 25);
+            this.rdbInactivos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rdbInactivos.Name = "rdbInactivos";
-            this.rdbInactivos.Size = new System.Drawing.Size(81, 20);
+            this.rdbInactivos.Size = new System.Drawing.Size(68, 17);
             this.rdbInactivos.TabIndex = 1;
             this.rdbInactivos.Text = "Inactivos";
             this.rdbInactivos.UseVisualStyleBackColor = true;
@@ -200,9 +200,10 @@
             // 
             this.rdbActivos.AutoSize = true;
             this.rdbActivos.Checked = true;
-            this.rdbActivos.Location = new System.Drawing.Point(18, 31);
+            this.rdbActivos.Location = new System.Drawing.Point(14, 25);
+            this.rdbActivos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rdbActivos.Name = "rdbActivos";
-            this.rdbActivos.Size = new System.Drawing.Size(72, 20);
+            this.rdbActivos.Size = new System.Drawing.Size(60, 17);
             this.rdbActivos.TabIndex = 0;
             this.rdbActivos.TabStop = true;
             this.rdbActivos.Text = "Activos";
@@ -216,11 +217,9 @@
             this.groupBox.Controls.Add(this.label2);
             this.groupBox.Controls.Add(this.txtCodigo);
             this.groupBox.Controls.Add(this.label1);
-            this.groupBox.Location = new System.Drawing.Point(25, 13);
-            this.groupBox.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox.Location = new System.Drawing.Point(19, 11);
             this.groupBox.Name = "groupBox";
-            this.groupBox.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox.Size = new System.Drawing.Size(635, 76);
+            this.groupBox.Size = new System.Drawing.Size(476, 62);
             this.groupBox.TabIndex = 10;
             this.groupBox.TabStop = false;
             this.groupBox.Text = "Filtro por Categoria";
@@ -232,9 +231,10 @@
             this.cbxNombreCate.DataSource = this.CategoriabindingSource;
             this.cbxNombreCate.DisplayMember = "NombreCategoria";
             this.cbxNombreCate.FormattingEnabled = true;
-            this.cbxNombreCate.Location = new System.Drawing.Point(378, 31);
+            this.cbxNombreCate.Location = new System.Drawing.Point(284, 25);
+            this.cbxNombreCate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbxNombreCate.Name = "cbxNombreCate";
-            this.cbxNombreCate.Size = new System.Drawing.Size(250, 24);
+            this.cbxNombreCate.Size = new System.Drawing.Size(188, 21);
             this.cbxNombreCate.TabIndex = 36;
             this.cbxNombreCate.ValueMember = "ProductoId";
             this.cbxNombreCate.SelectedIndexChanged += new System.EventHandler(this.cbxNombreCate_SelectedIndexChanged);
@@ -243,19 +243,20 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(314, 34);
-            this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label2.Location = new System.Drawing.Point(236, 28);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(56, 16);
+            this.label2.Size = new System.Drawing.Size(44, 13);
             this.label2.TabIndex = 35;
             this.label2.Text = "Nombre";
             // 
             // txtCodigo
             // 
             this.txtCodigo.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.CategoriabindingSource, "CategoriaId", true));
-            this.txtCodigo.Location = new System.Drawing.Point(76, 31);
+            this.txtCodigo.Location = new System.Drawing.Point(57, 25);
+            this.txtCodigo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Size = new System.Drawing.Size(201, 22);
+            this.txtCodigo.Size = new System.Drawing.Size(152, 20);
             this.txtCodigo.TabIndex = 34;
             this.txtCodigo.TextChanged += new System.EventHandler(this.txtCodigo_TextChanged);
             this.txtCodigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodigo_KeyPress);
@@ -263,24 +264,25 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 34);
-            this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label1.Location = new System.Drawing.Point(9, 28);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(51, 16);
+            this.label1.Size = new System.Drawing.Size(40, 13);
             this.label1.TabIndex = 33;
             this.label1.Text = "Codigo";
             // 
             // MantenimientoCategoria
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(902, 602);
+            this.ClientSize = new System.Drawing.Size(676, 489);
             this.Controls.Add(this.groupBox);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.BtnNuevoMCate);
             this.Controls.Add(this.BtnAtrasMCate);
             this.Controls.Add(this.dgvCategoria);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "MantenimientoCategoria";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Vapesney | Mantenimiento Categoria";

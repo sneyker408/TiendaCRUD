@@ -52,14 +52,18 @@
             this.txtMonto = new System.Windows.Forms.TextBox();
             this.btnProcesar = new System.Windows.Forms.Button();
             this.btnVolver = new System.Windows.Forms.Button();
+            this.txtCodigoEmpleado = new System.Windows.Forms.TextBox();
+            this.empleadoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cbxNombreEmple = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.productoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalleVenta)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.empleadoBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(50, 36);
+            this.label1.Location = new System.Drawing.Point(54, 82);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(136, 24);
             this.label1.TabIndex = 0;
@@ -68,7 +72,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(323, 36);
+            this.label2.Location = new System.Drawing.Point(327, 82);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(144, 24);
             this.label2.TabIndex = 1;
@@ -77,7 +81,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(100, 96);
+            this.label3.Location = new System.Drawing.Point(104, 142);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(80, 24);
             this.label3.TabIndex = 2;
@@ -86,7 +90,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(361, 99);
+            this.label4.Location = new System.Drawing.Point(365, 145);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(96, 24);
             this.label4.TabIndex = 3;
@@ -95,7 +99,7 @@
             // txtCodigo
             // 
             this.txtCodigo.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productoBindingSource, "ProductoId", true));
-            this.txtCodigo.Location = new System.Drawing.Point(172, 35);
+            this.txtCodigo.Location = new System.Drawing.Point(176, 81);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(100, 30);
             this.txtCodigo.TabIndex = 4;
@@ -113,15 +117,16 @@
             this.cbxNombreProd.DataSource = this.productoBindingSource;
             this.cbxNombreProd.DisplayMember = "Nombre";
             this.cbxNombreProd.FormattingEnabled = true;
-            this.cbxNombreProd.Location = new System.Drawing.Point(463, 33);
+            this.cbxNombreProd.Location = new System.Drawing.Point(467, 79);
             this.cbxNombreProd.Name = "cbxNombreProd";
             this.cbxNombreProd.Size = new System.Drawing.Size(312, 32);
             this.cbxNombreProd.TabIndex = 5;
             this.cbxNombreProd.ValueMember = "ProductoId";
+            this.cbxNombreProd.SelectedIndexChanged += new System.EventHandler(this.cbxNombreProd_SelectedIndexChanged);
             // 
             // txtCantidad
             // 
-            this.txtCantidad.Location = new System.Drawing.Point(172, 96);
+            this.txtCantidad.Location = new System.Drawing.Point(176, 142);
             this.txtCantidad.Name = "txtCantidad";
             this.txtCantidad.Size = new System.Drawing.Size(100, 30);
             this.txtCantidad.TabIndex = 6;
@@ -129,7 +134,7 @@
             // txtExistencias
             // 
             this.txtExistencias.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productoBindingSource, "Existencias", true));
-            this.txtExistencias.Location = new System.Drawing.Point(463, 96);
+            this.txtExistencias.Location = new System.Drawing.Point(467, 142);
             this.txtExistencias.Name = "txtExistencias";
             this.txtExistencias.ReadOnly = true;
             this.txtExistencias.Size = new System.Drawing.Size(124, 30);
@@ -137,7 +142,7 @@
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(700, 99);
+            this.btnAgregar.Location = new System.Drawing.Point(704, 145);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(75, 34);
             this.btnAgregar.TabIndex = 8;
@@ -171,7 +176,7 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvDetalleVenta.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvDetalleVenta.Location = new System.Drawing.Point(32, 154);
+            this.dgvDetalleVenta.Location = new System.Drawing.Point(36, 200);
             this.dgvDetalleVenta.Name = "dgvDetalleVenta";
             this.dgvDetalleVenta.RowHeadersWidth = 51;
             this.dgvDetalleVenta.Size = new System.Drawing.Size(743, 193);
@@ -225,7 +230,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(583, 390);
+            this.label5.Location = new System.Drawing.Point(587, 436);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(103, 24);
             this.label5.TabIndex = 10;
@@ -233,7 +238,7 @@
             // 
             // txtMonto
             // 
-            this.txtMonto.Location = new System.Drawing.Point(675, 384);
+            this.txtMonto.Location = new System.Drawing.Point(679, 430);
             this.txtMonto.Name = "txtMonto";
             this.txtMonto.ReadOnly = true;
             this.txtMonto.Size = new System.Drawing.Size(100, 30);
@@ -241,7 +246,7 @@
             // 
             // btnProcesar
             // 
-            this.btnProcesar.Location = new System.Drawing.Point(13, 440);
+            this.btnProcesar.Location = new System.Drawing.Point(17, 486);
             this.btnProcesar.Name = "btnProcesar";
             this.btnProcesar.Size = new System.Drawing.Size(75, 31);
             this.btnProcesar.TabIndex = 12;
@@ -251,7 +256,7 @@
             // 
             // btnVolver
             // 
-            this.btnVolver.Location = new System.Drawing.Point(700, 440);
+            this.btnVolver.Location = new System.Drawing.Point(704, 486);
             this.btnVolver.Name = "btnVolver";
             this.btnVolver.Size = new System.Drawing.Size(75, 31);
             this.btnVolver.TabIndex = 13;
@@ -259,11 +264,40 @@
             this.btnVolver.UseVisualStyleBackColor = true;
             this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
             // 
+            // txtCodigoEmpleado
+            // 
+            this.txtCodigoEmpleado.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.empleadoBindingSource, "EmpleadoId", true));
+            this.txtCodigoEmpleado.Location = new System.Drawing.Point(176, 24);
+            this.txtCodigoEmpleado.Name = "txtCodigoEmpleado";
+            this.txtCodigoEmpleado.Size = new System.Drawing.Size(100, 30);
+            this.txtCodigoEmpleado.TabIndex = 14;
+            this.txtCodigoEmpleado.TextChanged += new System.EventHandler(this.txtCodigoEmple_TextChanged);
+            this.txtCodigoEmpleado.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodigoEmpre_KeyPress);
+            // 
+            // empleadoBindingSource
+            // 
+            this.empleadoBindingSource.DataSource = typeof(CapaEntidades.Empleado);
+            // 
+            // cbxNombreEmple
+            // 
+            this.cbxNombreEmple.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cbxNombreEmple.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbxNombreEmple.DataSource = this.empleadoBindingSource;
+            this.cbxNombreEmple.DisplayMember = "Nombre";
+            this.cbxNombreEmple.FormattingEnabled = true;
+            this.cbxNombreEmple.Location = new System.Drawing.Point(467, 24);
+            this.cbxNombreEmple.Name = "cbxNombreEmple";
+            this.cbxNombreEmple.Size = new System.Drawing.Size(312, 32);
+            this.cbxNombreEmple.TabIndex = 15;
+            this.cbxNombreEmple.ValueMember = "ProductoId";
+            // 
             // RegistroVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 483);
+            this.ClientSize = new System.Drawing.Size(800, 535);
+            this.Controls.Add(this.cbxNombreEmple);
+            this.Controls.Add(this.txtCodigoEmpleado);
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.btnProcesar);
             this.Controls.Add(this.txtMonto);
@@ -286,6 +320,7 @@
             this.Text = "Vapesney | Registro Venta";
             ((System.ComponentModel.ISupportInitialize)(this.productoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalleVenta)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.empleadoBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -313,5 +348,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn SubTotal;
+        private System.Windows.Forms.TextBox txtCodigoEmpleado;
+        private System.Windows.Forms.ComboBox cbxNombreEmple;
+        private System.Windows.Forms.BindingSource empleadoBindingSource;
     }
 }

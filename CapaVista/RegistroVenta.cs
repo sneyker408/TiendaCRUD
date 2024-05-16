@@ -17,6 +17,7 @@ namespace CapaVista
         VentaLOG _ventaLOG;
         ProductoLOG _productoLOG;
         DataTable detalleVenta;
+        EmpleadoLOG _empleadoLOG;
 
         public RegistroVenta()
         {
@@ -38,6 +39,11 @@ namespace CapaVista
             productoBindingSource.DataSource = _productoLOG.ObtenerProductos();
         }
 
+        private void LimpiarCampos()
+        {
+
+        }
+
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             try
@@ -46,22 +52,33 @@ namespace CapaVista
 
                 int codigo = int.Parse(txtCodigo.Text);
                 int cantidad = int.Parse(txtCantidad.Text);
+                int exitencia = int.Parse(txtExistencias.Text);
 
                 var producto = (Producto)productoBindingSource.Current;
 
-                if(producto != null)
+                if (cantidad < exitencia)
                 {
-                    detalleVenta.Rows.Add(codigo, producto.Nombre, producto.PrecioUnitario,
-                        cantidad, (cantidad*producto.PrecioUnitario));
+                    if (producto != null)
+                    {
+                        detalleVenta.Rows.Add(codigo, producto.Nombre, producto.PrecioUnitario,
+                            cantidad, (cantidad * producto.PrecioUnitario));
 
-                    dgvDetalleVenta.DataSource = detalleVenta;
+                        dgvDetalleVenta.DataSource = detalleVenta;
 
-                    CalcularMontoTotal();
+                        CalcularMontoTotal();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("La cantidad es mayor a las existencias, seleccione una cantidad menor", "Vapeney | Venta",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtCantidad.Focus();
+                    txtCantidad.BackColor = Color.LightYellow;
                 }
             }
             catch (Exception)
             {
-                MessageBox.Show("Ocurrio un Error", "UNAB|Chalatenango", 
+                MessageBox.Show("Ocurrio un Error", "Vapeney | Venta", 
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -76,6 +93,7 @@ namespace CapaVista
                  
                 venta.Fecha = DateTime.Now;
                 venta.Total = decimal.Parse(txtMonto.Text);
+                venta.EmpleadoId = int.Parse(txtCodigoEmpleado.Text);
 
                 foreach (DataGridViewRow row in dgvDetalleVenta.Rows)
                 {
@@ -102,31 +120,50 @@ namespace CapaVista
             }
             catch (Exception)
             {
-                MessageBox.Show("Ocurrio un Error", "UNAB|Chalatenango",
+                MessageBox.Show("Ocurrio un Error", "Vapesney | Venta",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void txtCodigo_KeyPress(object sender, KeyPressEventArgs e)
+{
+    if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+    {
+        e.Handled = true;
+    }
+}
+
+        private void txtCodigoEmpre_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if(!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)){
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
                 e.Handled = true;
             }
         }
 
+        private bool isUpdating = false;
+
         private void txtCodigo_TextChanged(object sender, EventArgs e)
         {
+            if (isUpdating) return;
+
             if (!string.IsNullOrEmpty(txtCodigo.Text))
             {
                 _productoLOG = new ProductoLOG();
 
-                int codigo = int.Parse(txtCodigo.Text);
-
-                var producto = _productoLOG.ObtenerProductoPorId(codigo);
-
-                if(producto != null && producto.Estado == true)
+                if (int.TryParse(txtCodigo.Text, out int codigo))
                 {
-                    cbxNombreProd.Text = producto.Nombre;
+                    var producto = _productoLOG.ObtenerProductoPorId(codigo);
+
+                    if (producto != null && producto.Estado == true)
+                    {
+                        cbxNombreProd.Text = producto.Nombre;
+                        txtExistencias.Text = producto.Existencias.ToString();
+                    }
+                    else
+                    {
+                        cbxNombreProd.Text = "";
+                    }
                 }
                 else
                 {
@@ -135,7 +172,49 @@ namespace CapaVista
             }
             else
             {
-                CargarProductos();
+                cbxNombreProd.Text = "";
+                txtExistencias.Text = "";
+            }
+        }
+
+        private void cbxNombreProd_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbxNombreProd.SelectedIndex != -1)
+            {
+                isUpdating = true;
+
+                var producto = (Producto)cbxNombreProd.SelectedItem;
+                if (producto != null)
+                {
+                    txtCodigo.Text = producto.ProductoId.ToString();
+                }
+
+                isUpdating = false;
+            }
+        }
+
+        private void txtCodigoEmple_TextChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtCodigoEmpleado.Text))
+            {
+                _empleadoLOG = new EmpleadoLOG();
+
+                int codigo = int.Parse(txtCodigoEmpleado.Text);
+
+                var producto = _empleadoLOG.ObtenerEmpleadoPorId(codigo);
+
+                if (producto != null)
+                {
+                    cbxNombreEmple.Text = producto.Nombre;
+                }
+                else
+                {
+                    cbxNombreEmple.Text = "";
+                }
+            }
+            else
+            {
+                cbxNombreEmple.Text = "";
             }
         }
 

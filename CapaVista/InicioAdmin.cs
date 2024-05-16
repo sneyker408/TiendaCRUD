@@ -82,8 +82,7 @@ namespace CapaVista
 
         private void empleadoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MantenimientoEmpleado ObjMantenimientoEmple = new MantenimientoEmpleado();
-            ObjMantenimientoEmple.ShowDialog();
+
         }
 
         private void nuevoProductoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -94,12 +93,13 @@ namespace CapaVista
 
         private void mantenimientoCategoriaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+            MantenimientoCategoria mantenimientoCategoria = new MantenimientoCategoria(true);
+            mantenimientoCategoria.ShowDialog();
         }
 
         private void mantenimientoEmpleadosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MantenimientoCategoria mantenimientoCategoria = new MantenimientoCategoria(true);
+            MantenimientoEmpleado mantenimientoCategoria = new MantenimientoEmpleado();
             mantenimientoCategoria.ShowDialog();
         }
 

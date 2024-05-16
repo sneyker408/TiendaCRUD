@@ -60,7 +60,7 @@ namespace CapaVista
         private bool CategoriaExiste(string nombreCategoria)
         {
 
-            List<Categoria> categorias = _categoriaLOG.ObtenerCategorias();
+            List<Categoria> categorias = _categoriaLOG.ObtenerCategoria();
 
 
             foreach (Categoria categoria in categorias)
@@ -111,12 +111,18 @@ namespace CapaVista
 
                     var nombrefabri = _categoriaLOG.ExtraerNombreCategoria(codigo);
 
-                    var EstadoFabri = _categoriaLOG.ObtenerFabricantesPorEstadoSegunid(codigo);
 
-
-                    if (nombrefabri != txtCategoria.Text)
+                    if(_categoriaLOG.ExtrarNombreporEstado().Contains(txtCategoria.Text))
                     {
-                        MessageBox.Show("El nombre del fabricante ya existe. Por favor, elija otro nombre.", "Tienda | Registro Fabricante",
+                        MessageBox.Show("El nombre de la categoria ya existe como inactivo. Por favor, elija otro nombre o active el fabricante existente.", "Tienda | Registro Fabricante",
+                            MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        txtCategoria.Focus();
+                        txtCategoria.BackColor = Color.LightYellow;
+                        return;
+                    }
+                    if (nombrefabri != txtCategoria.Text && _categoriaLOG.ExtrarCategoria().Contains(txtCategoria.Text))
+                    {
+                        MessageBox.Show("El nombre de la categoria ya existe. Por favor, elija otro nombre.", "Tienda | Registro Categoria",
                             MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         txtCategoria.Focus();
                         txtCategoria.BackColor = Color.LightYellow;
@@ -125,22 +131,26 @@ namespace CapaVista
                 }
                 else
                 {
-                    int codigo = (_id);
 
                     _categoriaLOG = new CategoriaLOG();
-                    var EstadoFabri = _categoriaLOG.ObtenerFabricantesPorEstadoSegunid(codigo);
+                    var Estadocate = _categoriaLOG.ObtenerFabricantesPorEstadoSegunNombre(txtCategoria.Text);
+                    
 
-                    if (CategoriaExiste(txtCategoria.Text))
+                    if (_categoriaLOG.ExtrarCategoria().Contains(txtCategoria.Text) && Estadocate == true)
                     {
-                        MessageBox.Show("El nombre del fabricante ya existe. Por favor, elija otro nombre.", "Tienda | Registro Fabricante",
+                        MessageBox.Show("El nombre de la Categoria ya existe. Por favor, elija otro nombre.", "Tienda | Registro Categoria",
                             MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         txtCategoria.Focus();
                         txtCategoria.BackColor = Color.LightYellow;
                         return;
                     }
-                    else if (EstadoFabri == false)
+                    else if (!_categoriaLOG.ExtrarCategoria().Contains(txtCategoria.Text))
                     {
-                        MessageBox.Show("El nombre del fabricante ya existe como inactivo. Por favor, elija otro nombre o active el fabricante existente.", "Tienda | Registro Fabricante",
+
+                    }
+                    else if (Estadocate == false)
+                    {
+                        MessageBox.Show("El nombre de la categoria ya existe como inactivo. Por favor, elija otro nombre o active el fabricante existente.", "Tienda | Registro Fabricante",
                             MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         txtCategoria.Focus();
                         txtCategoria.BackColor = Color.LightYellow;

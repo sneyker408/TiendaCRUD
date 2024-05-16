@@ -237,12 +237,14 @@ namespace CapaVista
         {
             RegistroFabricante objRegistroFabri = new RegistroFabricante();
             objRegistroFabri.ShowDialog();
+            MostrarFabricanteYCategorias();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             RegistroCategoria objRegistroCate = new RegistroCategoria();
             objRegistroCate.ShowDialog();
+            MostrarFabricanteYCategorias();
         }
     }
 }

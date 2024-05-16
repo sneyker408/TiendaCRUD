@@ -111,6 +111,16 @@ namespace CapaDatos
             return _db.Categorias.Where(f => f.Estado == estadoActivo).ToList();
         }
 
+        public List<string> ObtenerNombresCategoriasInactivas()
+        {
+            _db = new ContextoBD();
+
+            return _db.Categorias
+                      .Where(c => !c.Estado)
+                      .Select(c => c.NombreCategoria)
+                      .ToList();
+        }
+
         public Categoria ObtenerCategoriaPorNombre(string nombreCategoria)
         {
             _db = new ContextoBD();
@@ -123,6 +133,18 @@ namespace CapaDatos
             bool estadoCate = false;
             _db = new ContextoBD();
             Categoria categoria = _db.Categorias.FirstOrDefault(p => p.CategoriaId == codigo);
+            if (categoria != null)
+            {
+                estadoCate = categoria.Estado;
+            }
+            return estadoCate;
+        }
+
+        public bool ObtenerEstadoCategoriaSegunNombre(string nombre)
+        {
+            bool estadoCate = false;
+            _db = new ContextoBD();
+            Categoria categoria = _db.Categorias.FirstOrDefault(p => p.NombreCategoria == nombre);
             if (categoria != null)
             {
                 estadoCate = categoria.Estado;

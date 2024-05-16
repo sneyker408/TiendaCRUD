@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegistroEmpleado));
             this.btnGuardarEmple = new System.Windows.Forms.Button();
             this.txtNumero = new System.Windows.Forms.TextBox();
+            this.EmpleadoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtDireccion = new System.Windows.Forms.TextBox();
@@ -42,7 +43,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnCancelarEmple = new System.Windows.Forms.Button();
-            this.EmpleadoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.EmpleadoBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -65,6 +65,10 @@
             this.txtNumero.Size = new System.Drawing.Size(191, 22);
             this.txtNumero.TabIndex = 54;
             // 
+            // EmpleadoBindingSource
+            // 
+            this.EmpleadoBindingSource.DataSource = typeof(CapaEntidades.Empleado);
+            // 
             // txtNombre
             // 
             this.txtNombre.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.EmpleadoBindingSource, "Nombre", true));
@@ -76,7 +80,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(67, 264);
+            this.label5.Location = new System.Drawing.Point(89, 264);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(122, 16);
@@ -95,7 +99,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(125, 207);
+            this.label4.Location = new System.Drawing.Point(147, 207);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(64, 16);
@@ -114,7 +118,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(125, 152);
+            this.label3.Location = new System.Drawing.Point(163, 152);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(48, 16);
@@ -133,12 +137,12 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(67, 97);
+            this.label2.Location = new System.Drawing.Point(66, 96);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(123, 16);
+            this.label2.Size = new System.Drawing.Size(145, 16);
             this.label2.TabIndex = 46;
-            this.label2.Text = "Apellido del Cliente";
+            this.label2.Text = "Apellido del Empleado";
             // 
             // label1
             // 
@@ -146,9 +150,9 @@
             this.label1.Location = new System.Drawing.Point(67, 46);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(122, 16);
+            this.label1.Size = new System.Drawing.Size(144, 16);
             this.label1.TabIndex = 45;
-            this.label1.Text = "Nombre del Cliente";
+            this.label1.Text = "Nombre del Empleado";
             // 
             // btnCancelarEmple
             // 
@@ -160,10 +164,6 @@
             this.btnCancelarEmple.Text = "Cancelar";
             this.btnCancelarEmple.UseVisualStyleBackColor = true;
             this.btnCancelarEmple.Click += new System.EventHandler(this.btnCancelarEmple_Click);
-            // 
-            // EmpleadoBindingSource
-            // 
-            this.EmpleadoBindingSource.DataSource = typeof(CapaEntidades.Empleado);
             // 
             // RegistroEmpleado
             // 

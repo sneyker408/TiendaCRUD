@@ -130,5 +130,27 @@ namespace CapaDatos
             }
             return estadoFabri;
         }
+
+        public bool ObtenerEstadoFabricanteSegunNombre(string nombre)
+        {
+            bool estadoFabri = false;
+            _db = new ContextoBD();
+            Fabricante categoria = _db.Fabricantes.FirstOrDefault(p => p.NombreFabricante == nombre);
+            if (categoria != null)
+            {
+                estadoFabri = categoria.Estado;
+            }
+            return estadoFabri;
+        }
+
+        public List<string> ObtenerNombresFabricanteInactivos()
+        {
+            _db = new ContextoBD();
+
+            return _db.Fabricantes
+                      .Where(c => !c.Estado)
+                      .Select(c => c.NombreFabricante)
+                      .ToList();
+        }
     }
 }

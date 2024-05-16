@@ -79,5 +79,30 @@ namespace CapaLogica
             _fabricanteDAL = new FabricanteDAL();
             return _fabricanteDAL.ObtenerEstadoCategoriaDesdeBD(codigo);
         }
+
+        public bool ObtenerFabricantesPorEstadoSegunNombre(string nombre)
+        {
+            _fabricanteDAL = new FabricanteDAL();
+            return _fabricanteDAL.ObtenerEstadoFabricanteSegunNombre(nombre);
+        }
+
+        public List<string> ExtrarFabricante()
+        {
+            List<string> categoria = new List<string>();
+
+            using (var _db = new ContextoBD())
+            {
+                categoria = _db.Fabricantes.Select(c => c.NombreFabricante).ToList();
+            }
+
+            return categoria;
+        }
+
+        public List<string> ExtrarNombreporEstado()
+        {
+            _fabricanteDAL = new FabricanteDAL();
+
+            return _fabricanteDAL.ObtenerNombresFabricanteInactivos();
+        }
     }
 }

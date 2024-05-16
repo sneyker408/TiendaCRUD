@@ -59,7 +59,7 @@ namespace CapaLogica
             return _categoriaDAL.TodasCategorias();
         }
 
-        public List<Categoria> ObtenerFabricantesPorEstado(bool estadoActivo)
+        public List<Categoria> ObtenerFabricantesPorEstado(bool estadoActivo = false)
         {
             return _categoriaDAL.ObtenerCategoriaPorEstado(estadoActivo);
         }
@@ -87,6 +87,32 @@ namespace CapaLogica
         {
             _categoriaDAL = new CategoriaDAL();
             return _categoriaDAL.ObtenerEstadoCategoriaDesdeBD(codigo);
+        }
+
+        public List<string> ExtrarCategoria()
+        {
+            List<string> categoria = new List<string>();
+
+            using (var _db = new ContextoBD())
+            {
+                categoria = _db.Categorias.Select(c => c.NombreCategoria).ToList();
+            }
+
+            return categoria;
+        }
+
+        public bool ObtenerFabricantesPorEstadoSegunNombre(string nombre)
+        {
+            _categoriaDAL = new CategoriaDAL();
+            return _categoriaDAL.ObtenerEstadoCategoriaSegunNombre(nombre);
+        }
+
+        public List<string> ExtrarNombreporEstado()
+        {
+            _categoriaDAL = new CategoriaDAL();
+            
+            return _categoriaDAL.ObtenerNombresCategoriasInactivas();
+            
         }
     }
 }

@@ -113,12 +113,17 @@ namespace CapaVista
 
                     var nombrefabri = _fabricanteLOG.EstraerNombreFabricante(codigo);
 
-                    var EstadoFabri = _fabricanteLOG.ObtenerFabricantesPorEstadoSegunid(codigo);
-
-
-                    if (nombrefabri != txtFabricante.Text)
+                    if (_fabricanteLOG.ExtrarNombreporEstado().Contains(txtFabricante.Text))
                     {
-                        MessageBox.Show("El nombre del fabricante ya existe. Por favor, elija otro nombre.", "Tienda | Registro Fabricante",
+                        MessageBox.Show("El nombre de la categoria ya existe como inactivo. Por favor, elija otro nombre o active el fabricante existente.", "Tienda | Registro Fabricante",
+                            MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        txtFabricante.Focus();
+                        txtFabricante.BackColor = Color.LightYellow;
+                        return;
+                    }
+                    if (nombrefabri != txtFabricante.Text && _fabricanteLOG.ExtrarFabricante().Contains(txtFabricante.Text))
+                    {
+                        MessageBox.Show("El nombre de la categoria ya existe. Por favor, elija otro nombre.", "Tienda | Registro Categoria",
                             MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         txtFabricante.Focus();
                         txtFabricante.BackColor = Color.LightYellow;
@@ -127,22 +132,26 @@ namespace CapaVista
                 }
                 else
                 {
-                    int codigo = (_id);
 
                     _fabricanteLOG = new FabricanteLOG();
-                    var EstadoFabri = _fabricanteLOG.ObtenerFabricantesPorEstadoSegunid(codigo);
+                    var Estadofabri = _fabricanteLOG.ObtenerFabricantesPorEstadoSegunNombre(txtFabricante.Text);
 
-                    if (FabricanteExiste(txtFabricante.Text))
+
+                    if (_fabricanteLOG.ExtrarFabricante().Contains(txtFabricante.Text) && Estadofabri == true)
                     {
-                        MessageBox.Show("El nombre del fabricante ya existe. Por favor, elija otro nombre.", "Tienda | Registro Fabricante",
+                        MessageBox.Show("El nombre del Fabricante ya existe. Por favor, elija otro nombre.", "Tienda | Registro Fabricante",
                             MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         txtFabricante.Focus();
                         txtFabricante.BackColor = Color.LightYellow;
                         return;
                     }
-                    else if (EstadoFabri == false)
+                    else if (!_fabricanteLOG.ExtrarFabricante().Contains(txtFabricante.Text))
                     {
-                        MessageBox.Show("El nombre del fabricante ya existe como inactivo. Por favor, elija otro nombre o active el fabricante existente.", "Tienda | Registro Fabricante",
+
+                    }
+                    else if (Estadofabri == false)
+                    {
+                        MessageBox.Show("El nombre de la categoria ya existe como inactivo. Por favor, elija otro nombre o active el fabricante existente.", "Tienda | Registro Fabricante",
                             MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         txtFabricante.Focus();
                         txtFabricante.BackColor = Color.LightYellow;

@@ -33,5 +33,43 @@ namespace CapaDatos
 
             return resultado;
         }
+
+        public List<Venta> LeerVentas()
+        {
+            _db = new ContextoBD();
+
+            return _db.Ventas.ToList();
+        }
+
+        public List<DetalleVenta> LeerDetalleVentas()
+        {
+            _db = new ContextoBD();
+
+            return _db.DetalleVentas.ToList();
+        }
+
+        public string ObtenerNombreEmpleadoDesdeBD(int idEmpleado)
+        {
+            string nombreFabricante = string.Empty;
+            _db = new ContextoBD();
+            Empleado fabricante = _db.Empleados.FirstOrDefault(m => m.EmpleadoId == idEmpleado);
+            if (fabricante != null)
+            {
+                nombreFabricante = fabricante.Nombre;
+            }
+            return nombreFabricante;
+        }
+
+        public string ObtenerNombreProdcutoDesdeBD(int idProduco)
+        {
+            string nombreProducto = string.Empty;
+            _db = new ContextoBD();
+            Producto fabricante = _db.Productos.FirstOrDefault(m => m.ProductoId == idProduco);
+            if (fabricante != null)
+            {
+                nombreProducto = fabricante.Nombre;
+            }
+            return nombreProducto;
+        }
     }
 }

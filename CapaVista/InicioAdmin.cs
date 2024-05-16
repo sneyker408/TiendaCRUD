@@ -108,5 +108,11 @@ namespace CapaVista
             RegistroEmpleado objRegistroEmple = new RegistroEmpleado();
             objRegistroEmple.ShowDialog();
         }
+
+        private void detalleDeVentasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Ventas_DetalleVentas objDetalleVenta = new Ventas_DetalleVentas();
+            objDetalleVenta.ShowDialog();
+        }
     }
 }

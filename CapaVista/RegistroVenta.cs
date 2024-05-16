@@ -65,7 +65,15 @@ namespace CapaVista
 
                 var producto = (Producto)productoBindingSource.Current;
 
-                if (cantidad < exitencia)
+
+                if (cantidad == 0 ) 
+                {
+                    MessageBox.Show("No se pueden agregar 0 prodcutos, seleccione una cantidad mayor", "Vapeney | Venta",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtCantidad.Focus();
+                    txtCantidad.BackColor = Color.LightYellow;
+                }
+                if (cantidad <= exitencia)
                 {
                     if (producto != null)
                     {
@@ -123,6 +131,7 @@ namespace CapaVista
                         }
 
                         int resultado = _ventaLOG.GuardarVenta(venta);
+
 
                         if (resultado > 0)
                         {
@@ -260,6 +269,7 @@ namespace CapaVista
                 }
 
             }
+
             isUpdating = false;
         }
 
@@ -287,7 +297,7 @@ namespace CapaVista
                 }
                 else
                 {
-                    txtCodigoEmpleado.Text = "";
+
                     cbxNombreEmple.Text = "";
                 }
             }

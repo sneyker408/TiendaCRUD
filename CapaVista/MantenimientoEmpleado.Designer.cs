@@ -33,14 +33,6 @@
             this.btnVolver = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.dgvEmpleados = new System.Windows.Forms.DataGridView();
-            this.EmpleadoId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.apellidoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CorreoElectronico = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Direccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.telefonoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Editar = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
             this.EmpleadoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.gpbxFiltro = new System.Windows.Forms.GroupBox();
@@ -56,6 +48,14 @@
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.EmpleadoId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.apellidoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CorreoElectronico = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Direccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.telefonoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Editar = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleados)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.EmpleadoBindingSource)).BeginInit();
             this.gpbxFiltro.SuspendLayout();
@@ -63,10 +63,10 @@
             // 
             // btnVolver
             // 
-            this.btnVolver.Location = new System.Drawing.Point(1002, 507);
-            this.btnVolver.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnVolver.Location = new System.Drawing.Point(1225, 624);
+            this.btnVolver.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnVolver.Name = "btnVolver";
-            this.btnVolver.Size = new System.Drawing.Size(56, 30);
+            this.btnVolver.Size = new System.Drawing.Size(75, 37);
             this.btnVolver.TabIndex = 14;
             this.btnVolver.Text = "Atras";
             this.btnVolver.UseVisualStyleBackColor = true;
@@ -74,10 +74,10 @@
             // 
             // btnNuevo
             // 
-            this.btnNuevo.Location = new System.Drawing.Point(9, 507);
-            this.btnNuevo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnNuevo.Location = new System.Drawing.Point(12, 624);
+            this.btnNuevo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(56, 30);
+            this.btnNuevo.Size = new System.Drawing.Size(75, 37);
             this.btnNuevo.TabIndex = 13;
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = true;
@@ -99,14 +99,184 @@
             this.Editar,
             this.Eliminar});
             this.dgvEmpleados.DataSource = this.EmpleadoBindingSource;
-            this.dgvEmpleados.Location = new System.Drawing.Point(9, 110);
-            this.dgvEmpleados.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvEmpleados.Location = new System.Drawing.Point(12, 135);
+            this.dgvEmpleados.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvEmpleados.Name = "dgvEmpleados";
             this.dgvEmpleados.ReadOnly = true;
             this.dgvEmpleados.RowHeadersWidth = 51;
-            this.dgvEmpleados.Size = new System.Drawing.Size(1049, 375);
+            this.dgvEmpleados.Size = new System.Drawing.Size(1288, 462);
             this.dgvEmpleados.TabIndex = 12;
             this.dgvEmpleados.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgEmpleado_CellClick);
+            // 
+            // EmpleadoBindingSource
+            // 
+            this.EmpleadoBindingSource.DataSource = typeof(CapaEntidades.Empleado);
+            // 
+            // btnLimpiar
+            // 
+            this.btnLimpiar.Location = new System.Drawing.Point(1049, 53);
+            this.btnLimpiar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(75, 37);
+            this.btnLimpiar.TabIndex = 16;
+            this.btnLimpiar.Text = "Limpiar";
+            this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
+            // 
+            // gpbxFiltro
+            // 
+            this.gpbxFiltro.Controls.Add(this.cbxTelefono);
+            this.gpbxFiltro.Controls.Add(this.label4);
+            this.gpbxFiltro.Controls.Add(this.cbxCorreo);
+            this.gpbxFiltro.Controls.Add(this.txtDireccion);
+            this.gpbxFiltro.Controls.Add(this.txtApellido);
+            this.gpbxFiltro.Controls.Add(this.txtNombre);
+            this.gpbxFiltro.Controls.Add(this.label2);
+            this.gpbxFiltro.Controls.Add(this.label3);
+            this.gpbxFiltro.Controls.Add(this.label7);
+            this.gpbxFiltro.Controls.Add(this.txtCodigo);
+            this.gpbxFiltro.Controls.Add(this.label1);
+            this.gpbxFiltro.Controls.Add(this.label6);
+            this.gpbxFiltro.Location = new System.Drawing.Point(12, 14);
+            this.gpbxFiltro.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.gpbxFiltro.Name = "gpbxFiltro";
+            this.gpbxFiltro.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.gpbxFiltro.Size = new System.Drawing.Size(1007, 114);
+            this.gpbxFiltro.TabIndex = 15;
+            this.gpbxFiltro.TabStop = false;
+            this.gpbxFiltro.Text = "Filtros por Empleados";
+            // 
+            // cbxTelefono
+            // 
+            this.cbxTelefono.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cbxTelefono.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbxTelefono.DataSource = this.EmpleadoBindingSource;
+            this.cbxTelefono.DisplayMember = "Telefono";
+            this.cbxTelefono.FormattingEnabled = true;
+            this.cbxTelefono.Location = new System.Drawing.Point(120, 74);
+            this.cbxTelefono.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbxTelefono.Name = "cbxTelefono";
+            this.cbxTelefono.Size = new System.Drawing.Size(143, 24);
+            this.cbxTelefono.TabIndex = 42;
+            this.cbxTelefono.ValueMember = "idCategoria";
+            this.cbxTelefono.SelectedIndexChanged += new System.EventHandler(this.cbxTelefono_SelectedIndexChanged);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(24, 79);
+            this.label4.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(61, 16);
+            this.label4.TabIndex = 41;
+            this.label4.Text = "Telefono";
+            // 
+            // cbxCorreo
+            // 
+            this.cbxCorreo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cbxCorreo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbxCorreo.DataSource = this.EmpleadoBindingSource;
+            this.cbxCorreo.DisplayMember = "CorreoElectronico";
+            this.cbxCorreo.FormattingEnabled = true;
+            this.cbxCorreo.Location = new System.Drawing.Point(717, 33);
+            this.cbxCorreo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbxCorreo.Name = "cbxCorreo";
+            this.cbxCorreo.Size = new System.Drawing.Size(271, 24);
+            this.cbxCorreo.TabIndex = 40;
+            this.cbxCorreo.ValueMember = "idCategoria";
+            this.cbxCorreo.SelectedIndexChanged += new System.EventHandler(this.cbxCorreo_SelectedIndexChanged);
+            this.cbxCorreo.TextUpdate += new System.EventHandler(this.cbxCorreo_TextUpdate);
+            // 
+            // txtDireccion
+            // 
+            this.txtDireccion.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.EmpleadoBindingSource, "Direccion", true));
+            this.txtDireccion.Location = new System.Drawing.Point(717, 76);
+            this.txtDireccion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtDireccion.Name = "txtDireccion";
+            this.txtDireccion.Size = new System.Drawing.Size(271, 22);
+            this.txtDireccion.TabIndex = 39;
+            this.txtDireccion.TextChanged += new System.EventHandler(this.txtDireccion_TextChanged);
+            // 
+            // txtApellido
+            // 
+            this.txtApellido.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.EmpleadoBindingSource, "Apellido", true));
+            this.txtApellido.Location = new System.Drawing.Point(373, 73);
+            this.txtApellido.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtApellido.Name = "txtApellido";
+            this.txtApellido.Size = new System.Drawing.Size(241, 22);
+            this.txtApellido.TabIndex = 38;
+            this.txtApellido.TextChanged += new System.EventHandler(this.txtApellido_TextChanged);
+            // 
+            // txtNombre
+            // 
+            this.txtNombre.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.EmpleadoBindingSource, "Nombre", true));
+            this.txtNombre.Location = new System.Drawing.Point(372, 33);
+            this.txtNombre.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(241, 22);
+            this.txtNombre.TabIndex = 37;
+            this.txtNombre.TextChanged += new System.EventHandler(this.txtNombre_TextChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(645, 76);
+            this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(64, 16);
+            this.label2.TabIndex = 35;
+            this.label2.Text = "Direccion";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(308, 76);
+            this.label3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(57, 16);
+            this.label3.TabIndex = 33;
+            this.label3.Text = "Apellido";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(661, 36);
+            this.label7.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(48, 16);
+            this.label7.TabIndex = 31;
+            this.label7.Text = "Correo";
+            // 
+            // txtCodigo
+            // 
+            this.txtCodigo.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.EmpleadoBindingSource, "EmpleadoId", true));
+            this.txtCodigo.Location = new System.Drawing.Point(120, 36);
+            this.txtCodigo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtCodigo.Name = "txtCodigo";
+            this.txtCodigo.Size = new System.Drawing.Size(143, 22);
+            this.txtCodigo.TabIndex = 30;
+            this.txtCodigo.TextChanged += new System.EventHandler(this.txtCodigo_TextChanged);
+            this.txtCodigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodigo_KeyPress);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(35, 39);
+            this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(51, 16);
+            this.label1.TabIndex = 29;
+            this.label1.Text = "Codigo";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(308, 36);
+            this.label6.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(56, 16);
+            this.label6.TabIndex = 27;
+            this.label6.Text = "Nombre";
             // 
             // EmpleadoId
             // 
@@ -115,7 +285,7 @@
             this.EmpleadoId.MinimumWidth = 6;
             this.EmpleadoId.Name = "EmpleadoId";
             this.EmpleadoId.ReadOnly = true;
-            this.EmpleadoId.Width = 125;
+            this.EmpleadoId.Width = 65;
             // 
             // nombreDataGridViewTextBoxColumn
             // 
@@ -142,7 +312,7 @@
             this.CorreoElectronico.MinimumWidth = 6;
             this.CorreoElectronico.Name = "CorreoElectronico";
             this.CorreoElectronico.ReadOnly = true;
-            this.CorreoElectronico.Width = 125;
+            this.CorreoElectronico.Width = 150;
             // 
             // Direccion
             // 
@@ -151,7 +321,7 @@
             this.Direccion.MinimumWidth = 6;
             this.Direccion.Name = "Direccion";
             this.Direccion.ReadOnly = true;
-            this.Direccion.Width = 125;
+            this.Direccion.Width = 200;
             // 
             // telefonoDataGridViewTextBoxColumn
             // 
@@ -160,7 +330,6 @@
             this.telefonoDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.telefonoDataGridViewTextBoxColumn.Name = "telefonoDataGridViewTextBoxColumn";
             this.telefonoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.telefonoDataGridViewTextBoxColumn.Width = 125;
             // 
             // Editar
             // 
@@ -169,7 +338,7 @@
             this.Editar.MinimumWidth = 6;
             this.Editar.Name = "Editar";
             this.Editar.ReadOnly = true;
-            this.Editar.Width = 125;
+            this.Editar.Width = 65;
             // 
             // Eliminar
             // 
@@ -178,190 +347,20 @@
             this.Eliminar.MinimumWidth = 6;
             this.Eliminar.Name = "Eliminar";
             this.Eliminar.ReadOnly = true;
-            this.Eliminar.Width = 125;
-            // 
-            // EmpleadoBindingSource
-            // 
-            this.EmpleadoBindingSource.DataSource = typeof(CapaEntidades.Empleado);
-            // 
-            // btnLimpiar
-            // 
-            this.btnLimpiar.Location = new System.Drawing.Point(787, 43);
-            this.btnLimpiar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(56, 30);
-            this.btnLimpiar.TabIndex = 16;
-            this.btnLimpiar.Text = "Limpiar";
-            this.btnLimpiar.UseVisualStyleBackColor = true;
-            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
-            // 
-            // gpbxFiltro
-            // 
-            this.gpbxFiltro.Controls.Add(this.cbxTelefono);
-            this.gpbxFiltro.Controls.Add(this.label4);
-            this.gpbxFiltro.Controls.Add(this.cbxCorreo);
-            this.gpbxFiltro.Controls.Add(this.txtDireccion);
-            this.gpbxFiltro.Controls.Add(this.txtApellido);
-            this.gpbxFiltro.Controls.Add(this.txtNombre);
-            this.gpbxFiltro.Controls.Add(this.label2);
-            this.gpbxFiltro.Controls.Add(this.label3);
-            this.gpbxFiltro.Controls.Add(this.label7);
-            this.gpbxFiltro.Controls.Add(this.txtCodigo);
-            this.gpbxFiltro.Controls.Add(this.label1);
-            this.gpbxFiltro.Controls.Add(this.label6);
-            this.gpbxFiltro.Location = new System.Drawing.Point(9, 11);
-            this.gpbxFiltro.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.gpbxFiltro.Name = "gpbxFiltro";
-            this.gpbxFiltro.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.gpbxFiltro.Size = new System.Drawing.Size(755, 93);
-            this.gpbxFiltro.TabIndex = 15;
-            this.gpbxFiltro.TabStop = false;
-            this.gpbxFiltro.Text = "Filtros por Empleados";
-            // 
-            // cbxTelefono
-            // 
-            this.cbxTelefono.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.cbxTelefono.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cbxTelefono.DataSource = this.EmpleadoBindingSource;
-            this.cbxTelefono.DisplayMember = "Telefono";
-            this.cbxTelefono.FormattingEnabled = true;
-            this.cbxTelefono.Location = new System.Drawing.Point(90, 60);
-            this.cbxTelefono.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.cbxTelefono.Name = "cbxTelefono";
-            this.cbxTelefono.Size = new System.Drawing.Size(108, 21);
-            this.cbxTelefono.TabIndex = 42;
-            this.cbxTelefono.ValueMember = "idCategoria";
-            this.cbxTelefono.SelectedIndexChanged += new System.EventHandler(this.cbxTelefono_SelectedIndexChanged);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(18, 64);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(49, 13);
-            this.label4.TabIndex = 41;
-            this.label4.Text = "Telefono";
-            // 
-            // cbxCorreo
-            // 
-            this.cbxCorreo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.cbxCorreo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cbxCorreo.DataSource = this.EmpleadoBindingSource;
-            this.cbxCorreo.DisplayMember = "CorreoElectronico";
-            this.cbxCorreo.FormattingEnabled = true;
-            this.cbxCorreo.Location = new System.Drawing.Point(538, 27);
-            this.cbxCorreo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.cbxCorreo.Name = "cbxCorreo";
-            this.cbxCorreo.Size = new System.Drawing.Size(204, 21);
-            this.cbxCorreo.TabIndex = 40;
-            this.cbxCorreo.ValueMember = "idCategoria";
-            this.cbxCorreo.SelectedIndexChanged += new System.EventHandler(this.cbxCorreo_SelectedIndexChanged);
-            this.cbxCorreo.TextUpdate += new System.EventHandler(this.cbxCorreo_TextUpdate);
-            // 
-            // txtDireccion
-            // 
-            this.txtDireccion.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.EmpleadoBindingSource, "Direccion", true));
-            this.txtDireccion.Location = new System.Drawing.Point(538, 62);
-            this.txtDireccion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txtDireccion.Name = "txtDireccion";
-            this.txtDireccion.Size = new System.Drawing.Size(204, 20);
-            this.txtDireccion.TabIndex = 39;
-            this.txtDireccion.TextChanged += new System.EventHandler(this.txtDireccion_TextChanged);
-            // 
-            // txtApellido
-            // 
-            this.txtApellido.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.EmpleadoBindingSource, "Apellido", true));
-            this.txtApellido.Location = new System.Drawing.Point(280, 59);
-            this.txtApellido.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txtApellido.Name = "txtApellido";
-            this.txtApellido.Size = new System.Drawing.Size(182, 20);
-            this.txtApellido.TabIndex = 38;
-            this.txtApellido.TextChanged += new System.EventHandler(this.txtApellido_TextChanged);
-            // 
-            // txtNombre
-            // 
-            this.txtNombre.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.EmpleadoBindingSource, "Nombre", true));
-            this.txtNombre.Location = new System.Drawing.Point(279, 27);
-            this.txtNombre.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(182, 20);
-            this.txtNombre.TabIndex = 37;
-            this.txtNombre.TextChanged += new System.EventHandler(this.txtNombre_TextChanged);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(484, 62);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(52, 13);
-            this.label2.TabIndex = 35;
-            this.label2.Text = "Direccion";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(231, 62);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(44, 13);
-            this.label3.TabIndex = 33;
-            this.label3.Text = "Apellido";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(496, 29);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(38, 13);
-            this.label7.TabIndex = 31;
-            this.label7.Text = "Correo";
-            // 
-            // txtCodigo
-            // 
-            this.txtCodigo.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.EmpleadoBindingSource, "EmpleadoId", true));
-            this.txtCodigo.Location = new System.Drawing.Point(90, 29);
-            this.txtCodigo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Size = new System.Drawing.Size(108, 20);
-            this.txtCodigo.TabIndex = 30;
-            this.txtCodigo.TextChanged += new System.EventHandler(this.txtCodigo_TextChanged);
-            this.txtCodigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodigo_KeyPress);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(26, 32);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(40, 13);
-            this.label1.TabIndex = 29;
-            this.label1.Text = "Codigo";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(231, 29);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(44, 13);
-            this.label6.TabIndex = 27;
-            this.label6.Text = "Nombre";
+            this.Eliminar.Width = 65;
             // 
             // MantenimientoEmpleado
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1067, 547);
+            this.ClientSize = new System.Drawing.Size(1331, 673);
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.gpbxFiltro);
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.dgvEmpleados);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "MantenimientoEmpleado";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Vapesney | Mantenimiento Empleado";
@@ -380,14 +379,6 @@
         private System.Windows.Forms.BindingSource EmpleadoBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn dicreecionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn correoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EmpleadoId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn apellidoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CorreoElectronico;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Direccion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn telefonoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewImageColumn Editar;
-        private System.Windows.Forms.DataGridViewImageColumn Eliminar;
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.GroupBox gpbxFiltro;
         private System.Windows.Forms.ComboBox cbxTelefono;
@@ -402,5 +393,13 @@
         private System.Windows.Forms.TextBox txtCodigo;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EmpleadoId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn apellidoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CorreoElectronico;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Direccion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn telefonoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewImageColumn Editar;
+        private System.Windows.Forms.DataGridViewImageColumn Eliminar;
     }
 }

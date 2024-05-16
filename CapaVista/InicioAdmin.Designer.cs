@@ -47,6 +47,7 @@
             this.empleadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mantenimientoEmpleadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.agregarEmpleadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.detalleDeVentasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -72,7 +73,8 @@
             // ventasToolStripMenuItem
             // 
             this.ventasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.MnRegistroVentas});
+            this.MnRegistroVentas,
+            this.detalleDeVentasToolStripMenuItem});
             this.ventasToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
             this.ventasToolStripMenuItem.Name = "ventasToolStripMenuItem";
             this.ventasToolStripMenuItem.Size = new System.Drawing.Size(77, 28);
@@ -206,6 +208,13 @@
             this.agregarEmpleadoToolStripMenuItem.Text = "Agregar Empleado";
             this.agregarEmpleadoToolStripMenuItem.Click += new System.EventHandler(this.agregarEmpleadoToolStripMenuItem_Click);
             // 
+            // detalleDeVentasToolStripMenuItem
+            // 
+            this.detalleDeVentasToolStripMenuItem.Name = "detalleDeVentasToolStripMenuItem";
+            this.detalleDeVentasToolStripMenuItem.Size = new System.Drawing.Size(241, 28);
+            this.detalleDeVentasToolStripMenuItem.Text = "Detalle de Ventas";
+            this.detalleDeVentasToolStripMenuItem.Click += new System.EventHandler(this.detalleDeVentasToolStripMenuItem_Click);
+            // 
             // InicioAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 29F);
@@ -247,6 +256,7 @@
         private System.Windows.Forms.ToolStripMenuItem nuevoClienteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mantenimientoEmpleadosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem agregarEmpleadoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem detalleDeVentasToolStripMenuItem;
     }
 }
 

@@ -42,6 +42,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.dgvProductos = new System.Windows.Forms.DataGridView();
+            this.btnNuevo = new System.Windows.Forms.Button();
+            this.btnVolver = new System.Windows.Forms.Button();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.rdbInactivos = new System.Windows.Forms.RadioButton();
+            this.rdbActivos = new System.Windows.Forms.RadioButton();
             this.ProductoId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,13 +61,6 @@
             this.Fabricante = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Editar = new System.Windows.Forms.DataGridViewImageColumn();
             this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
-            this.btnNuevo = new System.Windows.Forms.Button();
-            this.btnVolver = new System.Windows.Forms.Button();
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.rdbInactivos = new System.Windows.Forms.RadioButton();
-            this.rdbActivos = new System.Windows.Forms.RadioButton();
             this.gpbxFiltro.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
@@ -90,7 +90,7 @@
             this.txtCodigo.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productoBindingSource, "ProductoId", true));
             this.txtCodigo.Location = new System.Drawing.Point(110, 47);
             this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Size = new System.Drawing.Size(116, 26);
+            this.txtCodigo.Size = new System.Drawing.Size(116, 30);
             this.txtCodigo.TabIndex = 36;
             this.txtCodigo.TextChanged += new System.EventHandler(this.txtCodigo_TextChanged);
             this.txtCodigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodigo_KeyPress);
@@ -105,7 +105,7 @@
             this.label2.Location = new System.Drawing.Point(37, 50);
             this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 20);
+            this.label2.Size = new System.Drawing.Size(61, 24);
             this.label2.TabIndex = 35;
             this.label2.Text = "Codigo";
             // 
@@ -118,7 +118,7 @@
             this.cbxFabricante.FormattingEnabled = true;
             this.cbxFabricante.Location = new System.Drawing.Point(701, 31);
             this.cbxFabricante.Name = "cbxFabricante";
-            this.cbxFabricante.Size = new System.Drawing.Size(234, 28);
+            this.cbxFabricante.Size = new System.Drawing.Size(234, 32);
             this.cbxFabricante.TabIndex = 34;
             this.cbxFabricante.ValueMember = "idCategoria";
             this.cbxFabricante.SelectedIndexChanged += new System.EventHandler(this.cbxFabricante_SelectedIndexChanged);
@@ -143,7 +143,7 @@
             this.cbxCategorias.FormattingEnabled = true;
             this.cbxCategorias.Location = new System.Drawing.Point(354, 69);
             this.cbxCategorias.Name = "cbxCategorias";
-            this.cbxCategorias.Size = new System.Drawing.Size(234, 28);
+            this.cbxCategorias.Size = new System.Drawing.Size(234, 32);
             this.cbxCategorias.TabIndex = 32;
             this.cbxCategorias.ValueMember = "idCategoria";
             this.cbxCategorias.SelectedIndexChanged += new System.EventHandler(this.cbxCategoria_SelectedIndexChanged);
@@ -155,7 +155,7 @@
             this.label7.Location = new System.Drawing.Point(268, 72);
             this.label7.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(66, 20);
+            this.label7.Size = new System.Drawing.Size(80, 24);
             this.label7.TabIndex = 31;
             this.label7.Text = "Categoria";
             // 
@@ -163,7 +163,7 @@
             // 
             this.txtNombre.Location = new System.Drawing.Point(354, 29);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(234, 26);
+            this.txtNombre.Size = new System.Drawing.Size(234, 30);
             this.txtNombre.TabIndex = 30;
             this.txtNombre.TextChanged += new System.EventHandler(this.txtNombre_TextChanged);
             // 
@@ -173,7 +173,7 @@
             this.label1.Location = new System.Drawing.Point(268, 32);
             this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(57, 20);
+            this.label1.Size = new System.Drawing.Size(69, 24);
             this.label1.TabIndex = 29;
             this.label1.Text = "Nombre";
             // 
@@ -183,7 +183,7 @@
             this.label6.Location = new System.Drawing.Point(613, 34);
             this.label6.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(71, 20);
+            this.label6.Size = new System.Drawing.Size(86, 24);
             this.label6.TabIndex = 27;
             this.label6.Text = "Fabricante";
             // 
@@ -214,6 +214,81 @@
             this.dgvProductos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductos_CellClick);
             this.dgvProductos.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvProductos_CellFormatting);
             // 
+            // btnNuevo
+            // 
+            this.btnNuevo.Location = new System.Drawing.Point(13, 623);
+            this.btnNuevo.Name = "btnNuevo";
+            this.btnNuevo.Size = new System.Drawing.Size(75, 37);
+            this.btnNuevo.TabIndex = 2;
+            this.btnNuevo.Text = "Nuevo";
+            this.btnNuevo.UseVisualStyleBackColor = true;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
+            // 
+            // btnVolver
+            // 
+            this.btnVolver.Location = new System.Drawing.Point(1116, 623);
+            this.btnVolver.Name = "btnVolver";
+            this.btnVolver.Size = new System.Drawing.Size(75, 37);
+            this.btnVolver.TabIndex = 3;
+            this.btnVolver.Text = "Atras";
+            this.btnVolver.UseVisualStyleBackColor = true;
+            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
+            // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.HeaderText = "Editar";
+            this.dataGridViewImageColumn1.Image = global::CapaVista.Properties.Resources.edit_v2;
+            this.dataGridViewImageColumn1.MinimumWidth = 6;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.ReadOnly = true;
+            this.dataGridViewImageColumn1.Width = 125;
+            // 
+            // dataGridViewImageColumn2
+            // 
+            this.dataGridViewImageColumn2.HeaderText = "Eliminar";
+            this.dataGridViewImageColumn2.Image = global::CapaVista.Properties.Resources.delete;
+            this.dataGridViewImageColumn2.MinimumWidth = 6;
+            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
+            this.dataGridViewImageColumn2.ReadOnly = true;
+            this.dataGridViewImageColumn2.Width = 125;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.rdbInactivos);
+            this.groupBox2.Controls.Add(this.rdbActivos);
+            this.groupBox2.Location = new System.Drawing.Point(1024, 13);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(146, 115);
+            this.groupBox2.TabIndex = 5;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Filtrar por estado";
+            // 
+            // rdbInactivos
+            // 
+            this.rdbInactivos.AutoSize = true;
+            this.rdbInactivos.Location = new System.Drawing.Point(18, 65);
+            this.rdbInactivos.Name = "rdbInactivos";
+            this.rdbInactivos.Size = new System.Drawing.Size(96, 28);
+            this.rdbInactivos.TabIndex = 1;
+            this.rdbInactivos.Text = "Inactivos";
+            this.rdbInactivos.UseVisualStyleBackColor = true;
+            this.rdbInactivos.UseWaitCursor = true;
+            this.rdbInactivos.CheckedChanged += new System.EventHandler(this.rdbInactivos_CheckedChanged);
+            // 
+            // rdbActivos
+            // 
+            this.rdbActivos.AutoSize = true;
+            this.rdbActivos.Checked = true;
+            this.rdbActivos.Location = new System.Drawing.Point(18, 31);
+            this.rdbActivos.Name = "rdbActivos";
+            this.rdbActivos.Size = new System.Drawing.Size(84, 28);
+            this.rdbActivos.TabIndex = 0;
+            this.rdbActivos.TabStop = true;
+            this.rdbActivos.Text = "Activos";
+            this.rdbActivos.UseVisualStyleBackColor = true;
+            this.rdbActivos.UseWaitCursor = true;
+            this.rdbActivos.CheckedChanged += new System.EventHandler(this.rdbActivos_CheckedChanged);
+            // 
             // ProductoId
             // 
             this.ProductoId.DataPropertyName = "ProductoId";
@@ -221,7 +296,7 @@
             this.ProductoId.MinimumWidth = 6;
             this.ProductoId.Name = "ProductoId";
             this.ProductoId.ReadOnly = true;
-            this.ProductoId.Width = 125;
+            this.ProductoId.Width = 65;
             // 
             // Nombre
             // 
@@ -239,7 +314,7 @@
             this.Descripcion.MinimumWidth = 6;
             this.Descripcion.Name = "Descripcion";
             this.Descripcion.ReadOnly = true;
-            this.Descripcion.Width = 125;
+            this.Descripcion.Width = 250;
             // 
             // PrecioUnitario
             // 
@@ -248,7 +323,7 @@
             this.PrecioUnitario.MinimumWidth = 6;
             this.PrecioUnitario.Name = "PrecioUnitario";
             this.PrecioUnitario.ReadOnly = true;
-            this.PrecioUnitario.Width = 125;
+            this.PrecioUnitario.Width = 75;
             // 
             // Existencias
             // 
@@ -257,7 +332,7 @@
             this.Existencias.MinimumWidth = 6;
             this.Existencias.Name = "Existencias";
             this.Existencias.ReadOnly = true;
-            this.Existencias.Width = 125;
+            this.Existencias.Width = 75;
             // 
             // Estado
             // 
@@ -314,7 +389,7 @@
             this.Editar.MinimumWidth = 6;
             this.Editar.Name = "Editar";
             this.Editar.ReadOnly = true;
-            this.Editar.Width = 125;
+            this.Editar.Width = 65;
             // 
             // Eliminar
             // 
@@ -323,86 +398,11 @@
             this.Eliminar.MinimumWidth = 6;
             this.Eliminar.Name = "Eliminar";
             this.Eliminar.ReadOnly = true;
-            this.Eliminar.Width = 125;
-            // 
-            // btnNuevo
-            // 
-            this.btnNuevo.Location = new System.Drawing.Point(13, 623);
-            this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(75, 37);
-            this.btnNuevo.TabIndex = 2;
-            this.btnNuevo.Text = "Nuevo";
-            this.btnNuevo.UseVisualStyleBackColor = true;
-            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
-            // 
-            // btnVolver
-            // 
-            this.btnVolver.Location = new System.Drawing.Point(1116, 623);
-            this.btnVolver.Name = "btnVolver";
-            this.btnVolver.Size = new System.Drawing.Size(75, 37);
-            this.btnVolver.TabIndex = 3;
-            this.btnVolver.Text = "Atras";
-            this.btnVolver.UseVisualStyleBackColor = true;
-            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
-            // 
-            // dataGridViewImageColumn1
-            // 
-            this.dataGridViewImageColumn1.HeaderText = "Editar";
-            this.dataGridViewImageColumn1.Image = global::CapaVista.Properties.Resources.edit_v2;
-            this.dataGridViewImageColumn1.MinimumWidth = 6;
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            this.dataGridViewImageColumn1.ReadOnly = true;
-            this.dataGridViewImageColumn1.Width = 125;
-            // 
-            // dataGridViewImageColumn2
-            // 
-            this.dataGridViewImageColumn2.HeaderText = "Eliminar";
-            this.dataGridViewImageColumn2.Image = global::CapaVista.Properties.Resources.delete;
-            this.dataGridViewImageColumn2.MinimumWidth = 6;
-            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
-            this.dataGridViewImageColumn2.ReadOnly = true;
-            this.dataGridViewImageColumn2.Width = 125;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.rdbInactivos);
-            this.groupBox2.Controls.Add(this.rdbActivos);
-            this.groupBox2.Location = new System.Drawing.Point(1024, 13);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(146, 115);
-            this.groupBox2.TabIndex = 5;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Filtrar por estado";
-            // 
-            // rdbInactivos
-            // 
-            this.rdbInactivos.AutoSize = true;
-            this.rdbInactivos.Location = new System.Drawing.Point(18, 65);
-            this.rdbInactivos.Name = "rdbInactivos";
-            this.rdbInactivos.Size = new System.Drawing.Size(79, 24);
-            this.rdbInactivos.TabIndex = 1;
-            this.rdbInactivos.Text = "Inactivos";
-            this.rdbInactivos.UseVisualStyleBackColor = true;
-            this.rdbInactivos.UseWaitCursor = true;
-            this.rdbInactivos.CheckedChanged += new System.EventHandler(this.rdbInactivos_CheckedChanged);
-            // 
-            // rdbActivos
-            // 
-            this.rdbActivos.AutoSize = true;
-            this.rdbActivos.Checked = true;
-            this.rdbActivos.Location = new System.Drawing.Point(18, 31);
-            this.rdbActivos.Name = "rdbActivos";
-            this.rdbActivos.Size = new System.Drawing.Size(71, 24);
-            this.rdbActivos.TabIndex = 0;
-            this.rdbActivos.TabStop = true;
-            this.rdbActivos.Text = "Activos";
-            this.rdbActivos.UseVisualStyleBackColor = true;
-            this.rdbActivos.UseWaitCursor = true;
-            this.rdbActivos.CheckedChanged += new System.EventHandler(this.rdbActivos_CheckedChanged);
+            this.Eliminar.Width = 65;
             // 
             // MantenimientoProductos
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1204, 681);
             this.Controls.Add(this.groupBox2);

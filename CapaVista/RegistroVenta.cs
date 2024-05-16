@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ProgressBar;
 
 namespace CapaVista
 {
@@ -24,6 +25,7 @@ namespace CapaVista
             InitializeComponent();
 
             CargarProductos();
+            MostrarEmpleados();
 
             detalleVenta = new DataTable();
             detalleVenta.Columns.Add("Codigo", typeof(int));
@@ -31,6 +33,8 @@ namespace CapaVista
             detalleVenta.Columns.Add("Precio", typeof(decimal));
             detalleVenta.Columns.Add("Cantidad", typeof(int));
             detalleVenta.Columns.Add("SubTotal", typeof(decimal));
+
+            dgvDetalleVenta.DataSource = detalleVenta;
         }
 
         private void CargarProductos()
@@ -39,8 +43,13 @@ namespace CapaVista
             productoBindingSource.DataSource = _productoLOG.ObtenerProductos();
         }
 
-        private void LimpiarCampos()
+        private void MostrarEmpleados()
         {
+            _empleadoLOG = new EmpleadoLOG();
+            cbxNombreEmple.DataSource = _empleadoLOG.ObtenerTodosTelefonos();
+            cbxNombreEmple.DisplayMember = "Empleado";
+            cbxNombreEmple.ValueMember = "EmpleadoId";
+            cbxNombreEmple.SelectedIndex = -1;
 
         }
 
@@ -85,53 +94,84 @@ namespace CapaVista
 
         private void btnProcesar_Click(object sender, EventArgs e)
         {
-            try
+            if (!string.IsNullOrEmpty(txtCodigoEmpleado.Text))
             {
-                _ventaLOG = new VentaLOG();
+                int codigoemple = int.Parse(txtCodigoEmpleado.Text);
 
-                Venta venta = new Venta();
-                 
-                venta.Fecha = DateTime.Now;
-                venta.Total = decimal.Parse(txtMonto.Text);
-                venta.EmpleadoId = int.Parse(txtCodigoEmpleado.Text);
-
-                foreach (DataGridViewRow row in dgvDetalleVenta.Rows)
+                if (_empleadoLOG.ObtenerTodosLosEmpleadoIds().Contains(codigoemple))
                 {
-                    var detalle = new DetalleVenta()
+                    try
                     {
-                        ProductoId = int.Parse(row.Cells["Codigo"].Value.ToString()),
-                        Precio = decimal.Parse(row.Cells["Precio"].Value.ToString()),
-                        Cantidad = int.Parse(row.Cells["Cantidad"].Value.ToString())
-                    };
+                        _ventaLOG = new VentaLOG();
 
-                    venta.Detalles.Add(detalle);
-                }
+                        Venta venta = new Venta();
 
-                int resultado = _ventaLOG.GuardarVenta(venta);
+                        venta.Fecha = DateTime.Now;
+                        venta.Total = decimal.Parse(txtMonto.Text);
+                        venta.EmpleadoId = int.Parse(txtCodigoEmpleado.Text);
 
-                if(resultado > 0)
-                {
-                    MessageBox.Show("Venta Guardada con Exito");
+                        foreach (DataGridViewRow row in dgvDetalleVenta.Rows)
+                        {
+                            var detalle = new DetalleVenta()
+                            {
+                                ProductoId = int.Parse(row.Cells["Codigo"].Value.ToString()),
+                                Precio = decimal.Parse(row.Cells["Precio"].Value.ToString()),
+                                Cantidad = int.Parse(row.Cells["Cantidad"].Value.ToString())
+                            };
+
+                            venta.Detalles.Add(detalle);
+                        }
+
+                        int resultado = _ventaLOG.GuardarVenta(venta);
+
+                        if (resultado > 0)
+                        {
+                            MessageBox.Show("Venta Guardada con Exito");
+
+                            // Limpiar los campos
+                            txtCodigo.Text = "";
+                            txtCantidad.Text = "";
+
+                            // Limpiar el DataTable y actualizar el DataGridView
+                            detalleVenta.Clear();
+                            dgvDetalleVenta.DataSource = detalleVenta;
+                            CargarProductos();
+                        }
+                        else
+                        {
+                            MessageBox.Show("No se logro guardar la venta","Vapesney | Venta", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Ocurrio un Error", "Vapeney | Venta",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("No se logro guardar la venta");
+                    MessageBox.Show("El empleado seleccionado no existe, por favor seleccione otro empleado", "Vapeney | Venta",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtCantidad.Focus();
+                    txtCantidad.BackColor = Color.LightYellow;
                 }
             }
-            catch (Exception)
+            else
             {
-                MessageBox.Show("Ocurrio un Error", "Vapesney | Venta",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("No se a seleccionado ningun empleado", "Vapeney | Venta",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtCantidad.Focus();
+                txtCantidad.BackColor = Color.LightYellow;
             }
         }
 
         private void txtCodigo_KeyPress(object sender, KeyPressEventArgs e)
-{
-    if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-    {
-        e.Handled = true;
-    }
-}
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
 
         private void txtCodigoEmpre_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -157,23 +197,34 @@ namespace CapaVista
 
                     if (producto != null && producto.Estado == true)
                     {
+
                         cbxNombreProd.Text = producto.Nombre;
                         txtExistencias.Text = producto.Existencias.ToString();
+                        txtPrecio.Text = producto.PrecioUnitario.ToString();
+                        isUpdating = false;
                     }
                     else
                     {
                         cbxNombreProd.Text = "";
+                        txtExistencias.Text = "";
+                        txtPrecio.Text = "";
+                        isUpdating = false;
                     }
                 }
                 else
                 {
                     cbxNombreProd.Text = "";
+                    txtExistencias.Text = "";
+                    txtPrecio.Text = "";
+                    isUpdating = true;
                 }
             }
             else
             {
                 cbxNombreProd.Text = "";
                 txtExistencias.Text = "";
+                txtPrecio.Text = "";
+                isUpdating = false;
             }
         }
 
@@ -186,15 +237,42 @@ namespace CapaVista
                 var producto = (Producto)cbxNombreProd.SelectedItem;
                 if (producto != null)
                 {
+                    txtPrecio.Text = producto.PrecioUnitario.ToString();
                     txtCodigo.Text = producto.ProductoId.ToString();
+                    txtExistencias.Text = producto.Existencias.ToString();    
                 }
 
                 isUpdating = false;
             }
         }
 
+        private void cbxNombremple_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            isUpdating = true;
+            if (cbxNombreProd.SelectedIndex != -1)
+            {
+
+                var producto = (Empleado)cbxNombreEmple.SelectedItem;
+                if (producto != null)
+                {
+                    txtCodigoEmpleado.Text = producto.EmpleadoId.ToString();
+                }
+
+            }
+            isUpdating = false;
+        }
+
+        private int count = 0;
+
         private void txtCodigoEmple_TextChanged(object sender, EventArgs e)
         {
+            if (count == 0)
+            {
+                txtCodigoEmpleado.Text = "";
+                count++;
+            }
+
             if (!string.IsNullOrEmpty(txtCodigoEmpleado.Text))
             {
                 _empleadoLOG = new EmpleadoLOG();
@@ -209,6 +287,7 @@ namespace CapaVista
                 }
                 else
                 {
+                    txtCodigoEmpleado.Text = "";
                     cbxNombreEmple.Text = "";
                 }
             }
@@ -216,6 +295,7 @@ namespace CapaVista
             {
                 cbxNombreEmple.Text = "";
             }
+
         }
 
         private void dgvDetalleVenta_CellValueChanged(object sender, DataGridViewCellEventArgs e)

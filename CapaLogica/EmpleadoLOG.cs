@@ -26,6 +26,13 @@ namespace CapaLogica
             return _empleadoDAL.LeerPorId(codigo);
         }
 
+        public List<int> ObtenerTodosLosEmpleadoIds()
+        {
+            _empleadoDAL = new EmpleadoDAL();
+
+            return _empleadoDAL.ObtenerTodosLosEmpleadoIds();
+        }
+
         public int ActualizarEmpleado(Empleado empleado, int id)
         {
             _empleadoDAL = new EmpleadoDAL();

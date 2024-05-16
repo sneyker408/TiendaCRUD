@@ -67,6 +67,17 @@ namespace CapaDatos
 
             return _db.Empleados.Find(id);
         }
+        public List<int> ObtenerTodosLosEmpleadoIds()
+        {
+            List<int> correos = new List<int>();
+
+            using (var _db = new ContextoBD())
+            {
+                correos = _db.Empleados.Select(c => c.EmpleadoId).ToList();
+            }
+
+            return correos;
+        }
 
         public List<Empleado> NumeroTelefonoExiste(bool inactivo = false)
         {

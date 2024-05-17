@@ -82,7 +82,7 @@ namespace CapaVista
                 if (string.IsNullOrEmpty(txtCategoria.Text))
                 {
                     MessageBox.Show("Se requiere el nombre de la Categoria", "Vapesney | Registro Categoria",
-                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
                     txtCategoria.Focus();
                     txtCategoria.BackColor = Color.LightYellow;
                     return;

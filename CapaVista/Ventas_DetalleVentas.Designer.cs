@@ -35,12 +35,15 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Ventas_DetalleVentas));
             this.dgvVenta = new System.Windows.Forms.DataGridView();
+            this.VentaId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EmpleadoId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NombreEmple = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.VentaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.DetalleBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dgvDetalleVenta = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.btnVolver = new System.Windows.Forms.Button();
             this.DetalleVentaId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,12 +52,9 @@
             this.Producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Venta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.VentaId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EmpleadoId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NombreEmple = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnVolver = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVenta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.VentaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DetalleBindingSource)).BeginInit();
@@ -93,9 +93,64 @@
             this.dgvVenta.Name = "dgvVenta";
             this.dgvVenta.ReadOnly = true;
             this.dgvVenta.RowHeadersWidth = 51;
-            this.dgvVenta.Size = new System.Drawing.Size(613, 300);
+            this.dgvVenta.Size = new System.Drawing.Size(714, 300);
             this.dgvVenta.TabIndex = 10;
             this.dgvVenta.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvVenta_CellFormatting);
+            // 
+            // VentaId
+            // 
+            this.VentaId.DataPropertyName = "VentaId";
+            this.VentaId.HeaderText = "VentaId";
+            this.VentaId.MinimumWidth = 6;
+            this.VentaId.Name = "VentaId";
+            this.VentaId.ReadOnly = true;
+            this.VentaId.Width = 60;
+            // 
+            // Nombre
+            // 
+            this.Nombre.DataPropertyName = "Nombre";
+            this.Nombre.HeaderText = "Otra";
+            this.Nombre.MinimumWidth = 6;
+            this.Nombre.Name = "Nombre";
+            this.Nombre.ReadOnly = true;
+            this.Nombre.Visible = false;
+            this.Nombre.Width = 125;
+            // 
+            // Fecha
+            // 
+            this.Fecha.DataPropertyName = "Fecha";
+            this.Fecha.HeaderText = "Fecha";
+            this.Fecha.MinimumWidth = 6;
+            this.Fecha.Name = "Fecha";
+            this.Fecha.ReadOnly = true;
+            this.Fecha.Width = 125;
+            // 
+            // Total
+            // 
+            this.Total.DataPropertyName = "Total";
+            this.Total.HeaderText = "Total";
+            this.Total.MinimumWidth = 6;
+            this.Total.Name = "Total";
+            this.Total.ReadOnly = true;
+            this.Total.Width = 80;
+            // 
+            // EmpleadoId
+            // 
+            this.EmpleadoId.DataPropertyName = "EmpleadoId";
+            this.EmpleadoId.HeaderText = "Emple. Id";
+            this.EmpleadoId.MinimumWidth = 6;
+            this.EmpleadoId.Name = "EmpleadoId";
+            this.EmpleadoId.ReadOnly = true;
+            this.EmpleadoId.Width = 65;
+            // 
+            // NombreEmple
+            // 
+            this.NombreEmple.DataPropertyName = "EmpleadoId";
+            this.NombreEmple.HeaderText = "Nombre";
+            this.NombreEmple.MinimumWidth = 6;
+            this.NombreEmple.Name = "NombreEmple";
+            this.NombreEmple.ReadOnly = true;
+            this.NombreEmple.Width = 125;
             // 
             // VentaBindingSource
             // 
@@ -135,45 +190,13 @@
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvDetalleVenta.DefaultCellStyle = dataGridViewCellStyle4;
-            this.dgvDetalleVenta.Location = new System.Drawing.Point(651, 137);
+            this.dgvDetalleVenta.Location = new System.Drawing.Point(779, 137);
             this.dgvDetalleVenta.Name = "dgvDetalleVenta";
             this.dgvDetalleVenta.ReadOnly = true;
             this.dgvDetalleVenta.RowHeadersWidth = 51;
-            this.dgvDetalleVenta.Size = new System.Drawing.Size(707, 300);
+            this.dgvDetalleVenta.Size = new System.Drawing.Size(749, 300);
             this.dgvDetalleVenta.TabIndex = 11;
             this.dgvDetalleVenta.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvDetalleVenta_CellFormatting);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(146, 64);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(273, 32);
-            this.label1.TabIndex = 12;
-            this.label1.Text = "Registro de Ventas";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(843, 64);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(256, 32);
-            this.label2.TabIndex = 13;
-            this.label2.Text = "Detalle de Ventas";
-            // 
-            // btnVolver
-            // 
-            this.btnVolver.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVolver.Location = new System.Drawing.Point(606, 497);
-            this.btnVolver.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnVolver.Name = "btnVolver";
-            this.btnVolver.Size = new System.Drawing.Size(194, 51);
-            this.btnVolver.TabIndex = 15;
-            this.btnVolver.Text = "Volver";
-            this.btnVolver.UseVisualStyleBackColor = true;
-            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
             // 
             // DetalleVentaId
             // 
@@ -249,66 +272,43 @@
             this.Venta.Visible = false;
             this.Venta.Width = 125;
             // 
-            // VentaId
+            // label1
             // 
-            this.VentaId.DataPropertyName = "VentaId";
-            this.VentaId.HeaderText = "VentaId";
-            this.VentaId.MinimumWidth = 6;
-            this.VentaId.Name = "VentaId";
-            this.VentaId.ReadOnly = true;
-            this.VentaId.Width = 60;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(204, 64);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(273, 32);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "Registro de Ventas";
             // 
-            // Nombre
+            // label2
             // 
-            this.Nombre.DataPropertyName = "Nombre";
-            this.Nombre.HeaderText = "Otra";
-            this.Nombre.MinimumWidth = 6;
-            this.Nombre.Name = "Nombre";
-            this.Nombre.ReadOnly = true;
-            this.Nombre.Visible = false;
-            this.Nombre.Width = 125;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(1035, 64);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(256, 32);
+            this.label2.TabIndex = 13;
+            this.label2.Text = "Detalle de Ventas";
             // 
-            // Fecha
+            // btnVolver
             // 
-            this.Fecha.DataPropertyName = "Fecha";
-            this.Fecha.HeaderText = "Fecha";
-            this.Fecha.MinimumWidth = 6;
-            this.Fecha.Name = "Fecha";
-            this.Fecha.ReadOnly = true;
-            this.Fecha.Width = 125;
-            // 
-            // Total
-            // 
-            this.Total.DataPropertyName = "Total";
-            this.Total.HeaderText = "Total";
-            this.Total.MinimumWidth = 6;
-            this.Total.Name = "Total";
-            this.Total.ReadOnly = true;
-            this.Total.Width = 80;
-            // 
-            // EmpleadoId
-            // 
-            this.EmpleadoId.DataPropertyName = "EmpleadoId";
-            this.EmpleadoId.HeaderText = "Emple. Id";
-            this.EmpleadoId.MinimumWidth = 6;
-            this.EmpleadoId.Name = "EmpleadoId";
-            this.EmpleadoId.ReadOnly = true;
-            this.EmpleadoId.Width = 65;
-            // 
-            // NombreEmple
-            // 
-            this.NombreEmple.DataPropertyName = "EmpleadoId";
-            this.NombreEmple.HeaderText = "Nombre";
-            this.NombreEmple.MinimumWidth = 6;
-            this.NombreEmple.Name = "NombreEmple";
-            this.NombreEmple.ReadOnly = true;
-            this.NombreEmple.Width = 125;
+            this.btnVolver.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVolver.Location = new System.Drawing.Point(653, 496);
+            this.btnVolver.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnVolver.Name = "btnVolver";
+            this.btnVolver.Size = new System.Drawing.Size(194, 51);
+            this.btnVolver.TabIndex = 15;
+            this.btnVolver.Text = "Volver";
+            this.btnVolver.UseVisualStyleBackColor = true;
+            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
             // 
             // Ventas_DetalleVentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1390, 620);
+            this.ClientSize = new System.Drawing.Size(1540, 620);
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -316,6 +316,7 @@
             this.Controls.Add(this.dgvVenta);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Ventas_DetalleVentas";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Vapesney | Ventas_DetalleVentas";
             ((System.ComponentModel.ISupportInitialize)(this.dgvVenta)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.VentaBindingSource)).EndInit();

@@ -305,7 +305,7 @@
             this.Nombre.MinimumWidth = 6;
             this.Nombre.Name = "Nombre";
             this.Nombre.ReadOnly = true;
-            this.Nombre.Width = 125;
+            this.Nombre.Width = 200;
             // 
             // Descripcion
             // 
@@ -314,7 +314,7 @@
             this.Descripcion.MinimumWidth = 6;
             this.Descripcion.Name = "Descripcion";
             this.Descripcion.ReadOnly = true;
-            this.Descripcion.Width = 250;
+            this.Descripcion.Width = 300;
             // 
             // PrecioUnitario
             // 

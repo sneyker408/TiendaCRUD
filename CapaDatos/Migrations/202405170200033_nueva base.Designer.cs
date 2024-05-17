@@ -7,13 +7,13 @@ namespace CapaDatos.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class firstmigration : IMigrationMetadata
+    public sealed partial class nuevabase : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(firstmigration));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(nuevabase));
         
         string IMigrationMetadata.Id
         {
-            get { return "202405141608114_first migration"; }
+            get { return "202405170200033_nueva base"; }
         }
         
         string IMigrationMetadata.Source

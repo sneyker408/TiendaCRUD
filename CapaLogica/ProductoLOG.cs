@@ -26,6 +26,44 @@ namespace CapaLogica
             return _productoDAL.LeerPorId(codigo);
         }
 
+        public Producto ObtenerProductoSegunId(int producto)
+        {
+            _productoDAL= new ProductoDAL();
+            return _productoDAL.LeerProductoporId(producto);
+        }
+
+        public string ExtraerExistenciasProduc(int producto)
+        {
+            _productoDAL = new ProductoDAL();
+            return _productoDAL.ExtraerExistenciasProduc(producto);
+        }
+
+        public string ExtraerPrecioProduc(int producto)
+        {
+            _productoDAL = new ProductoDAL();
+            return _productoDAL.ExtraerPrecioUnitarioProduc(producto);
+        }
+
+        public int ObtenerIdPorNombre(string nombreCategoria)
+        {
+            _productoDAL = new ProductoDAL();
+
+            return _productoDAL.ObtenerIdPorNombreProducto(nombreCategoria);
+        }
+
+        public string ExtraerNombreProducto(int idproducto)
+        {
+            _productoDAL = new ProductoDAL();
+            return _productoDAL.ObtenerNombreProductoDesdeBD(idproducto);
+        }
+
+        public Producto ObtenerProductoPorNombre(string nombreProducto)
+        {
+            _productoDAL = new ProductoDAL();
+
+            return _productoDAL.ObtenerProductoPorNombre(nombreProducto);
+        }
+
         public int ActualizarProducto(Producto producto, int id)
         {
             _productoDAL = new ProductoDAL();

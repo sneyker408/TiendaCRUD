@@ -72,6 +72,8 @@ namespace CapaVista
                 {
                     MessageBox.Show("Se requiere la descripción del producto", "Tienda | Registro Productos",
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtDescripcion.Focus();
+                    txtDescripcion.BackColor = Color.LightYellow;
                     return;
                 }
 
@@ -79,6 +81,8 @@ namespace CapaVista
                 {
                     MessageBox.Show("Se requiere el precio del producto", "Tienda | Registro Productos",
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtPrecioUnitario.Focus();
+                    txtPrecioUnitario.BackColor = Color.LightYellow;
                     return;
                 }
 
@@ -86,6 +90,26 @@ namespace CapaVista
                 {
                     MessageBox.Show("Se requiere agregar existencias del producto", "Tienda | Registro Productos",
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtExistencias.Focus();
+                    txtExistencias.BackColor = Color.LightYellow;
+                    return;
+                }
+
+                if (string.IsNullOrEmpty(cmbFabricante.Text))
+                {
+                    MessageBox.Show("Se requiere agregar un fabricante al producto", "Tienda | Registro Productos",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    cmbFabricante.Focus();
+                    cmbFabricante.BackColor = Color.LightYellow;
+                    return;
+                }
+
+                if (string.IsNullOrEmpty(cmbCategorias.Text))
+                {
+                    MessageBox.Show("Se requiere agregar una categoria al producto", "Tienda | Registro Productos",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    cmbCategorias.Focus();
+                    cmbFabricante.BackColor= Color.LightYellow;
                     return;
                 }
 

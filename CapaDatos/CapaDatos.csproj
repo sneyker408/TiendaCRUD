@@ -59,9 +59,9 @@
     <Compile Include="ContextoBD.cs" />
     <Compile Include="EmpleadoDAL.cs" />
     <Compile Include="FabricanteDAL.cs" />
-    <Compile Include="Migrations\202405141608114_first migration.cs" />
-    <Compile Include="Migrations\202405141608114_first migration.designer.cs">
-      <DependentUpon>202405141608114_first migration.cs</DependentUpon>
+    <Compile Include="Migrations\202405170200033_nueva base.cs" />
+    <Compile Include="Migrations\202405170200033_nueva base.designer.cs">
+      <DependentUpon>202405170200033_nueva base.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ProductoDAL.cs" />
@@ -79,8 +79,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202405141608114_first migration.resx">
-      <DependentUpon>202405141608114_first migration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202405170200033_nueva base.resx">
+      <DependentUpon>202405170200033_nueva base.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

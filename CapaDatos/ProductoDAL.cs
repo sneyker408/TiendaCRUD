@@ -83,6 +83,19 @@ namespace CapaDatos
             return _db.Productos.Find(id);
         }
 
+        public Producto LeerProductoporId(int producto)
+        {
+            _db = new ContextoBD();
+            return _db.Productos.FirstOrDefault(p => p.ProductoId == producto && p.Estado);
+        }
+
+        public Producto ObtenerProductoPorNombre(string nombreProducto)
+        {
+            _db = new ContextoBD();
+
+            return _db.Productos.FirstOrDefault(f => f.Nombre.Contains(nombreProducto));
+        }
+
         public int? ObtenerCategoriaIdPorProductoId(int productoId)
         {
             using (var _db = new ContextoBD())
@@ -189,6 +202,62 @@ namespace CapaDatos
                 nombreCategoria = categoria.Nombre;
             }
             return nombreCategoria;
+        }
+
+        public string ExtraerExistenciasProduc(int existencias)
+        {
+            _db = new ContextoBD();
+
+            // Busca el producto por su ID
+            Producto producto = _db.Productos.FirstOrDefault(m => m.ProductoId == existencias);
+
+            // Inicializa la variable de nombreCategoria como una cadena vacía
+            string nombreCategoria = string.Empty;
+
+            if (producto != null)
+            {
+                // Convierte las existencias a cadena y asigna a nombreCategoria
+                nombreCategoria = producto.Existencias.ToString();
+            }
+
+            return nombreCategoria;
+        }
+
+        public int ObtenerIdPorNombreProducto(string nombreProducto)
+        {
+            _db = new ContextoBD();
+
+            // Busca el producto por su nombre
+            Producto producto = _db.Productos.FirstOrDefault(m => m.Nombre == nombreProducto);
+
+            // Si se encuentra el producto, devuelve su ID; de lo contrario, devuelve null
+            if (producto != null)
+            {
+                return producto.ProductoId;
+            }
+            else
+            {
+                return 0; // Devuelve null si no se encuentra el producto
+            }
+        }
+
+        public string ExtraerPrecioUnitarioProduc(int productoId)
+        {
+            _db = new ContextoBD();
+
+            // Busca el producto por su ID
+            Producto producto = _db.Productos.FirstOrDefault(m => m.ProductoId == productoId);
+
+            // Inicializa la variable de precioUnitario como una cadena vacía
+            string precioUnitario = string.Empty;
+
+            if (producto != null)
+            {
+                // Convierte el precio unitario a cadena y asigna a precioUnitario
+                precioUnitario = producto.PrecioUnitario.ToString();
+            }
+
+            return precioUnitario;
         }
     }
 }
